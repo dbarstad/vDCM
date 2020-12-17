@@ -25,6 +25,10 @@ do
     x=$arg
 done
 
+## Update hostname and hosts file
+
+sed '/$hname/d' /etc/sysconfig/network
+sed '/$mgmtip/d' /etc/hosts
 echo HOSTNAME=$hname.$domain >> /etc/sysconfig/network
 hostname $hostname
 echo $mgmtip $hname $hname.$domain >> /etc/hosts
