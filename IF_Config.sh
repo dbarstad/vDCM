@@ -30,7 +30,7 @@ done
 sed -i "/$hname/d" /etc/sysconfig/network
 sed -i "/$hname/d" /etc/hosts
 echo HOSTNAME=$hname.$domain >> /etc/sysconfig/network
-hostname $hostname
+hostname $hname
 echo $mgmtip $hname $hname.$domain >> /etc/hosts
 
 ## edit mgmt network interface settings
