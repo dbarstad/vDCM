@@ -1,5 +1,17 @@
 #!/bin/bash
 
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == Starting 3_OS_Conf.sh >> /tmp/install.log
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+
+if [[-z $@]]
+then
+  echo No Parameters passed.
+  echo No Parameters passed to $dt == 3_OS_Config.sh >> /tmp/install.log
+  exit 1
+fi
+
 # while getopts "hname:dom:mip:mgw:mnm:hbip:hbgw:hbnm:inip:ingw:innm:egip:eggw:egnm:" flag; do
 args="$@ foo"
 x=0
@@ -164,5 +176,21 @@ echo NETMASK=$egressnetmask >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 sed -i '/224/d' /etc/sysconfig/network-scripts/route-enp94s0f0
 echo 224.0.0.0/4 >> /etc/sysconfig/network-scripts/route-enp94s0f0
 
-# ***** reboot *****
-# shutdown -r now
+rm -f /etc/systemd/system/3_OS_Conf.service
+
+echo [Unit] >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo Description=Invoke Chapter 3 Section 4 OS System files updates script  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo After=network-online.target  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo [Service]  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo Type=simple  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo ExecStart=/tmp/3_4_Update_Sys_Files.sh  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo TimeoutStartSec=0  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo [Install]  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo WantedBy=default.target  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == Finished 3_OS_conf.sh.  Rebooting... >> /tmp/install.log
+
+#reboot
