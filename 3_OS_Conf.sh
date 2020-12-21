@@ -5,7 +5,7 @@ echo $dt == Starting 3_OS_Conf.sh >> /tmp/install.log
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 
-if [[-z $@]]
+if [ "$#" -lt 1 ] ;
 then
   echo No Parameters passed.
   echo No Parameters passed to $dt == 3_OS_Config.sh >> /tmp/install.log
@@ -176,9 +176,10 @@ echo NETMASK=$egressnetmask >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 sed -i '/224/d' /etc/sysconfig/network-scripts/route-enp94s0f0
 echo 224.0.0.0/4 >> /etc/sysconfig/network-scripts/route-enp94s0f0
 
+systemctl disable 3_OS_Conf.service
 rm -f /etc/systemd/system/3_OS_Conf.service
 
-echo [Unit] >> /etc/systemd/system/3_4_Update_Sys_Files.service
+echo [Unit] > /etc/systemd/system/3_4_Update_Sys_Files.service
 echo Description=Invoke Chapter 3 Section 4 OS System files updates script  >> /etc/systemd/system/3_4_Update_Sys_Files.service
 echo After=network-online.target  >> /etc/systemd/system/3_4_Update_Sys_Files.service
 echo  >> /etc/systemd/system/3_4_Update_Sys_Files.service
@@ -189,6 +190,9 @@ echo TimeoutStartSec=0  >> /etc/systemd/system/3_4_Update_Sys_Files.service
 echo  >> /etc/systemd/system/3_4_Update_Sys_Files.service
 echo [Install]  >> /etc/systemd/system/3_4_Update_Sys_Files.service
 echo WantedBy=default.target  >> /etc/systemd/system/3_4_Update_Sys_Files.service
+
+systemctl daemon-reload
+systemctl enable 3_4_Update_Sys_Files.service
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Finished 3_OS_conf.sh.  Rebooting... >> /tmp/install.log

@@ -2,7 +2,7 @@
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 
-if [[-z $@]]
+if [ "$1" ++ "" ]
 then
   echo No Parameters passed.
   echo $dt == No Parameters passed to Init_vDCM_Server.sh >> ./install.log

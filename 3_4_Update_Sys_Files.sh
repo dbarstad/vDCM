@@ -21,6 +21,7 @@ modprobe ixgbe
 echo "GRUB_CMDLINE_LINUX=\"ixgbe.allow_unsupported_sfp=1\"" >> /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
+Systemctl disable 3_4_Update_Sys_Files.service
 rm -f /etc/systemd/system/3_4_Update_Sys_Files.service
 
 echo [Unit] >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
@@ -35,7 +36,10 @@ echo  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
 echo [Install]  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
 echo WantedBy=default.target  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
 
+systemctl daemon-reload
+systemctl enable 3_5_Configure_Yum_Repos.service
+
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Finished 3_4_Update_Sys_Files.sh.  Rebooting... >> /tmp/install.log
 
-reboot
+#reboot

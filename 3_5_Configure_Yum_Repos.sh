@@ -26,6 +26,7 @@ yum clean all
 
 yum repolist all
 
+Systemctl disable 3_5_Configure_Yum_Repos.service
 rm -f /etc/systemd/system/3_5_Configure_Yum_Repos.service
 
 echo [Unit] >> /etc/systemd/system/4_Install_vDCM.service
@@ -39,6 +40,9 @@ echo TimeoutStartSec=0  >> /etc/systemd/system/4_Install_vDCM.service
 echo  >> /etc/systemd/system/4_Install_vDCM.service
 echo [Install]  >> /etc/systemd/system/4_Install_vDCM.service
 echo WantedBy=default.target  >> /etc/systemd/system/4_Install_vDCM.service
+
+systemctl daemon-reload
+systemctl enable 4_Install_vDCM.service
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Finished 3_5_Configure_Yum_Repos.sh.  Rebooting... >> /tmp/install.log
