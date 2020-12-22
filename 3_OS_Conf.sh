@@ -177,6 +177,7 @@ sed -i '/224/d' /etc/sysconfig/network-scripts/route-enp94s0f0
 echo 224.0.0.0/4 >> /etc/sysconfig/network-scripts/route-enp94s0f0
 
 systemctl disable 3_OS_Conf.service
+systemctl daemon-reload
 rm -f /etc/systemd/system/3_OS_Conf.service
 
 echo [Unit] > /etc/systemd/system/3_4_Update_Sys_Files.service

@@ -21,7 +21,7 @@ yum clean all
 yum repolist
 yum update -y --skip-broken
 
-echo [Unit] >> /etc/systemd/system/3_OS_Conf.service
+echo [Unit] > /etc/systemd/system/3_OS_Conf.service
 echo Description=Invoke Chapter 3 OS Configuration script  >> /etc/systemd/system/3_OS_Conf.service
 echo After=network-online.target  >> /etc/systemd/system/3_OS_Conf.service
 echo  >> /etc/systemd/system/3_OS_Conf.service
