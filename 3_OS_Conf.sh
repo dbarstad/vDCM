@@ -5,41 +5,27 @@ echo $dt == Starting 3_OS_Conf.sh >> /tmp/install.log
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 
-#if [ "$#" -lt 1 ] ;
-#then
-#  echo No Parameters passed.
-#  echo No Parameters passed to $dt == 3_OS_Config.sh >> /tmp/install.log
-#  exit 1
-#fi
-
 while IFS== read -r key val ; do
     val=${val%\"}; val=${val#\"}; key=${key#export };
-    echo "$key = $val";
-  done < /tmp/IF_data.txt
-  
-# while getopts "hname:dom:mip:mgw:mnm:hbip:hbgw:hbnm:inip:ingw:innm:egip:eggw:egnm:" flag; do
-#args="$@ foo"
-#x=0
-#for arg in $args
-#do
-#    case $x in
-#        "--hname" ) hname=$arg;;
-#        "--dom" ) domain=$arg;;
-#        "--mip" ) mgmtip=$arg;;
-#        "--mgw" ) mgmtgw=$arg;;
-#        "--mnm" ) mgmtnetmask=$arg;;
-#        "--hbip" ) hbip=$arg;;
-#        "--hbgw" ) hbgw=$arg;;
-#        "--hbnm" ) hbnetmask=$arg;;
-#        "--inip" ) ingressip=$arg;;
-#        "--ingw" ) ingressgw=$arg;;
-#        "--innm" ) ingressnetmask=$arg;;
-#        "--egip" ) egressip=$arg;;
-#        "--eggw" ) egressgw=$arg;;
-#        "--egnm" ) egressnetmask=$arg;;
-#    esac
-#    x=$arg
-#done
+#    echo "$key = $val";
+
+    case $key in
+        "hname" ) hname=$val;;
+        "dom" ) domain=$val;;
+        "mip" ) mgmtip=$val;;
+        "mgw" ) mgmtgw=$val;;
+        "mnm" ) mgmtnetmask=$val;;
+        "hbip" ) hbip=$val;;
+        "hbgw" ) hbgw=$val;;
+        "hbnm" ) hbnetmask=$val;;
+        "inip" ) ingressip=$val;;
+        "ingw" ) ingressgw=$val;;
+        "innm" ) ingressnetmask=$val;;
+        "egip" ) egressip=$val;;
+        "eggw" ) egressgw=$val;;
+        "egnm" ) egressnetmask=$val;;
+    esac
+done < /tmp/IF_data.txt
 
 ## Update hostname and hosts file
 
