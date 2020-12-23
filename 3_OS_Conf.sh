@@ -5,37 +5,41 @@ echo $dt == Starting 3_OS_Conf.sh >> /tmp/install.log
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 
-if [ "$#" -lt 1 ] ;
-then
-  echo No Parameters passed.
-  echo No Parameters passed to $dt == 3_OS_Config.sh >> /tmp/install.log
-  exit 1
-fi
+#if [ "$#" -lt 1 ] ;
+#then
+#  echo No Parameters passed.
+#  echo No Parameters passed to $dt == 3_OS_Config.sh >> /tmp/install.log
+#  exit 1
+#fi
 
+while IFS== read -r key val ; do
+    val=${val%\"}; val=${val#\"}; key=${key#export };
+    echo "$key = $val";
+  done < /tmp/IF_data.txt
+  
 # while getopts "hname:dom:mip:mgw:mnm:hbip:hbgw:hbnm:inip:ingw:innm:egip:eggw:egnm:" flag; do
-args="$@ foo"
-x=0
-for arg in $args
-do
-#  echo $arg
-    case $x in
-        "--hname" ) hname=$arg;;
-        "--dom" ) domain=$arg;;
-        "--mip" ) mgmtip=$arg;;
-        "--mgw" ) mgmtgw=$arg;;
-        "--mnm" ) mgmtnetmask=$arg;;
-        "--hbip" ) hbip=$arg;;
-        "--hbgw" ) hbgw=$arg;;
-        "--hbnm" ) hbnetmask=$arg;;
-        "--inip" ) ingressip=$arg;;
-        "--ingw" ) ingressgw=$arg;;
-        "--innm" ) ingressnetmask=$arg;;
-        "--egip" ) egressip=$arg;;
-        "--eggw" ) egressgw=$arg;;
-        "--egnm" ) egressnetmask=$arg;;
-    esac
-    x=$arg
-done
+#args="$@ foo"
+#x=0
+#for arg in $args
+#do
+#    case $x in
+#        "--hname" ) hname=$arg;;
+#        "--dom" ) domain=$arg;;
+#        "--mip" ) mgmtip=$arg;;
+#        "--mgw" ) mgmtgw=$arg;;
+#        "--mnm" ) mgmtnetmask=$arg;;
+#        "--hbip" ) hbip=$arg;;
+#        "--hbgw" ) hbgw=$arg;;
+#        "--hbnm" ) hbnetmask=$arg;;
+#        "--inip" ) ingressip=$arg;;
+#        "--ingw" ) ingressgw=$arg;;
+#        "--innm" ) ingressnetmask=$arg;;
+#        "--egip" ) egressip=$arg;;
+#        "--eggw" ) egressgw=$arg;;
+#        "--egnm" ) egressnetmask=$arg;;
+#    esac
+#    x=$arg
+#done
 
 ## Update hostname and hosts file
 
@@ -75,6 +79,10 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
 echo IPADDR=$mgmtip >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo GATEWAY=$mgmtgw >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo NETMASK=$mgmtnetmask >> /etc/sysconfig/network-scripts/ifcfg-eno1
+###
+echo DNS1=10.177.250.90 >> /etc/sysconfig/network-scripts/ifcfg-eno1
+echo DNS2=10.177.250.91 >> /etc/sysconfig/network-scripts/ifcfg-eno1
+echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1
 
 ## edit heartbeat network interface settings
 
