@@ -27,6 +27,8 @@ while IFS== read -r key val ; do
     esac
 done < /tmp/IF_data.txt
 
+cp /etc/sysconfig/network-scripts/ifcfg* /tmp
+
 ## Update hostname and hosts file
 
 sed -i "/$hname/d" /etc/sysconfig/network
@@ -37,22 +39,14 @@ echo $mgmtip $hname $hname.$domain >> /etc/hosts
 
 ## edit mgmt network interface settings
 
-sed -i '/PROXY_METHOD="none"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/BROWSER_ONLY="no"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV4_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6INIT="yes"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_AUTOCONF="yes"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_DEFROUTE="yes"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_ADDR_GEN_MODE="stable-privacy"/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/PROXY_METHOD=none/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/BROWSER_ONLY=no/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV4_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6INIT=yes/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_AUTOCONF=yes/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_DEFROUTE=yes/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-eno1
-sed -i '/IPV6_ADDR_GEN_MODE=stable-privacy/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/PROXY_METHOD=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/BROWSER_ONLY=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/IPV4_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/IPV6INIT=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/IPV6_AUTOCONF=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/IPV6_DEFROUTE=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/IPV6_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
+sed -i '/IPV6_ADDR_GEN_MODE=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
 
 sed -i 's/BOOTPROTO="dhcp"/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-eno1
 sed -i 's/ONBOOT="no"/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-eno1
@@ -72,22 +66,14 @@ echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1
 
 ## edit heartbeat network interface settings
 
-sed -i '/PROXY_METHOD="none"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/BROWSER_ONLY="no"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV4_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6INIT="yes"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_AUTOCONF="yes"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_DEFROUTE="yes"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_ADDR_GEN_MODE="stable-privacy"/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/PROXY_METHOD=none/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/BROWSER_ONLY=no/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV4_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6INIT=yes/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_AUTOCONF=yes/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_DEFROUTE=yes/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_ADDR_GEN_MODE=stable-privacy/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/PROXY_METHOD=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/BROWSER_ONLY=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/IPV4_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/IPV6INIT=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/IPV6_AUTOCONF=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/IPV6_DEFROUTE=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/IPV6_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
+sed -i '/IPV6_ADDR_GEN_MODE=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
 
 sed -i 's/BOOTPROTO="dhcp"/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-eno2
 sed -i 's/ONBOOT="no"/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-eno2
@@ -100,26 +86,18 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
 echo IPADDR=$hbip >> /etc/sysconfig/network-scripts/ifcfg-eno2
 echo GATEWAY=$hbgw >> /etc/sysconfig/network-scripts/ifcfg-eno2
 echo NETMASK=$hbnetmask >> /etc/sysconfig/network-scripts/ifcfg-eno2
-
+echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-eno2
 
 ## edit ingress network interface settings
 
-sed -i '/PROXY_METHOD="none"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/BROWSER_ONLY="no"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV4_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6INIT="yes"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_AUTOCONF="yes"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_DEFROUTE="yes"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_ADDR_GEN_MODE="stable-privacy"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/PROXY_METHOD=none/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/BROWSER_ONLY=no/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV4_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6INIT=yes/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_AUTOCONF=yes/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_DEFROUTE=yes/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-sed -i '/IPV6_ADDR_GEN_MODE=stable-privacy/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/PROXY_METHOD=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/BROWSER_ONLY=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/IPV4_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/IPV6INIT=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/IPV6_AUTOCONF=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/IPV6_DEFROUTE=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/IPV6_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+sed -i '/IPV6_ADDR_GEN_MODE=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 
 sed -i 's/BOOTPROTO="dhcp"/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 sed -i 's/ONBOOT="no"/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
@@ -132,26 +110,36 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 echo IPADDR=$ingressip >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 echo GATEWAY=$ingressgw >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 echo NETMASK=$ingressnetmask >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+echo DEVICE=enp94s0f0 >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 
+# Finish rebuild if ifcfg-enp94s0f* if building whole file
+if grep -q DEVICE /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
+    
+else
+    echo DEVICE=enp94s0f1 >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+fi
+if grep -q ONBOOT /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
+    
+else
+    echo ONBOOT=yes >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+fi
+if grep -q BOOTPROTO /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
+    
+else
+    echo BOOTPROTO=static >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+fi
 
 ## edit egress network interface settings
 
-sed -i '/PROXY_METHOD="none"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/BROWSER_ONLY="no"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV4_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6INIT="yes"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_AUTOCONF="yes"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_DEFROUTE="yes"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_FAILURE_FATAL="no"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_ADDR_GEN_MODE="stable-privacy"/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/PROXY_METHOD=none/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/BROWSER_ONLY=no/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV4_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6INIT=yes/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_AUTOCONF=yes/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_DEFROUTE=yes/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_FAILURE_FATAL=no/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-sed -i '/IPV6_ADDR_GEN_MODE=stable-privacy/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/PROXY_METHOD=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/BROWSER_ONLY=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/IPV4_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/IPV6INIT=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/IPV6_AUTOCONF=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/IPV6_DEFROUTE=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/IPV6_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+sed -i '/IPV6_ADDR_GEN_MODE=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 
 sed -i 's/BOOTPROTO="dhcp"/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 sed -i 's/ONBOOT="no"/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
@@ -164,6 +152,24 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 echo IPADDR=$egressip >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 echo GATEWAY=$egressgw >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 echo NETMASK=$egressnetmask >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+
+# Finish rebuild if ifcfg-enp94s0f* if building whole file
+if grep -q DEVICE /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
+    
+else
+    echo DEVICE=enp94s0f1 >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+fi
+if grep -q ONBOOT /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
+    
+else
+    echo ONBOOT=yes >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+fi
+if grep -q BOOTPROTO /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
+    
+else
+    echo BOOTPROTO=static >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+fi
 
 ## set static route for multicast to use enp94s0f0
 
