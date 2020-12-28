@@ -110,24 +110,19 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 echo IPADDR=$ingressip >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 echo GATEWAY=$ingressgw >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 echo NETMASK=$ingressnetmask >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
-echo DEVICE=enp94s0f0 >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 
 # Finish rebuild if ifcfg-enp94s0f* if building whole file
-if grep -q DEVICE /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
-    
-else
-    echo DEVICE=enp94s0f1 >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+if ! grep -q DEVICE /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
+    echo DEVICE=enp94s0f0 >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 fi
-if grep -q ONBOOT /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
-    
-else
+if ! grep -q ONBOOT /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
     echo ONBOOT=yes >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 fi
-if grep -q BOOTPROTO /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
-    
-else
+if ! grep -q BOOTPROTO /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
     echo BOOTPROTO=static >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
+fi
+if ! grep -q DEFROUTE /etc/sysconfig/network-scripts/ifcfg-enp94s0f0; then
+    echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f0
 fi
 
 ## edit egress network interface settings
@@ -152,25 +147,20 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 echo IPADDR=$egressip >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 echo GATEWAY=$egressgw >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 echo NETMASK=$egressnetmask >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
-echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 
 # Finish rebuild if ifcfg-enp94s0f* if building whole file
-if grep -q DEVICE /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
-    
-else
+if ! grep -q DEVICE /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
     echo DEVICE=enp94s0f1 >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 fi
-if grep -q ONBOOT /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
-    
-else
+if ! grep -q ONBOOT /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
     echo ONBOOT=yes >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 fi
-if grep -q BOOTPROTO /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
-    
-else
+if ! grep -q BOOTPROTO /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
     echo BOOTPROTO=static >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
 fi
-
+if ! grep -q DEFROUTE /etc/sysconfig/network-scripts/ifcfg-enp94s0f1; then
+    echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-enp94s0f1
+fi
 ## set static route for multicast to use enp94s0f0
 
 sed -i '/224/d' /etc/sysconfig/network-scripts/route-enp94s0f0
