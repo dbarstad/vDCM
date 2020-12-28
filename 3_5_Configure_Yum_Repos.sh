@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Need to ID correct repo from DC_services.txt per host by ??IP??
+
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Starting 3_5_Configure_Yum_Repos.sh >> /tmp/install.log
 
@@ -10,6 +12,7 @@ then
   echo No Parameters passed to $dt == 4_5_Configure_Yum_Repos.sh >> /tmp/install.log
   exit 1
 fi
+
 
 echo [vendor_centos_co76-rh70] >> /etc/yum.repos.d/datacenter.repo
 echo name=CentOS 7.6 base 20190401 \(rh70\)  >> /etc/yum.repos.d/datacenter.repo
@@ -22,6 +25,9 @@ echo type=rpm-md baseurl=http://$1/repos/vendor:/centos:/co76-updates-20190401/r
 echo gpgcheck=0 gpgkey=http://$1/repos/vendor:/centos:/co76-updates-20190401/rh70/repodata/repomd.xml.key >> /etc/yum.repos.d/datacenter.repo
 echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
 
+## Remove
+yum-config-manager --disable datacenter
+yum-config-manager --disable LocalRepo
 yum clean all
 
 yum repolist all
