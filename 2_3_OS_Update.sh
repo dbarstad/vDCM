@@ -30,6 +30,11 @@ yum clean all
 yum update -y --skip-broken
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 2_3_OS_Update - Clearing default yum repos >> /tmp/install.log
+
+mv -if /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 2_3_OS_Update - Setting 3_OS_Conf.sh to run on reboot >> /tmp/install.log
 
 systemctl disable 2_3_OS_Update.service

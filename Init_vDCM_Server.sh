@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == Pulling content and setting service for post kickstart configuration >> /tmp/install.log
+echo $dt == Init_vDCM_Server - Pulling content and setting service for post kickstart configuration >> /tmp/install.log
 
 curl -O http://10.177.250.84/Charter/2_3_OS_Update.sh
 curl -O http://10.177.250.84/Charter/3_4_Update_Sys_Files.sh
@@ -12,6 +12,11 @@ curl -O http://10.177.250.84/Charter/DC_Services.txt
 curl -O http://10.177.250.84/Charter/IF_data.txt
 curl -O http://10.177.250.84/Charter/CentOS7_Q2_2020.iso
 curl -O http://10.177.250.84/Charter/vdcm-installer-18.0.9-177.sh
+
+chmod +x *.sh
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == Init_vDCM_Server - Configuring 2_3_OS_Update.sh to start on reboot >> /tmp/install.log
 
 echo [Unit] > /etc/systemd/system/2_3_OS_Update.service
 echo Description=Invoke Chapter 2_3 OS Update script  >> /etc/systemd/system/2_3_OS_Update.service
@@ -29,4 +34,4 @@ systemctl daemon-reload
 systemctl enable 2_3_OS_Update.service
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == Init vDCM Server scripts ready after kickstart >> /tmp/install.log
+echo $dt == Init_vDCM_Server - Configuration to start on reboot >> /tmp/install.log
