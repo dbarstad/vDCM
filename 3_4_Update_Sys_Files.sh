@@ -1,4 +1,4 @@
-#!/bin/bash
+cat /etc/def	#!/bin/bash
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_4_Update_Sys_Files - Starting 3_4_Update_Sys_Files.sh >> /tmp/install.log

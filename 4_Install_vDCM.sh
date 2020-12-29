@@ -9,7 +9,7 @@ echo $dt == 4_Install_vDCM - Starting 4_Install_vDCM.sh >> /tmp/install.log
 # Remount 
 # mount -o loop /tmp/CentOS7_Q2_2020.iso /mnt-tmp
 # mv -i /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
-# yum clean all
+# yum clean allvi 4_	
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Running vdcm install >> /tmp/install.log

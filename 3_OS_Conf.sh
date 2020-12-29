@@ -37,9 +37,9 @@ echo $dt == 3_OS_Conf - Setting hostname >> /tmp/install.log
 
 sed -i "/$hname/d" /etc/sysconfig/network
 sed -i "/$hname/d" /etc/hosts
-echo HOSTNAME=$hname.$domain >> /etc/sysconfig/network
+echo HOSTNAME=$hname >> /etc/sysconfig/network
 hostname $hname
-echo $mgmtip $hname $hname.$domain >> /etc/hosts
+echo $mgmtip $hname $hname >> /etc/hosts
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting eno1 IF details >> /tmp/install.log
@@ -66,13 +66,15 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
 echo IPADDR=$mgmtip >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo GATEWAY=$mgmtgw >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo NETMASK=$mgmtnetmask >> /etc/sysconfig/network-scripts/ifcfg-eno1
-###
+echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1
+
+### Remove DNS entries for final
 echo DNS1=10.177.250.90 >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo DNS2=10.177.250.91 >> /etc/sysconfig/network-scripts/ifcfg-eno1
-echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting eno2 IF details >> /tmp/install.log
+
 ## edit heartbeat network interface settings
 
 sed -i '/PROXY_METHOD=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
@@ -210,4 +212,4 @@ systemctl enable 3_4_Update_Sys_Files.service
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Finished 3_OS_conf.sh.  Rebooting... >> /tmp/install.log
 
-#reboot
+reboot

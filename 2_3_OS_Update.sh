@@ -59,4 +59,4 @@ systemctl enable 3_OS_Conf.service
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 2_3_OS_Update - Finished 2_3_OS_Update.sh.  Rebooting... >> /tmp/install.log
 
-#reboot
+reboot

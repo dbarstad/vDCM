@@ -29,7 +29,7 @@ echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
 yum clean all
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == 3_4_Update_Sys_Files - Configuring 4_Install_vDCM.sh to run on reboot >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Configuring 4_Install_vDCM.sh to run on reboot >> /tmp/install.log
 
 Systemctl disable 3_5_Configure_Yum_Repos.service
 rm -f /etc/systemd/system/3_5_Configure_Yum_Repos.service
