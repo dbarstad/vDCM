@@ -18,44 +18,26 @@ echo options ixgbe allow_unsupported_sfp=1 >> /etc/modprobe.d/ixgbe.conf
 rmmod ixgbe
 modprobe ixgbe
 
-echo "GRUB_CMDLINE_LINUX=\"ixgbe.allow_unsupported_sfp=1\"" >> /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX=”/GRUB_CMDLINE_LINUX=”ixgbe.allow_unsupported_sfp=1 /' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
-
-# Insert yum repos but disable them since installs not happening on Charter networks...bypassing 3_5 since no reboot required.
-
-echo [vendor_centos_co76-rh70] >> /etc/yum.repos.d/datacenter.repo
-echo name=CentOS 7.6 base 20190401 \(rh70\)  >> /etc/yum.repos.d/datacenter.repo
-echo type=rpm-md baseurl=http://$1/repos/vendor:/centos:/co76/rh70/  >> /etc/yum.repos.d/datacenter.repo
-echo gpgcheck=0 gpgkey=http://$1/repos/vendor:/centos:/co76/rh70/repodata/repomd.xml.key  >> /etc/yum.repos.d/datacenter.repo
-echo enabled=1  >> /etc/yum.repos.d/datacenter.repo
-echo [vendor_centos_co76-updates-20190401-rh70] >> /etc/yum.repos.d/datacenter.repo
-echo name=centos 7.6 updates 20190401 \(rh70\) >> /etc/yum.repos.d/datacenter.repo
-echo type=rpm-md baseurl=http://$1/repos/vendor:/centos:/co76-updates-20190401/rh70/ >> /etc/yum.repos.d/datacenter.repo
-echo gpgcheck=0 gpgkey=http://$1/repos/vendor:/centos:/co76-updates-20190401/rh70/repodata/repomd.xml.key >> /etc/yum.repos.d/datacenter.repo
-echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
-
-## Remove
-yum-config-manager --disable datacenter
-yum-config-manager --disable LocalRepo
-yum clean all
 
 Systemctl disable 3_4_Update_Sys_Files.service
 rm -f /etc/systemd/system/3_4_Update_Sys_Files.service
 
-echo [Unit] >> /etc/systemd/system/4_Install_vDCM.service
-echo Description=Invoke Chapter 4 Install vDCM script  >> /etc/systemd/system/4_Install_vDCM.service
-echo After=network-online.target  >> /etc/systemd/system/4_Install_vDCM.service
-echo  >> /etc/systemd/system/4_Install_vDCM.service
-echo [Service]  >> /etc/systemd/system/4_Install_vDCM.service
-echo Type=simple  >> /etc/systemd/system/4_Install_vDCM.service
-echo ExecStart=/tmp/4_Install_vDCM.sh  >> /etc/systemd/system/4_Install_vDCM.service
-echo TimeoutStartSec=0  >> /etc/systemd/system/4_Install_vDCM.service
-echo  >> /etc/systemd/system/4_Install_vDCM.service
-echo [Install]  >> /etc/systemd/system/4_Install_vDCM.service
-echo WantedBy=default.target  >> /etc/systemd/system/4_Install_vDCM.service
+echo [Unit] >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo Description=Invoke Chapter 3 Section 5 Configure Yum Repos script  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo After=network-online.target  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo [Service]  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo Type=simple  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo ExecStart=/tmp/3_5_Configure_Yum_Repos.sh  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo TimeoutStartSec=0  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo [Install]  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
+echo WantedBy=default.target  >> /etc/systemd/system/3_5_Configure_Yum_Repos.service
 
 systemctl daemon-reload
-systemctl enable 4_Install_vDCM.service
+systemctl enable 3_5_Configure_Yum_Repos.service
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Finished 3_4_Update_Sys_Files.sh.  Rebooting... >> /tmp/install.log

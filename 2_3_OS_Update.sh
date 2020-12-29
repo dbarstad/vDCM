@@ -3,11 +3,6 @@
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Starting 2_3_OS_Update.sh >> /tmp/install.log
 
-# enable support for non-supported SFPs -- delete on final
-sed -i 's/GRUB_CMDLINE_LINUX=”/GRUB_CMDLINE_LINUX=”ixgbe.allow_unsupported_sfp=1 /' /etc/default/grub
-grub2-mkconfig -o /boot/grub2/grub.cfg
-rmmod ixgbe && modprobe ixgbe
-
 # mount 7.8 upgrade ISO
 mkdir /mnt-tmp
 mount -o loop /tmp/CentOS7_Q2_2020.iso /mnt-tmp

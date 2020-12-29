@@ -5,6 +5,8 @@ echo $dt == Starting 4_Install_vDCM.sh >> /tmp/install.log
 
 # Remount 
 mount -o loop /tmp/CentOS7_Q2_2020.iso /mnt-tmp
+mv -i /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
+yum clean all
 
 /tmp/vdcm-installer-18.0.9-177.sh --non-interactive --set-interface-mgmt eno1 --set-interface-video enp94s0f0 --set-interface-video enp94s0f1 --rp-filter-disable --passphrase-policy-none --authentication-local --user-add chtradmin --user-passphrase chtradmin --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --user-add systems --user-passphrase Ch@rt3r!5 --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --firewall-use-vdcm-zones --firewall-enable --ntp-add-server 172.27.0.4
 
