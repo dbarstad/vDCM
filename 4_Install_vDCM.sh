@@ -1,22 +1,42 @@
 #!/bin/bash
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == Starting 4_Install_vDCM.sh >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Starting 4_Install_vDCM.sh >> /tmp/install.log
+
+# dt=`date '+%d/%m/%Y_%H:%M:%S'`
+# echo $dt == 4_Install_vDCM - Remounting ISO for Yum repo access >> /tmp/install.log
 
 # Remount 
-mount -o loop /tmp/CentOS7_Q2_2020.iso /mnt-tmp
-mv -i /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
-yum clean all
+# mount -o loop /tmp/CentOS7_Q2_2020.iso /mnt-tmp
+# mv -i /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
+# yum clean all
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 4_Install_vDCM - Running vdcm install >> /tmp/install.log
 
 /tmp/vdcm-installer-18.0.9-177.sh --non-interactive --set-interface-mgmt eno1 --set-interface-video enp94s0f0 --set-interface-video enp94s0f1 --rp-filter-disable --passphrase-policy-none --authentication-local --user-add chtradmin --user-passphrase chtradmin --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --user-add systems --user-passphrase Ch@rt3r!5 --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --firewall-use-vdcm-zones --firewall-enable --ntp-add-server 172.27.0.4
 
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 4_Install_vDCM - Running vdcm-configure check >> /tmp/install.log
+
 vdcm-configure check
-/opt/vdcm/bin/vdcm-configure service -d --now --local-
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 4_Install_vDCM - Removing origin server >> /tmp/install.log
+
+/opt/vdcm/bin/vdcm-configure service -d --now --local-origin-server
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 4_Install_vDCM - Updating NTP >> /tmp/install.log
+
 service ntpd stop
 ntpdate 10.253.1.1
 ntpdate 10.253.1.1
 ntpdate 10.253.1.1
 service ntpd start
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 4_Install_vDCM - Configuring firewall >> /tmp/install.log
 
 firewall-cmd --zone=vdcm_mgmt --permanent --change-interface=eno1
 firewall-cmd --permanent --zone=vdcm_mgmt --set-target=DROP
@@ -46,6 +66,6 @@ firewall-cmd --zone=vdcm_mgmt --list-all
 firewall-cmd --zone=vdcm_video --list-all
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == Finished 4_Install_vDCM.sh >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Finished 4_Install_vDCM.sh >> /tmp/install.log
 
 #reboot

@@ -1,25 +1,39 @@
 #!/bin/bash
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == Starting 3_4_Update_Sys_Files.sh >> /tmp/install.log
+echo $dt == 3_4_Update_Sys_Files - Starting 3_4_Update_Sys_Files.sh >> /tmp/install.log
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_4_Update_Sys_Files - Configuring iptables >> /tmp/install.log
 
 iptables -A INPUT -p igmp -j ACCEPT
 iptables-save > /etc/sysconfig/iptables
 
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_4_Update_Sys_Files - setting rp_filter >> /tmp/install.log
+
 echo net.ipv4.conf.enp94s0f0.rp_filter=2 >> /etc/sysctl.conf
 sysctl -p
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_4_Update_Sys_Files - Disabling rate limiting >> /tmp/install.log
 
 sed -i 's/RateLimitInterval/#RateLimitInterval/' /etc/systemd/journald.conf
 sed -i 's/RateLimitBurst/#RateLimitBurst/' /etc/systemd/journald.conf
 sed -i 's/##/#/' /etc/systemd/journald.conf
 
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_4_Update_Sys_Files - Enabling support for 'unsupported' SFPs >> /tmp/install.log
+
 sed -i '/options ixgbe allow_unsupported_sfp/d' /etc/modprobe.d/ixgbe.conf
 echo options ixgbe allow_unsupported_sfp=1 >> /etc/modprobe.d/ixgbe.conf
 rmmod ixgbe
 modprobe ixgbe
-
-sed -i 's/GRUB_CMDLINE_LINUX=”/GRUB_CMDLINE_LINUX=”ixgbe.allow_unsupported_sfp=1 /' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX=\”/GRUB_CMDLINE_LINUX=\”ixgbe.allow_unsupported_sfp=1 /' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_4_Update_Sys_Files - Configuring 3_5_Configure_Yum_Repos.sh to run on reboot >> /tmp/install.log
 
 Systemctl disable 3_4_Update_Sys_Files.service
 rm -f /etc/systemd/system/3_4_Update_Sys_Files.service
@@ -40,6 +54,6 @@ systemctl daemon-reload
 systemctl enable 3_5_Configure_Yum_Repos.service
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == Finished 3_4_Update_Sys_Files.sh.  Rebooting... >> /tmp/install.log
+echo $dt == 3_4_Update_Sys_Files - Finished 3_4_Update_Sys_Files.sh.  Rebooting... >> /tmp/install.log
 
 #reboot
