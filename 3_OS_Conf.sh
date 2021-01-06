@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 1m
+
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Starting 3_OS_Conf.sh >> /tmp/install.log
 

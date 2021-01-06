@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sleep 1m
+
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 2_3_OS_Update - Starting 2_3_OS_Update.sh >> /tmp/install.log
 
@@ -28,6 +30,8 @@ echo $dt == 2_3_OS_Update - Running yum update >> /tmp/install.log
 
 yum clean all
 yum update -y --skip-broken
+
+sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/LocalRepo.repo
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 2_3_OS_Update - Clearing default yum repos >> /tmp/install.log

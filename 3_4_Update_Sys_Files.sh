@@ -1,4 +1,6 @@
-cat /etc/def	#!/bin/bash
+#!/bin/bash
+
+sleep 1m
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_4_Update_Sys_Files - Starting 3_4_Update_Sys_Files.sh >> /tmp/install.log
@@ -11,7 +13,7 @@ iptables-save > /etc/sysconfig/iptables
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_4_Update_Sys_Files - setting rp_filter >> /tmp/install.log
-
+sed -i '/rp_filter/d' /etc/sysctl.conf
 echo net.ipv4.conf.enp94s0f0.rp_filter=2 >> /etc/sysctl.conf
 sysctl -p
 
