@@ -1,0 +1,22 @@
+
+#-------------------------------------------------------------------------------------------------
+#All Lines starting with a '#' will be ingnored. Each boot device should be in separate line. 
+#Sample Syntax(format) to add, modify or delete from bootorder.
+#classname="lsbootVMedia" name="virtualFDD" type="VMEDIA" subtype="kvm-mapped-fdd" order="1" state="Enabled" 
+#classname="lsbootHdd" name="LocalHDD" type="LOCALHDD" order="2" state="Enabled" 
+#classname="lsbootIscsi" name="iSCSIBoot" type="ISCSI" order="3" state="Enabled" 
+#classname="lsbootUefiShell" name="UEFI_Shell" type="UEFISHELL" order="4" status="modified" 
+#[ NOTE: Parameters classname, name(which must be unique) and order are mandatory, while other parameters are optional.If status is not mentioned it will be considered as add or modify. ]
+
+#To delete a boot device from boot order, update status=deleted in the line of the boot device and change boot order of subsequent boot devices to one lesser number.
+#For example,to delete a boot device LocalHDD of order 2 above, update the status as deleted and change order of iSCSIBoot to 2 and UEFI_Shell to 3. So input file will be like : 
+#classname="lsbootVMedia" name="virtualFDD" type="VMEDIA" subtype="kvm-mapped-fdd" order="1" state="Enabled" 
+#classname="lsbootHdd" name="LocalHDD" type="LOCALHDD" order="2" status="deleted" 
+#classname="lsbootIscsi" name="iSCSIBoot" type="ISCSI" order="2" state="Enabled" 
+#classname="lsbootUefiShell" name="UEFI_Shell" type="UEFISHELL" order="3" status="modified" 
+#---------------------------------------------------------------------------------------------------
+
+
+
+classname="lsbootPxe" name="pxe" type="PXE" iptype="IPv4" slot="L" order="2" state="Enabled" 
+classname="lsbootHdd" name="hdd" type="LOCALHDD" slot="MRAID" order="1" state="Enabled" 
