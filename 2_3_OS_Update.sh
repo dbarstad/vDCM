@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sleep 1m
+sleep 30
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 2_3_OS_Update - Starting 2_3_OS_Update.sh >> /tmp/install.log

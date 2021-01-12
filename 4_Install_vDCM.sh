@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 1m
+sleep 30
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Starting 4_Install_vDCM.sh >> /tmp/install.log

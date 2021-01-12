@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 1m
+sleep 30
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Starting 3_OS_Conf.sh >> /tmp/install.log
@@ -8,29 +8,17 @@ echo $dt == 3_OS_Conf - Starting 3_OS_Conf.sh >> /tmp/install.log
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Loading hostname and IP details >> /tmp/install.log
 
-while IFS== read -r key val ; do
-    val=${val%\"}; val=${val#\"}; key=${key#export };
-#    echo "$key = $val";
+hwsn=$( cat /sys/class/dmi/id/product_serial )
 
-    case $key in
-        "hname" ) hname=$val;;
-        "dom" ) domain=$val;;
-        "mip" ) mgmtip=$val;;
-        "mgw" ) mgmtgw=$val;;
-        "mnm" ) mgmtnetmask=$val;;
-        "hbip" ) hbip=$val;;
-        "hbgw" ) hbgw=$val;;
-        "hbnm" ) hbnetmask=$val;;
-        "inip" ) ingressip=$val;;
-        "ingw" ) ingressgw=$val;;
-        "innm" ) ingressnetmask=$val;;
-        "egip" ) egressip=$val;;
-        "eggw" ) egressgw=$val;;
-        "egnm" ) egressnetmask=$val;;
-    esac
-done < /tmp/IF_data.txt
+while IFS==, read -r sn hname dom mip mgw mnm DNS1 DNS2 hbip hbgw hbnm inip ingw innm egip eggw egnm repo NTP1 NTP2 ; do
 
-cp /etc/sysconfig/network-scripts/ifcfg* /tmp
+  if [[ "$hwsn" == "$sn" ]] ; then
+        break
+  fi
+
+done < sysdata.txt
+
+# cp /etc/sysconfig/network-scripts/ifcfg* /tmp
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting hostname >> /tmp/install.log
@@ -71,8 +59,13 @@ echo NETMASK=$mgmtnetmask >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1
 
 ### Remove DNS entries for final
-echo DNS1=10.177.250.90 >> /etc/sysconfig/network-scripts/ifcfg-eno1
-echo DNS2=10.177.250.91 >> /etc/sysconfig/network-scripts/ifcfg-eno1
+if [[ "$DNS1" != "" ]]; then
+	echo DNS1=$DNS1 >> /etc/sysconfig/network-scripts/ifcfg-eno1
+fi
+
+if [[ "$DNS2" != "" ]]; then
+echo DNS2=$DNS2 >> /etc/sysconfig/network-scripts/ifcfg-eno1
+fi
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting eno2 IF details >> /tmp/install.log
@@ -214,4 +207,4 @@ systemctl enable 3_4_Update_Sys_Files.service
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Finished 3_OS_conf.sh.  Rebooting... >> /tmp/install.log
 
-reboot
+#reboot

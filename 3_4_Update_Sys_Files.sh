@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 1m
+sleep 30
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_4_Update_Sys_Files - Starting 3_4_Update_Sys_Files.sh >> /tmp/install.log
