@@ -4,22 +4,34 @@ sleep 30
 
 hwsn=$( cat /sys/class/dmi/id/product_serial )
 
+echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn - $hwsn >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn - $hwsn
+
 while IFS==, read -r sn hname dom mip mgw mnm DNS1 DNS2 hbip hbgw hbnm inip ingw innm egip eggw egnm repo NTP1 NTP2 ; do
 
+  echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
-        break
+		echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn success >> /tmp/install.log
+		echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn success
+		break
   fi
 
-done < sysdata.txt
+done < /tmp/sysdata.txt
 
+if [[ "$hwsn" != "$sn" ]] ; then
+		echo $dt == 3_5_Configure_Yum_Repos - Failed to match hwsn - $hwsn >> /tmp/install.log
+		echo $dt == 3_5_Configure_Yum_Repos - Failed to match hwsn - $hwsn
+fi
 
 ## Need to ID correct repo from DC_services.txt per host by ??IP??
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Starting 3_5_Configure_Yum_Repos.sh >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Starting 3_5_Configure_Yum_Repos.sh
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Inserting Charter internal repos detail >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Inserting Charter internal repos detail
 
 # Temp repo to original install
 echo [vendor_centos_co76-rh70] > /etc/yum.repos.d/datacenter.repo
@@ -58,6 +70,7 @@ yum clean all
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Configuring 4_Install_vDCM.sh to run on reboot >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Configuring 4_Install_vDCM.sh to run on reboot
 
 Systemctl disable 3_5_Configure_Yum_Repos.service
 rm -f /etc/systemd/system/3_5_Configure_Yum_Repos.service
@@ -79,5 +92,6 @@ systemctl enable 4_Install_vDCM.service
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Finished 3_5_Configure_Yum_Repos.sh.  Rebooting... >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Finished 3_5_Configure_Yum_Repos.sh.  Rebooting...
 
 #reboot

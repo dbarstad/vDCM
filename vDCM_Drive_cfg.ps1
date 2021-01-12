@@ -19,3 +19,5 @@ Start-ImcTransaction
 Get-ImcLsbootDevPrecision | Add-ImcLsbootHdd -Name "hdd" -Order 1 -Slot "MRAID" -State "Enabled" -Type "LOCALHDD"
 Get-ImcLsbootDevPrecision | Add-ImcLsbootPxe -Iptype "IPv4" -Name "pxe" -Order 2 -Slot "L" -State "Enabled" -Type "PXE"
 Complete-ImcTransaction -Force -xml
+
+Get-ImcRackUnit | Set-ImcRackUnit -AdminPower cycle-immediate -Force

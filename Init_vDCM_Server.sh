@@ -8,10 +8,11 @@ curl -O http://10.177.250.84/Charter/3_4_Update_Sys_Files.sh
 curl -O http://10.177.250.84/Charter/3_5_Configure_Yum_Repos.sh
 curl -O http://10.177.250.84/Charter/3_OS_Conf.sh
 curl -O http://10.177.250.84/Charter/4_Install_vDCM.sh
-curl -O http://10.177.250.84/Charter/DC_Services.txt
-curl -O http://10.177.250.84/Charter/IF_data.txt
+curl -O http://10.177.250.84/Charter/sysdata.txt
 curl -O http://10.177.250.84/Charter/CentOS7_Q2_2020.iso
 curl -O http://10.177.250.84/Charter/vdcm-installer-18.0.9-177.sh
+curl -O http://10.177.250.84/Charter/ucscfg
+curl -O http://10.177.250.84/Charter/boot_order_final.txt
 
 chmod +x *.sh
 

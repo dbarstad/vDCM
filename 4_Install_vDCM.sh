@@ -2,7 +2,14 @@
 
 sleep 30
 
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 4_Install_vDCM - Starting 4_Install_vDCM.sh >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Starting 4_Install_vDCM.sh
+
 hwsn=$( cat /sys/class/dmi/id/product_serial )
+
+echo $dt == 4_Install_vDCM - Matching hwsn - $hwsn >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Matching hwsn - $hwsn
 
 while IFS==, read -r sn hname dom mip mgw mnm DNS1 DNS2 hbip hbgw hbnm inip ingw innm egip eggw egnm repo NTP1 NTP2 ; do
 
@@ -10,11 +17,12 @@ while IFS==, read -r sn hname dom mip mgw mnm DNS1 DNS2 hbip hbgw hbnm inip ingw
         break
   fi
 
-done < sysdata.txt
+done < /tmp/sysdata.txt
 
-
-dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == 4_Install_vDCM - Starting 4_Install_vDCM.sh >> /tmp/install.log
+if [[ "$hwsn" != "$sn" ]] ; then
+    	echo $dt == 4_Install_vDCM - Failed to match hwsn - $hwsn >> /tmp/install.log
+		echo $dt == 4_Install_vDCM - Failed to match hwsn - $hwsn
+fi
 
 # dt=`date '+%d/%m/%Y_%H:%M:%S'`
 # echo $dt == 4_Install_vDCM - Remounting ISO for Yum repo access >> /tmp/install.log
@@ -26,22 +34,27 @@ echo $dt == 4_Install_vDCM - Starting 4_Install_vDCM.sh >> /tmp/install.log
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Running vdcm install >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Running vdcm install
 
 /tmp/vdcm-installer-18.0.9-177.sh --non-interactive --set-interface-mgmt eno1 --set-interface-video enp94s0f0 --set-interface-video enp94s0f1 --rp-filter-disable --passphrase-policy-none --authentication-local --user-add chtradmin --user-passphrase chtradmin --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --user-add systems --user-passphrase Ch@rt3r!5 --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --firewall-use-vdcm-zones --firewall-enable --ntp-add-server 10.253.2.1
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Running vdcm-configure check >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Running vdcm-configure check
 
 vdcm-configure check
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Removing origin server >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Removing origin server
 
 /opt/vdcm/bin/vdcm-configure service -d --now --local-origin-server
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Updating NTP >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Updating NTP
 
+# Validate IP for NTP.  App set to 10.253.2.1 vs 10.253.1.1
 service ntpd stop
 ntpdate 10.253.1.1
 ntpdate 10.253.1.1
@@ -50,6 +63,7 @@ service ntpd start
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Configuring firewall >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Configuring firewall
 
 firewall-cmd --zone=vdcm_mgmt --permanent --change-interface=eno1
 firewall-cmd --permanent --zone=vdcm_mgmt --set-target=DROP
@@ -72,13 +86,26 @@ firewall-cmd --zone=vdcm_mgmt --add-protocol=icmp --permanent
 firewall-cmd --zone=vdcm_video --add-protocol=icmp --permanent
 
 firewall-cmd --runtime-to-permanent
-firewall-cmd –reload
+firewall-cmd -–reload
 
+echo $dt == 4_Install_vDCM - Firewall list-all for vdcm_mgmt >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Firewall list-all for vdcm_mgmt
 firewall-cmd --zone=vdcm_mgmt --list-all
 
+echo $dt == 4_Install_vDCM - Firewall list-all for vdcm_video >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Firewall list-all for vdcm_video
 firewall-cmd --zone=vdcm_video --list-all
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 4_Install_vDCM - Running install cleanup >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Running install cleanup
+
+Clea PXE from boot order
+/tmp/ucscfg bootorder set /tmp/boot_order_final.txt
+
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Finished 4_Install_vDCM.sh >> /tmp/install.log
+echo $dt == 4_Install_vDCM - Finished 4_Install_vDCM.sh
 
 #reboot
