@@ -4,6 +4,7 @@ sleep 30
 
 hwsn=$( cat /sys/class/dmi/id/product_serial )
 
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn - $hwsn >> /tmp/install.log
 echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn - $hwsn
 
@@ -94,4 +95,4 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Finished 3_5_Configure_Yum_Repos.sh.  Rebooting... >> /tmp/install.log
 echo $dt == 3_5_Configure_Yum_Repos - Finished 3_5_Configure_Yum_Repos.sh.  Rebooting...
 
-#reboot
+reboot

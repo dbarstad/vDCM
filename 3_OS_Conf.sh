@@ -226,4 +226,4 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Finished 3_OS_conf.sh.  Rebooting... >> /tmp/install.log
 echo $dt == 3_OS_Conf - Finished 3_OS_conf.sh.  Rebooting...
 
-#reboot
+reboot

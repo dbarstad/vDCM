@@ -37,7 +37,8 @@ sed -i '/options ixgbe allow_unsupported_sfp/d' /etc/modprobe.d/ixgbe.conf
 echo options ixgbe allow_unsupported_sfp=1 >> /etc/modprobe.d/ixgbe.conf
 rmmod ixgbe
 modprobe ixgbe
-sed -i 's/GRUB_CMDLINE_LINUX=\”/GRUB_CMDLINE_LINUX=\”ixgbe.allow_unsupported_sfp=1 /' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX=/#GRUB_CMDLINE_LINUX=/' /etc/default/grub
+echo "GRUB_CMDLINE_LINUX=\"ixgbe.allow_unsupported_sfp=1\"" >> /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
@@ -66,4 +67,4 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_4_Update_Sys_Files - Finished 3_4_Update_Sys_Files.sh.  Rebooting... >> /tmp/install.log
 echo $dt == 3_4_Update_Sys_Files - Finished 3_4_Update_Sys_Files.sh.  Rebooting...
 
-#reboot
+reboot

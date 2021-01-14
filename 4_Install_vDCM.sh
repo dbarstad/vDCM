@@ -36,7 +36,8 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Running vdcm install >> /tmp/install.log
 echo $dt == 4_Install_vDCM - Running vdcm install
 
-/tmp/vdcm-installer-18.0.9-177.sh --non-interactive --set-interface-mgmt eno1 --set-interface-video enp94s0f0 --set-interface-video enp94s0f1 --rp-filter-disable --passphrase-policy-none --authentication-local --user-add chtradmin --user-passphrase chtradmin --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --user-add systems --user-passphrase Ch@rt3r!5 --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --firewall-use-vdcm-zones --firewall-enable --ntp-add-server 10.253.2.1
+/tmp/vdcm-installer-18.0.9-177.sh --non-interactive --set-interface-mgmt eno1 --set-interface-video enp94s0f0 --set-interface-video enp94s0f1 --rp-filter-disable --passphrase-policy-none --authentication-local --user-add chtradmin --user-passphrase chtradmin --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin --firewall-use-vdcm-zones --firewall-enable --ntp-add-server $NTP1
+# --user-add systems --user-passphrase Ch@rt3r!5 --user-ignore-passphrase-policy --user-iiop-admin --user-rest-user --user-gui-admin
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Running vdcm-configure check >> /tmp/install.log
@@ -56,9 +57,9 @@ echo $dt == 4_Install_vDCM - Updating NTP
 
 # Validate IP for NTP.  App set to 10.253.2.1 vs 10.253.1.1
 service ntpd stop
-ntpdate 10.253.1.1
-ntpdate 10.253.1.1
-ntpdate 10.253.1.1
+ntpdate $NTP1
+ntpdate $NTP1
+ntpdate $NTP1
 service ntpd start
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
@@ -86,7 +87,7 @@ firewall-cmd --zone=vdcm_mgmt --add-protocol=icmp --permanent
 firewall-cmd --zone=vdcm_video --add-protocol=icmp --permanent
 
 firewall-cmd --runtime-to-permanent
-firewall-cmd -–reload
+firewall-cmd --reload
 
 echo $dt == 4_Install_vDCM - Firewall list-all for vdcm_mgmt >> /tmp/install.log
 echo $dt == 4_Install_vDCM - Firewall list-all for vdcm_mgmt
@@ -100,7 +101,7 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Running install cleanup >> /tmp/install.log
 echo $dt == 4_Install_vDCM - Running install cleanup
 
-Clea PXE from boot order
+# Clear PXE from boot order
 /tmp/ucscfg bootorder set /tmp/boot_order_final.txt
 
 
