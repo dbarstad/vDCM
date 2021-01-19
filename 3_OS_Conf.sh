@@ -16,7 +16,7 @@ hwsn=$( cat /sys/class/dmi/id/product_serial )
 echo $dt == 3_OS_Conf - Matching hwsn - $hwsn >> /tmp/install.log
 echo $dt == 3_OS_Conf - Matching hwsn - $hwsn
 
-while IFS==, read -r sn hname dom mip mgw mnm DNS1 DNS2 hbip hbgw hbnm inip ingw innm egip eggw egnm repo NTP1 NTP2 ; do
+while IFS==, read -r hname mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
 
   echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
@@ -71,43 +71,6 @@ echo IPADDR=$mip >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo GATEWAY=$mgw >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo NETMASK=$mnm >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1
-
-### Remove DNS entries for final??
-if [[ "$DNS1" != "" ]]; then
-	echo DNS1=$DNS1 >> /etc/sysconfig/network-scripts/ifcfg-eno1
-fi
-
-if [[ "$DNS2" != "" ]]; then
-echo DNS2=$DNS2 >> /etc/sysconfig/network-scripts/ifcfg-eno1
-fi
-
-dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == 3_OS_Conf - Setting eno2 IF details >> /tmp/install.log
-echo $dt == 3_OS_Conf - Setting eno2 IF details
-
-## edit heartbeat network interface settings
-
-sed -i '/PROXY_METHOD=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/BROWSER_ONLY=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV4_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6INIT=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_AUTOCONF=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_DEFROUTE=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/IPV6_ADDR_GEN_MODE=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-
-sed -i 's/BOOTPROTO="dhcp"/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i 's/ONBOOT="no"/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i 's/BOOTPROTO=dhcp/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i 's/ONBOOT=no/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-eno2
-
-sed -i '/IPADDR=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/GATEWAY=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-eno2
-echo IPADDR=$hbip >> /etc/sysconfig/network-scripts/ifcfg-eno2
-echo GATEWAY=$hbgw >> /etc/sysconfig/network-scripts/ifcfg-eno2
-echo NETMASK=$hbnm >> /etc/sysconfig/network-scripts/ifcfg-eno2
-echo DEFROUTE=no >> /etc/sysconfig/network-scripts/ifcfg-eno2
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting enp94s0f0 IF details >> /tmp/install.log
