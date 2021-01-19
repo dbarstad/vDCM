@@ -1,4 +1,5 @@
 #!/bin/bash
+# /netboot/www/Charter/3_5_Configure_Yum_Repos.sh
 
 sleep 30
 

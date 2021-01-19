@@ -1,4 +1,5 @@
 #!/bin/sh
+# /netboot/www/Charter/Init_vDCM_Server.sh
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Init_vDCM_Server - Pulling content and setting service for post kickstart configuration >> /tmp/install.log
@@ -8,6 +9,7 @@ curl -O http://10.177.250.84/Charter/3_4_Update_Sys_Files.sh
 curl -O http://10.177.250.84/Charter/3_5_Configure_Yum_Repos.sh
 curl -O http://10.177.250.84/Charter/3_OS_Conf.sh
 curl -O http://10.177.250.84/Charter/4_Install_vDCM.sh
+curl -O http://10.177.250.84/Charter/Cleanup.sh
 curl -O http://10.177.250.84/Charter/sysdata.txt
 curl -O http://10.177.250.84/Charter/CentOS7_Q2_2020.iso
 curl -O http://10.177.250.84/Charter/vdcm-installer-18.0.9-177.sh

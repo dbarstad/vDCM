@@ -1,4 +1,5 @@
 #!/bin/bash
+# /netboot/www/Charter/3_OS_Conf.sh
 
 sleep 30
 
