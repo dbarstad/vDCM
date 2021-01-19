@@ -67,6 +67,12 @@ echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
 # echo gpgkey=http://$repo/repos/vendor:/centos:/co76-updates-20190401/rh70/repodata/repomd.xml.key >> /etc/yum.repos.d/datacenter.repo
 # echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
 
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_5_Configure_Yum_Repos - Clearing default repos >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Clearing default repos
+mkdir /etc/yum.repos.d/Saved
+mv -i /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
+
 yum clean all
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
