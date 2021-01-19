@@ -3,14 +3,15 @@
 Import-module Cisco.imc
 
 $user = "admin"
+$ImpPass = Get-Content ./CIMC_Pass
 $password = ConvertTo-SecureString 'Ch@rt3r!' -AsPlainText -Force
 $Imccred = New-Object System.Management.Automation.PSCredential($user,$password)
 
-$DHCP_Hosts = import-csv .\dnsmasq.leases -Header date,status,IP,MAC,hostname
+$DHCP_Hosts = import-csv ./dnsmasq.leases -Header date,status,IP,MAC,hostname
 
-ForEach ($Host in $DHCP_Hosts) {
+ForEach ($D_Host in $DHCP_Hosts) {
 
-    $handle = Connect-Imc $Host.IP $Imccred
+    $handle = Connect-Imc $D_Host.IP $Imccred
     If ( $handle -ne $null ) {
 
         $computerRackUnit = get-imcrackunit
@@ -30,15 +31,20 @@ ForEach ($Host in $DHCP_Hosts) {
                 Get-ImcStorageVirtualDrive -Id 0 | Set-ImcStorageVirtualDrive -AdminAction set-boot-drive -Force
 
                 Start-ImcTransaction
-                Get-ImcLsbootDevPrecision | Add-ImcLsbootHdd -Name "hdd" -Order 1 -Slot "MRAID" -State "Enabled" -Type "LOCALHDD"
-                Get-ImcLsbootDevPrecision | Add-ImcLsbootPxe -Iptype "IPv4" -Name "pxe" -Order 2 -Slot "L" -State "Enabled" -Type "PXE"
+                    Get-ImcLsbootDevPrecision | Add-ImcLsbootHdd -Name "hdd" -Order 1 -Slot "MRAID" -State "Enabled" -Type "LOCALHDD"
+                    Get-ImcLsbootDevPrecision | Add-ImcLsbootPxe -Iptype "IPv4" -Name "pxe" -Order 2 -Slot "L" -State "Enabled" -Type "PXE"
                 Complete-ImcTransaction -Force -xml
             }
         }
     Get-ImcRackUnit | Set-ImcRackUnit -AdminPower cycle-immediate -Force
-    Disconect-Imc
+
+    Get-Content ./NIHUU/multiserver_config | Select-String -pattern $D_Host.IP -notmatch | Set-Content ./NIHUU/multiserver_config       # Out-File ./NIHUU/multiserver_config.new
+    Add-Content ./NIHUU/multiserver_config "address=$($D_Host.IP), user=Admin, password=$($ImpPass), imagefile=ucs-c220m5-huu-4.1.1d.iso"
+    #Remove-Item ./NIHUU/multiserver_config
+    #Rename-Item ./NIHUU/multiserver_config.new multiserver_config
+    Disconnect-Imc
     }
 }
 
-Remove-Item '.\dnsmasq.leases'
-
+Get-Content ./dnsmasq.leases | Select-String -pattern $D_Host.IP -notmatch | Set-Content .\dnsmasq.leases #  | Out-File ./dnsmasq.leases.new ; Remove-Item ./dnsmasq.leases ; Rename-Item ./dnsmasq.leases.new ./dnsmasq.leases
+Get-Content ./dnsmasq.leases | ? {$_.trim() -ne "" } | Set-Content .\dnsmasq.leases
