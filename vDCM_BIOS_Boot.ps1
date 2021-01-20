@@ -4,7 +4,7 @@ Import-module Cisco.imc
 
 $user = "admin"
 $ImpPass = Get-Content ./CIMC_Pass
-$password = ConvertTo-SecureString 'Ch@rt3r!' -AsPlainText -Force
+$password = ConvertTo-SecureString $ImpPass -AsPlainText -Force
 $Imccred = New-Object System.Management.Automation.PSCredential($user,$password)
 
 $DHCP_Hosts = import-csv ./dnsmasq.leases -Header date,status,IP,MAC,hostname
@@ -38,13 +38,11 @@ ForEach ($D_Host in $DHCP_Hosts) {
         }
     Get-ImcRackUnit | Set-ImcRackUnit -AdminPower cycle-immediate -Force
 
-    Get-Content ./NIHUU/multiserver_config | Select-String -pattern $D_Host.IP -notmatch | Set-Content ./NIHUU/multiserver_config       # Out-File ./NIHUU/multiserver_config.new
+    (Get-Content ./NIHUU/multiserver_config) | Select-String -pattern $D_Host.IP -notmatch | Out-File ./NIHUU/multiserver_config
     Add-Content ./NIHUU/multiserver_config "address=$($D_Host.IP), user=Admin, password=$($ImpPass), imagefile=ucs-c220m5-huu-4.1.1d.iso"
-    #Remove-Item ./NIHUU/multiserver_config
-    #Rename-Item ./NIHUU/multiserver_config.new multiserver_config
     Disconnect-Imc
     }
+    (Get-Content ./dnsmasq.leases) | Select-String -pattern $D_Host.IP -notmatch | Out-File .\dnsmasq.leases
 }
 
-Get-Content ./dnsmasq.leases | Select-String -pattern $D_Host.IP -notmatch | Set-Content .\dnsmasq.leases #  | Out-File ./dnsmasq.leases.new ; Remove-Item ./dnsmasq.leases ; Rename-Item ./dnsmasq.leases.new ./dnsmasq.leases
-Get-Content ./dnsmasq.leases | ? {$_.trim() -ne "" } | Set-Content .\dnsmasq.leases
+Get-Content ./dnsmasq.leases | ? {$_.trim() -ne "" } | Out-File .\dnsmasq.leases
