@@ -18,7 +18,7 @@ hwsn=$( cat /sys/class/dmi/id/product_serial )
 echo $dt == 4_Install_vDCM - Matching hwsn - $hwsn >> /tmp/install.log
 echo $dt == 4_Install_vDCM - Matching hwsn - $hwsn
 
-while IFS==, read -r hname mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
+while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
 
   if [[ "$hwsn" == "$sn" ]] ; then
         break

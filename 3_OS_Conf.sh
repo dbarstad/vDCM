@@ -16,8 +16,8 @@ hwsn=$( cat /sys/class/dmi/id/product_serial )
 echo $dt == 3_OS_Conf - Matching hwsn - $hwsn >> /tmp/install.log
 echo $dt == 3_OS_Conf - Matching hwsn - $hwsn
 
-while IFS==, read -r hname mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
-
+while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
+	
   echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
 		echo $dt == 3_OS_Conf - Matching hwsn success >> /tmp/install.log
@@ -158,10 +158,9 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting multicast route >> /tmp/install.log
 echo $dt == 3_OS_Conf - Setting multicast route
 
-## set static route for multicast to use enp94s0f0
-
-sed -i '/224/d' /etc/sysconfig/network-scripts/route-enp94s0f0
-echo 224.0.0.0/4 >> /etc/sysconfig/network-scripts/route-enp94s0f0
+## set static route for multicast to use enp94s0f1 - Updated per meeting Thad and David - 01202021
+sed -i '/224/d' /etc/sysconfig/network-scripts/route-enp94s0f1
+echo 224.0.0.0/4 >> /etc/sysconfig/network-scripts/route-enp94s0f1
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Configuring 3_4_Update_Sys_Files.sh to run on reboot >> /tmp/install.log

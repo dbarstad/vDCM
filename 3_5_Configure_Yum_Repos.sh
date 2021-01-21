@@ -9,7 +9,7 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn - $hwsn >> /tmp/install.log
 echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn - $hwsn
 
-while IFS==, read -r sn hname dom mip mgw mnm DNS1 DNS2 hbip hbgw hbnm inip ingw innm egip eggw egnm repo NTP1 NTP2 ; do
+while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
 
   echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
