@@ -167,6 +167,28 @@ echo $dt == 4_Install_vDCM - Clearing default yum repos
 mv -if /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_5_Configure_Yum_Repos - Configuring 4_Install_vDCM.sh to run on reboot >> /tmp/install.log
+echo $dt == 3_5_Configure_Yum_Repos - Configuring 4_Install_vDCM.sh to run on reboot
+
+Systemctl disable 4_Istall_vDCM.service
+rm -f /etc/systemd/system/4_Istall_vDCM.service
+
+echo [Unit] >> /etc/systemd/system/Cleanup.service
+echo Description=Invoke Cleanup script  >> /etc/systemd/system/Cleanup.service
+echo After=network-online.target  >> /etc/systemd/system/Cleanup.service
+echo  >> /etc/systemd/system/Cleanup.service
+echo [Service]  >> /etc/systemd/system/Cleanup.service
+echo Type=simple  >> /etc/systemd/system/Cleanup.service
+echo ExecStart=/tmp/4_Install_vDCM.sh  >> /etc/systemd/system/Cleanup.service
+echo TimeoutStartSec=0  >> /etc/systemd/system/Cleanup.service
+echo  >> /etc/systemd/system/Cleanup.service
+echo [Install]  >> /etc/systemd/system/Cleanup.service
+echo WantedBy=default.target  >> /etc/systemd/system/Cleanup.service
+
+systemctl daemon-reload
+systemctl enable Cleanup.service
+
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 4_Install_vDCM - Finished 4_Install_vDCM.sh >> /tmp/install.log
 echo $dt == 4_Install_vDCM - Finished 4_Install_vDCM.sh
 

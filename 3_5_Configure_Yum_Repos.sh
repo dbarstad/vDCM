@@ -39,34 +39,17 @@ echo $dt == 3_5_Configure_Yum_Repos - Inserting Charter internal repos detail
 echo [vendor_centos_co76-rh70] > /etc/yum.repos.d/datacenter.repo
 echo name=CentOS 7.6 base 20190401 \(rh70\) >> /etc/yum.repos.d/datacenter.repo
 echo type=rpm-md >> /etc/yum.repos.d/datacenter.repo
-echo baseurl=http://$repo/centos7_1908/  >> /etc/yum.repos.d/datacenter.repo
+echo baseurl=http://10.177.250.84/centos7_1908/  >> /etc/yum.repos.d/datacenter.repo
 echo gpgcheck=0 >> /etc/yum.repos.d/datacenter.repo
-echo gpgkey=http://$repo/centos7_1908/repodata/repomd.xml.asc  >> /etc/yum.repos.d/datacenter.repo
+echo gpgkey=http://10.177.250.84/centos7_1908/repodata/repomd.xml.asc  >> /etc/yum.repos.d/datacenter.repo
 echo enabled=1  >> /etc/yum.repos.d/datacenter.repo
 echo [vendor_centos_co76-updates-20190401-rh70] >> /etc/yum.repos.d/datacenter.repo
 echo name=centos 7.6 updates 20190401 \(rh70\) >> /etc/yum.repos.d/datacenter.repo
 echo type=rpm-md >> /etc/yum.repos.d/datacenter.repo
-echo baseurl=http://$repo/centos7_1908/ >> /etc/yum.repos.d/datacenter.repo
+echo baseurl=http://10.177.250.84/centos7_1908/ >> /etc/yum.repos.d/datacenter.repo
 echo gpgcheck=0 >> /etc/yum.repos.d/datacenter.repo
-echo gpgkey=http://$repo/centos7_1908/repodata/repomd.xml.asc >> /etc/yum.repos.d/datacenter.repo
+echo gpgkey=http://10.177.250.84/centos7_1908/repodata/repomd.xml.asc >> /etc/yum.repos.d/datacenter.repo
 echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
-
-#Charter repo detail
-
-# echo [vendor_centos_co76-rh70] > /etc/yum.repos.d/datacenter.repo
-# echo name=CentOS 7.6 base 20190401 \(rh70\) >> /etc/yum.repos.d/datacenter.repo
-# echo type=rpm-md >> /etc/yum.repos.d/datacenter.repo
-# echo baseurl=http://$repo/repos/vendor:/centos:/co76/rh70/  >> /etc/yum.repos.d/datacenter.repo
-# echo gpgcheck=0 >> /etc/yum.repos.d/datacenter.repo
-# echo gpgkey=http://$repo/repos/vendor:/centos:/co76/rh70/repodata/repomd.xml.key  >> /etc/yum.repos.d/datacenter.repo
-# echo enabled=1  >> /etc/yum.repos.d/datacenter.repo
-# echo [vendor_centos_co76-updates-20190401-rh70] >> /etc/yum.repos.d/datacenter.repo
-# echo name=centos 7.6 updates 20190401 \(rh70\) >> /etc/yum.repos.d/datacenter.repo
-# echo type=rpm-md >> /etc/yum.repos.d/datacenter.repo
-# echo baseurl=http://$repo/repos/vendor:/centos:/co76-updates-20190401/rh70/ >> /etc/yum.repos.d/datacenter.repo
-# echo gpgcheck=0 >> /etc/yum.repos.d/datacenter.repo
-# echo gpgkey=http://$repo/repos/vendor:/centos:/co76-updates-20190401/rh70/repodata/repomd.xml.key >> /etc/yum.repos.d/datacenter.repo
-# echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_5_Configure_Yum_Repos - Clearing default repos >> /tmp/install.log

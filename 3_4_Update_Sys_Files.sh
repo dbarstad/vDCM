@@ -1,6 +1,6 @@
 #!/bin/bash
 # /netboot/www/Charter/3_4_Update_Sys_Files.sh
-
+#Pg 56 + (1.2)
 sleep 30
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
