@@ -16,12 +16,12 @@ hwsn=$( cat /sys/class/dmi/id/product_serial )
 echo $dt == 3_OS_Conf - Matching hwsn - $hwsn >> /tmp/install.log
 echo $dt == 3_OS_Conf - Matching hwsn - $hwsn
 
-while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
+while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn RCTD; do
 	
-  echo Checking $sn
+#  echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
-		echo $dt == 3_OS_Conf - Matching hwsn success >> /tmp/install.log
-		echo $dt == 3_OS_Conf - Matching hwsn success
+		echo $dt == 3_OS_Conf - Matched hwsn success >> /tmp/install.log
+		echo $dt == 3_OS_Conf - Matched hwsn success
         break
   fi
 
@@ -32,6 +32,49 @@ if [[ "$hwsn" != "$sn" ]] ; then
 		echo $dt == 3_OS_Conf - Failed to match hwsn - $hwsn
 fi
   
+dt=`date '+%d/%m/%Y_%H:%M:%S'`
+echo $dt == 3_OS_Conf - Setting date_time for region >> /tmp/install.log
+echo $dt == 3_OS_Conf - Setting date_time for region
+
+case $region in 
+
+	BAK | SLO)
+		timedatectl set-timezone America/Los_Angeles
+		;;
+	SDG | GRD | OCI | HRC | STD)
+		timedatectl set-timezone America/Los_Angeles
+		;;
+	KSC | LNC | MKE)
+		timedatectl set-timezone America/Chicago
+		;;
+	AUS | SAX | RTX | FTW)
+		timedatectl set-timezone America/Chicago
+		;;
+	CLE | CAN | IND)
+		timedatectl set-timezone America/New_York
+		;;
+	CIN | CLB)
+		timedatectl set-timezone America/New_York
+		;;
+	BHM | LED | TRI)
+		timedatectl set-timezone America/Chicago
+		;;
+	ALB | BNG | BUF | POR | ROC | SYC | NWT | WOR)
+		timedatectl set-timezone America/New_York
+		;;
+	BKN | NMN | SMN | QUN | STI | HVN)
+		timedatectl set-timezone America/New_York
+		;;
+	DEL | AAB | BRD | FOR)
+		timedatectl set-timezone America/New_York
+		;;
+	# Split PKV? 
+	PKV)
+		timedatectl set-timezone America/New_York
+		;;
+	
+esac
+
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting hostname >> /tmp/install.log
 echo $dt == 3_OS_Conf - Setting hostname
@@ -70,7 +113,7 @@ sed -i '/NETMASK=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
 echo IPADDR=$mip >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo GATEWAY=$mgw >> /etc/sysconfig/network-scripts/ifcfg-eno1
 echo NETMASK=$mnm >> /etc/sysconfig/network-scripts/ifcfg-eno1
-echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1
+echo DEFROUTE=yes >> /etc/sysconfig/network-scripts/ifcfg-eno1 # fubar
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == 3_OS_Conf - Setting enp94s0f0 IF details >> /tmp/install.log
