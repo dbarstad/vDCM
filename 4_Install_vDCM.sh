@@ -114,8 +114,8 @@ sudo firewall-cmd --zone=vdcm_video --add-protocol=icmp --permanent >> /tmp/inst
 echo sudo firewall-cmd --reload >> /tmp/install.log
 sudo firewall-cmd --reload >> /tmp/install.log
 
-echo sudo firewall-cmd --runtime-to-permanent >> /tmp/install.log
-sudo firewall-cmd --runtime-to-permanent >> /tmp/install.log
+#echo sudo firewall-cmd --runtime-to-permanent >> /tmp/install.log
+#sudo firewall-cmd --runtime-to-permanent >> /tmp/install.log
 echo sudo firewall-cmd --reload >> /tmp/install.log
 sudo firewall-cmd --reload >> /tmp/install.log
 
