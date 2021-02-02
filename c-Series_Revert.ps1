@@ -22,6 +22,7 @@ If ( $CIMC_IP -eq "" ) {
 
                 Set-ImcBiosSettings -Force -ResetToPlatformDefault
 
+                Get-ImcStorageFlexUtilVirtualDrive | Set-ImcLsbootDevPrecision -ConfiguredBootMode Uefi -Force -RebootOnUpdate No
                 Get-ImcLsbootHdd | Remove-ImcLsbootHdd -Force
                 Get-ImcLsbootPxe | Remove-ImcLsbootPxe -Force
                 Set-ImcAaaUserPolicy -UserPasswordPolicy Disabled -Force

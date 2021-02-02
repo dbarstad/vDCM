@@ -11,14 +11,14 @@ while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm
 
   echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
-		echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn success >> /tmp/install.log
-		echo $dt == 3_5_Configure_Yum_Repos - Matching hwsn success
+		echo $dt == Cleanup - Matching hwsn success >> /tmp/install.log
+		echo $dt == Cleanup - Matching hwsn success
 		break
   fi
 
 done < /tmp/sysdata.txt
 
-# Replacing temp repo with Charter true repos
+# Setting correct Charter repo by location
 
 echo [vendor_centos_co76-rh70] > /etc/yum.repos.d/datacenter.repo
 echo name=CentOS 7.6 base 20190401 \(rh70\) >> /etc/yum.repos.d/datacenter.repo
@@ -36,7 +36,7 @@ echo gpgkey=http://$repo/repos/vendor:/centos:/co76-updates-20190401/rh70/repoda
 echo enabled=1 >> /etc/yum.repos.d/datacenter.repo
 
 # Clear PXE from boot order
-sudo /tmp/ucscfg bootorder set /tmp/boot_order_final.txt
+# sudo /tmp/ucscfg bootorder set /tmp/boot_order_final.txt
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == final - Pushing logs to image host >> /tmp/install.log
@@ -44,4 +44,4 @@ echo $dt == final - Pushing logs to image host
 
 ip a  >> /tmp/install.log
 
-./sshpass -f Img_Svr_Pass "scp /tmp/install.log root@10.177.250.84/netboot/Host_Logs/$hwsn.txt"
+./sshpass -f Img_Svr_Pass scp /tmp/install.log root@10.177.250.84:/netboot/Host_Logs/$hwsn.txt
