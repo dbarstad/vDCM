@@ -6,12 +6,6 @@ cd /tmp
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Init_vDCM_Server - Pulling content and setting service for post kickstart configuration >> /tmp/install.log
 
-#curl -O http://10.177.250.84/Charter/2_3_OS_Update.sh
-#curl -O http://10.177.250.84/Charter/3_4_Update_Sys_Files.sh
-#curl -O http://10.177.250.84/Charter/3_5_Configure_Yum_Repos.sh
-#curl -O http://10.177.250.84/Charter/OS_Patch_Conf.sh
-#curl -O http://10.177.250.84/Charter/4_Install_vDCM.sh
-
 curl -O http://10.177.250.84/Charter/OS_Patch_Conf.sh
 curl -O http://10.177.250.84/Charter/vDCM_Install.sh
 curl -O http://10.177.250.84/Charter/Cleanup.sh
@@ -23,6 +17,7 @@ curl -O http://10.177.250.84/Charter/boot_order_final.txt
 curl -O http://10.177.250.84/Charter/sshpass
 curl -O http://10.177.250.84/Charter/Img_Svr_Pass
 curl -O http://10.177.250.84/Charter/vdcm_system_pass
+curl -O http://10.177.250.84/Charter/vdcm_chtradmin_pass
 
 chmod +x /tmp/*.sh
 chmod +x /tmp/ucscfg

@@ -93,6 +93,7 @@ echo $dt == OS_Patch_Conf - Setting eno1 IF details
 
 ## edit mgmt network interface settings
 
+cp /etc/sysconfig/network-scripts/ifcfg-eno1 /etc/sysconfig/network-scripts/ifcfg-eno1.dhcp
 sed -i '/PROXY_METHOD=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
 sed -i '/BROWSER_ONLY=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
 sed -i '/IPV4_FAILURE_FATAL=/d' /etc/sysconfig/network-scripts/ifcfg-eno1
