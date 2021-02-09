@@ -41,17 +41,17 @@ Environment - vDCM host bash script
 Script - Init_vDCM_Server.sh
 
 Post Installation files pulled to host in KickStart via the Init_vDCM_Server.sh:
-http://10.177.250.84/Charter/OS_Patch_Conf.sh - First reboot script described in step 4
-http://10.177.250.84/Charter/vDCM_Install.sh - Second reboot script described in step 5
-http://10.177.250.84/Charter/Cleanup.sh - Third and final reboot script described in step 6
-http://10.177.250.84/Charter/sysdata.txt - Data file prepared and pushed in step 1. Preperation
-http://10.177.250.84/Charter/CentOS7_Q2_2020.iso - CentOS 7.8 (Q2_2020) ISO used for patching in step 4
-http://10.177.250.84/Charter/vdcm-installer-20.0.4-118.sh - vDCM software installed in step 5
-http://10.177.250.84/Charter/ucscfg - Cisco UCS utility to revert boot configuration to final state
-http://10.177.250.84/Charter/boot_order_final.txt - Cisco UCS utility setting file to insert
-http://10.177.250.84/Charter/sshpass - SSH utility to enable non-interactive action
-http://10.177.250.84/Charter/Img_Svr_Pass - Password file for use in pushing final logs back to PXE server
-http://10.177.250.84/Charter/vdcm_system_pass - Password file for vDCM software system user configuration
+http://<PXE Host>/Charter/OS_Patch_Conf.sh - First reboot script described in step 4
+http://<PXE Host>/Charter/vDCM_Install.sh - Second reboot script described in step 5
+http://<PXE Host>/Charter/Cleanup.sh - Third and final reboot script described in step 6
+http://<PXE Host>/Charter/sysdata.txt - Data file prepared and pushed in step 1. Preperation
+http://<PXE Host>/Charter/CentOS7_Q2_2020.iso - CentOS 7.8 (Q2_2020) ISO used for patching in step 4
+http://<PXE Host>/Charter/vdcm-installer-20.0.4-118.sh - vDCM software installed in step 5
+http://<PXE Host>/Charter/ucscfg - Cisco UCS utility to revert boot configuration to final state
+http://<PXE Host>/Charter/boot_order_final.txt - Cisco UCS utility setting file to insert
+http://<PXE Host>/Charter/sshpass - SSH utility to enable non-interactive action
+http://<PXE Host>/Charter/Img_Svr_Pass - Password file for use in pushing final logs back to PXE server
+http://<PXE Host>/Charter/vdcm_system_pass - Password file for vDCM software system user configuration
 
 # 4. ** OS_Patch_Conf.sh **
 ** Run automatically from the PXE and service invoked scripts on restart **
