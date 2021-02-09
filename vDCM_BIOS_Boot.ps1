@@ -8,9 +8,15 @@ $ImpPass = Get-Content ./CIMC_Pass
 $password = ConvertTo-SecureString $ImpPass -AsPlainText -Force
 $Imccred = New-Object System.Management.Automation.PSCredential($user,$defPass)
 
-$DHCP_Hosts = import-csv ./dnsmasq.leases -Header date,status,IP,MAC,hostname
+$Log_Search_Text = "HUU Firmware Update Successful on server with CIMC"
+$huu_success =  Get-Content update_huu.log | Where-Object {$_ -match $Log_Search_Text}
 
-ForEach ($D_Host in $DHCP_Hosts) {
+Foreach ($Line in $huu_success) {
+    $IP = ($Line | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b').Matches.Value
+    $huu_success_ips += $IP
+}
+
+ForEach ($D_Host in $huu_success_ips) {
 
     $handle = Connect-Imc $D_Host.IP $Imccred
     If ( $handle -ne $null ) {
@@ -23,6 +29,7 @@ ForEach ($D_Host in $DHCP_Hosts) {
         ForEach ($Serial in $SNArray) {
             If ($Serial.sn -eq $SerialNumber) {
                 
+                Get-ImcLsbootDevPrecision | Set-ImcLsbootDevPrecision -ConfiguredBootMode Legacy -Force -RebootOnUpdate No
                 Get-ImcBiosSettings | Set-ImcBiosVfPSata -VpPSata Disabled -Force
                 Get-ImcBiosSettings | Set-ImcBiosVfPackageCStateLimit -VpPackageCStateLimit "No Limit" -Force
                 Get-ImcBiosSettings | Set-ImcBiosVfXPTPrefetch -VpXPTPrefetch "Disabled" -Force
@@ -42,21 +49,20 @@ ForEach ($D_Host in $DHCP_Hosts) {
                 Complete-ImcTransaction -Force
                 Get-ImcLocalUser  -AccountStatus "active" | Set-ImcLocalUser -Pwd $ImpPass -Force
                 Get-ImcRackUnit | Set-ImcRackUnit -AdminPower hard-reset-immediate -Force
+                $ChassisInfo = Get-ImcRackUnit
                 Get-ImcMgmtIf | Set-ImcMgmtIf -DhcpEnable No -DnsUsingDhcp No -ExtGw $Serial.cgw -ExtIp $Serial.cip -ExtMask $Serial.cnm -NicMode dedicated -NicRedundancy none -VlanEnable No -Force
+                
+                Write-Host "System $( $ChassisInfo.Serial ) with IP $( $Serial.cip ) was configured and rebooted via CIMC tools.  PXE installation is underway."
+                "System $( $ChassisInfo.Serial ) with IP $( $Serial.cip ) was configured and rebooted via CIMC tools.  PXE installation is underway." | Out-File BIOS_Boot.log
+            }
+            else {
+                Write-Host "System with IP $( $Serial.cip ) could not be connected to via CIMC tools.  It is either already configured or not a CIMC endpoint."
+                "System with IP $( $Serial.cip ) could not be connected to via CIMC tools.  It is either already configured or not a CIMC endpoint." | Out-File BIOS_Boot.log
             }
         }
     Disconnect-Imc
 
-#    $Imccred = New-Object System.Management.Automation.PSCredential($user,$password)
-#    $handle = Connect-Imc $Serial.cip $Imccred
-#    Get-ImcRackUnit | Set-ImcRackUnit -AdminPower hard-reset-immediate -Force
-#    Disconnect-Imc
-
-    (Get-Content ./NIHUU/multiserver_config) | Select-String -pattern $D_Host.IP -notmatch | Out-File ./NIHUU/multiserver_config
-    Add-Content ./NIHUU/multiserver_config "address=$($D_Host.IP), user=Admin, password=$($ImpPass), imagefile=ucs-c220m5-huu-4.1.1d.iso"
-    
     }
-    (Get-Content ./dnsmasq.leases) | Select-String -pattern $D_Host.IP -notmatch | Out-File .\dnsmasq.leases
 }
 
-Get-Content ./dnsmasq.leases | ? {$_.trim() -ne "" } | Out-File .\dnsmasq.leases
+(Get-Content -Path update_huu.log) -replace $Log_Search_Text, "CIMC updated" | Out-File update_huu.log

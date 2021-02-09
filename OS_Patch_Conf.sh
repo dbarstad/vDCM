@@ -285,15 +285,6 @@ echo $dt == OS_Patch_Conf - Clearing default yum repos
 
 mv -if /etc/yum.repos.d/CentOS* /etc/yum.repos.d/Saved/
 
-
-
-
-
-
-
-
-
-
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == OS_Patch_Conf - Configuring vDCM_Install.sh to run on reboot >> /tmp/install.log
 echo $dt == OS_Patch_Conf - Configuring vDCM_Install.sh to run on reboot
