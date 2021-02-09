@@ -1,0 +1,16 @@
+default menu.c32
+prompt 0
+timeout 100
+ONTIMEOUT vDCM 
+
+menu title ######## PXE Boot Menu ########
+
+label vDCM
+menu label ^vDCM) Kickstart Install CentOS 7_1908_Min to vDCM config
+  kernel centos7_1908/vmlinuz
+  append initrd=centos7_1908/initrd.img inst.ks=http://10.177.250.84/Charter/vDCM.cfg
+
+label MinCentOS
+menu label ^MinCentOS) Manually Install CentOS 7_1908_Min
+  kernel centos7_1908/vmlinuz
+  append initrd=centos7_1908/initrd.img ip=dhcp inst.repo=http://10.177.250.84/centos7_1908/
