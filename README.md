@@ -29,7 +29,10 @@ Script - ./vDCM_BIOS_Boot.ps1
 # 3. PXE OS load.
 -- The PXE server distributes Centos 7.7 Minimal (1908) as the default in the PXE/Kickstart process.  The KickStart leverages the vDCM.cfg file generated from the initial vDCM anaconda.cfg script.  Post processes are created from the install that copies relevant update files, configuration scripts and the vDCM application to the newly loaded OS/host for execution.
 
-# 4.  
+# 4.
+
+
+
 # vDCM
 vDCM install scripts
 
