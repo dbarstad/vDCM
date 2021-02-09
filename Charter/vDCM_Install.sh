@@ -1,7 +1,7 @@
 #!/bin/bash
 # /netboot/www/Charter/vDCM_Install.sh
 
-sleep 30
+sleep 15
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == vDCM_Install - Starting vDCM_Install.sh >> /tmp/install.log

@@ -53,7 +53,27 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == final - Pushing logs to image host >> /tmp/install.log
 echo $dt == final - Pushing logs to image host
 
+cp /etc/sysconfignetwork-scripts/ifcfg-eno1 /etc/sysconfig/network-scripts/ifcfg-eno1.bak
+cp /etc/sysconfig/network-scripts/ifcfg-eno1.dhcp /etc/sysconfig/network-scripts/ifcfg-eno1
+ifdown eno1
+ifup eno1
+
 # Need to parameterize the PXE/SSH host
 ./sshpass -f Img_Svr_Pass scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /tmp/install.log root@10.177.250.84:/netboot/Host_Logs/$hwsn.txt
 
-# shutdown -h now
+cp /etc/sysconfignetwork-scripts/ifcfg-eno1.bak /etc/sysconfig/network-scripts/ifcfg-eno1
+
+rm -f /tmp/*.iso
+rm -f /tmp/sshpass
+rm -f /tmp/ucscfg
+rm -f /tmp/OS_Patch_Conf.sh
+rm -f /tmp/vDCM_Install.sh
+rm -f /tmp/Init_vDCM_Server.sh
+rm -f /tmp/boot_order_final.txt
+rm -f /tmp/Img_Svr_Pass
+rm -f /tmp/vdcm_chrtadmin_pass
+rm -f /tmp/vdcm_system_pass
+rm -f /tmp/sysdata.txt
+rm -f /tmp/Cleanup.sh
+
+shutdown -h now
