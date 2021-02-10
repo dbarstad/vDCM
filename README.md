@@ -11,6 +11,7 @@ Directory - /netboot/www/Charter/
 Cisco C220 M5 system configured per vDCM standard
 Rack server and connect the CIMC and eno1 ports to the PXE servers lan segment.
 Power on server
+*** System should be powered on ~10 minutes before starting scripts to ensure host is in 'Ready' state ***
 
 # 2. Cisco UCS C-series HU update, BIOS, HDD and CIMC configuration scripts
 Script description and usage in order of execution
