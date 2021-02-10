@@ -18,7 +18,7 @@ Foreach ($Line in $huu_success) {
 
 ForEach ($D_Host in $huu_success_ips) {
 
-    $handle = Connect-Imc $D_Host.IP $Imccred
+    $handle = Connect-Imc -Name $D_Host $Imccred
     If ( $handle -ne $null ) {
 
         $computerRackUnit = get-imcrackunit
@@ -61,7 +61,6 @@ ForEach ($D_Host in $huu_success_ips) {
             }
         }
     Disconnect-Imc
-
     }
 }
 

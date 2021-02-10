@@ -1,4 +1,6 @@
-﻿# /netboot/vDCM_Scripts
+﻿# c-Series_Revert.ps1 -- Dev_Utils
+
+cd \Users\dbarstad\Documents\GitHub\vDCM\Dev_Util
 
 Import-module Cisco.imc
 
