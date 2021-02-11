@@ -15,7 +15,6 @@ curl -O http://10.177.250.84/Charter/vdcm-installer-20.0.4-118.sh
 curl -O http://10.177.250.84/Charter/ucscfg
 curl -O http://10.177.250.84/Charter/boot_order_final.txt
 curl -O http://10.177.250.84/Charter/sshpass
-curl -O http://10.177.250.84/Charter/Img_Svr_Pass
 curl -O http://10.177.250.84/Charter/vdcm_system_pass
 curl -O http://10.177.250.84/Charter/vdcm_chtradmin_pass
 

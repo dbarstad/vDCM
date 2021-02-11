@@ -1,6 +1,8 @@
 #!/bin/bash
 # /netboot/www/Charter/Cleanup.sh
 
+sleep 15
+
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == final - Running install cleanup >> /tmp/install.log
 echo $dt == final - Running install cleanup
@@ -53,15 +55,23 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == final - Pushing logs to image host >> /tmp/install.log
 echo $dt == final - Pushing logs to image host
 
-cp /etc/sysconfignetwork-scripts/ifcfg-eno1 /etc/sysconfig/network-scripts/ifcfg-eno1.bak
+cp /etc/sysconfig/network-scripts/ifcfg-eno1 /etc/sysconfig/network-scripts/ifcfg-eno1.bak
 cp /etc/sysconfig/network-scripts/ifcfg-eno1.dhcp /etc/sysconfig/network-scripts/ifcfg-eno1
 ifdown eno1
 ifup eno1
 
-# Need to parameterize the PXE/SSH host
-./sshpass -f Img_Svr_Pass scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /tmp/install.log root@10.177.250.84:/netboot/Host_Logs/$hwsn.txt
+sleep 10
 
-cp /etc/sysconfignetwork-scripts/ifcfg-eno1.bak /etc/sysconfig/network-scripts/ifcfg-eno1
+dhcphost=`grep -m 1 dhcp-server-identifier /var/lib/dhclient/dhclient--eno1.lease`
+dhcphost=${dhcphost:32}
+dhcphost=${dhcphost%?}
+
+# Need to parameterize the PXE/SSH host
+/tmp/sshpass -p Charter scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /tmp/install.log loguser@$dhcphost:/netboot/Host_Logs/$hwsn.log
+
+cp /etc/sysconfig/network-scripts/ifcfg-eno1.bak /etc/sysconfig/network-scripts/ifcfg-eno1
+ifdown eno1
+ifup eno1
 
 rm -f /tmp/*.iso
 rm -f /tmp/sshpass
@@ -70,10 +80,10 @@ rm -f /tmp/OS_Patch_Conf.sh
 rm -f /tmp/vDCM_Install.sh
 rm -f /tmp/Init_vDCM_Server.sh
 rm -f /tmp/boot_order_final.txt
-rm -f /tmp/Img_Svr_Pass
 rm -f /tmp/vdcm_chrtadmin_pass
 rm -f /tmp/vdcm_system_pass
 rm -f /tmp/sysdata.txt
+rm -f /tmp/vdcm-installer-20.0.4-118.sh
 rm -f /tmp/Cleanup.sh
 
 shutdown -h now
