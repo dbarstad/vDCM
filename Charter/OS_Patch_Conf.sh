@@ -41,8 +41,8 @@ yum clean all
 yum update -y --skip-broken
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
-echo $dt == OS_Patch_Conf - Disabling Local Yum repo >> /tmp/install.log
-echo $dt == OS_Patch_Conf - Disabling Local Yum repo
+echo $dt == OS_Patch_Conf - Disabling Local Yum repo after patching complete >> /tmp/install.log
+echo $dt == OS_Patch_Conf - Disabling Local Yum repo after patching complete
 sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/LocalRepo.repo
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`

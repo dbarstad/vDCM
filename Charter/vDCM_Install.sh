@@ -44,9 +44,9 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == final - Adding systems user >> /tmp/install.log
 echo $dt == final - Adding systems user
 
-vdcm_system_pass=`cat /tmp/vdcm_system_pass`
+# vdcm_system_pass=`cat /tmp/vdcm_system_pass`
 
-vdcm-configure user --add systems --passphrase $vdcm_system_pass --ignore-passphrase-policy --iiop-admin --rest-user --gui-admin
+# vdcm-configure user --add systems --passphrase $vdcm_system_pass --ignore-passphrase-policy --iiop-admin --rest-user --gui-admin
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 # echo $dt == vDCM_Install - Removing origin server >> /tmp/install.log
@@ -73,10 +73,10 @@ dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == vDCM_Install - Configuring firewall >> /tmp/install.log
 echo $dt == vDCM_Install - Configuring firewall
 
-firewall-cmd --zone=vn_mgmt --permanent --change-interface=eno1
+firewall-cmd --zone=vn_mgmt --permanent --change-interface=eno1 >> /tmp/install.log
 firewall-cmd --permanent --zone=vn_mgmt --set-target=DROP >> /tmp/install.log
-firewall-cmd --permanent --zone=vn_video --set-target=DROP
-firewall-cmd --zone=vn_video --permanent --change-interface=enp94s0f0
+firewall-cmd --permanent --zone=vn_video --set-target=DROP >> /tmp/install.log
+firewall-cmd --zone=vn_video --permanent --change-interface=enp94s0f0 >> /tmp/install.log
 
 firewall-cmd --zone=vn_mgmt --add-port=22/tcp --permanent >> /tmp/install.log
 firewall-cmd --zone=vn_mgmt --add-port=123/tcp --permanent >> /tmp/install.log
