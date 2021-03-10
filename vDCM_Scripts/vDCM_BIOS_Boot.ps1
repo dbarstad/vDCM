@@ -3,10 +3,10 @@
 Import-module Cisco.imc
 
 $user = "admin"
-$defPass = ConvertTo-SecureString "password" -AsPlainText -Force
+# $defPass = ConvertTo-SecureString "password" -AsPlainText -Force
 $ImpPass = Get-Content ./CIMC_Pass
-$password = ConvertTo-SecureString $ImpPass -AsPlainText -Force
-$Imccred = New-Object System.Management.Automation.PSCredential($user,$defPass)
+$CIMCpass = ConvertTo-SecureString $ImpPass -AsPlainText -Force
+$Imccred = New-Object System.Management.Automation.PSCredential($user,$CIMCPass)
 
 $Log_Search_Text = "HUU Firmware Update Successful on server with CIMC"
 $huu_success =  Get-Content update_huu.log | Where-Object {$_ -match $Log_Search_Text}
@@ -47,7 +47,7 @@ ForEach ($D_Host in $huu_success_ips) {
                     Get-ImcLsbootDevPrecision | Add-ImcLsbootHdd -Name "hdd" -Order 1 -Slot "MRAID" -State "Enabled" -Type "LOCALHDD"
                     Get-ImcLsbootDevPrecision | Add-ImcLsbootPxe -Iptype "IPv4" -Name "pxe" -Order 2 -Slot "L" -State "Enabled" -Type "PXE"
                 Complete-ImcTransaction -Force
-                Get-ImcLocalUser  -AccountStatus "active" | Set-ImcLocalUser -Pwd $ImpPass -Force
+#                Get-ImcLocalUser  -AccountStatus "active" | Set-ImcLocalUser -Pwd $ImpPass -Force
                 Get-ImcRackUnit | Set-ImcRackUnit -AdminPower hard-reset-immediate -Force
                 $ChassisInfo = Get-ImcRackUnit
                 Get-ImcMgmtIf | Set-ImcMgmtIf -DhcpEnable No -DnsUsingDhcp No -ExtGw $Serial.cgw -ExtIp $Serial.cip -ExtMask $Serial.cnm -NicMode dedicated -NicRedundancy none -VlanEnable No -Force

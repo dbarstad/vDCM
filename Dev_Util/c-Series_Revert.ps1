@@ -30,7 +30,7 @@ If ( $CIMC_IP -eq "" ) {
                 Set-ImcAaaUserPolicy -UserPasswordPolicy Disabled -Force
                 Get-ImcLocalUser  -AccountStatus "active" | Set-ImcLocalUser -Pwd "password" -Force
                 Set-ImcAaaUserPolicy -UserPasswordPolicy Enabled -Force
+                Get-ImcRackUnit | Set-ImcRackUnit -AdminPower cycle-immediate -Force
                 Get-ImcMgmtIf | Set-ImcMgmtIf -DhcpEnable Yes -DnsUsingDhcp Yes -NicMode shared_lom_ext -NicRedundancy active-active -VlanEnable No -Force
     }
-    Get-ImcRackUnit | Set-ImcRackUnit -AdminPower cycle-immediate -Force
 Disconnect-Imc

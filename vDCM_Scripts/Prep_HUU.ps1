@@ -6,6 +6,7 @@ Remove-Item update_huu.log
 Import-module Cisco.imc
 
 $user = "admin"
+$ImpPass = Get-Content ./CIMC_Pass
 $defPass = ConvertTo-SecureString "password" -AsPlainText -Force
 $Imccred = New-Object System.Management.Automation.PSCredential($user,$defPass)
 
@@ -18,7 +19,8 @@ ForEach ($D_Host in $DHCP_Hosts) {
         $handle = Connect-Imc -Name $D_Host.IP $Imccred
 
         If ( $? ) {
-
+        
+            Get-ImcLocalUser  -AccountStatus "active" | Set-ImcLocalUser -Pwd $ImpPass -Force
             (Get-Content multiserver_config) | Select-String -pattern $D_Host.IP -notmatch | Out-File multiserver_config
             Add-Content multiserver_config "address=$($D_Host.IP), user=admin, password=password, imagefile=ucs-c220m5-huu-4.1.1d.iso"
         }
