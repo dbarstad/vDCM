@@ -22,8 +22,8 @@ Directory - /netboot/vDCM_Scripts
 Environment - Powershell (pwsh)
 Script - ./Prep_HUU.ps1
 
--- Review the output of the script as it will show errors generated from the script on the screen.  Full log of the HUU is in update_HUU.log
--- Individual serer HUU update failures can be re-tried usung the single_huu.sh script.  Usage: single_huu.sh <CIMC IP> <PXE server IP>
+-- Review the output of the script as it will show errors generated from the script on the screen.  Full log of the HUU is in update_HUU.log 
+-- Individual serer HUU update failures can be re-tried usung the single_huu.sh script.  Usage: single_huu.sh <target CIMC IP> <PXE Host IP> <PXE Host Login> <PXE login password>
 
 # 2.b. vDCM_BIOS_Boot.ps1 - Pushed BIOS settings, configures HDDs in mirror and initializes, sets CIMC IP and admn password.  Reboots host when complete to auto-start PXE OS load
 Directory - /netboot/vDCM_Scripts
