@@ -60,8 +60,8 @@ hwsn=$( cat /sys/class/dmi/id/product_serial )
 echo $dt == OS_Patch_Conf - Matching hwsn - $hwsn >> /tmp/install.log
 echo $dt == OS_Patch_Conf - Matching hwsn - $hwsn
 
-while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn; do
-	
+while IFS==, read -r region hname counter cip cnm cgw mip mnm mgw inip innm ingw egip egnm eggw repo NTP1 NTP2 sn; do
+
 #  echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
 		echo $dt == OS_Patch_Conf - Matched hwsn success >> /tmp/install.log

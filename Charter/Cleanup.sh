@@ -14,7 +14,7 @@ rm -f /etc/systemd/system/Cleanup.service
 
 hwsn=$( cat /sys/class/dmi/id/product_serial )
 
-while IFS==, read -r region hname counter cip cgw cnm mip mgw mnm inip ingw innm egip eggw egnm repo NTP1 NTP2 sn ; do
+while IFS==, read -r region hname counter cip cnm cgw mip mnm mgw inip innm ingw egip egnm eggw repo NTP1 NTP2 sn ; do
 
   echo Checking $sn
   if [[ "$hwsn" == "$sn" ]] ; then
