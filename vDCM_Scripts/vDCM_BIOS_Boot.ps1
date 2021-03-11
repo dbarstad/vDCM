@@ -8,17 +8,13 @@ $ImpPass = Get-Content ./CIMC_Pass
 $CIMCpass = ConvertTo-SecureString $ImpPass -AsPlainText -Force
 $Imccred = New-Object System.Management.Automation.PSCredential($user,$CIMCPass)
 
-$Log_Search_Text = "HUU Firmware Update Successful on server with CIMC"
-$huu_success =  Get-Content update_huu.log | Where-Object {$_ -match $Log_Search_Text}
+$DHCP_Hosts = import-csv dnsmasq.leases -Header date,status,IP,MAC,hostname
 
-Foreach ($Line in $huu_success) {
-    $IP = ($Line | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b').Matches.Value
-    $huu_success_ips += $IP
-}
+ForEach ($D_Host in $DHCP_Hosts) {
 
-ForEach ($D_Host in $huu_success_ips) {
+  If ( $D_Host.hostname -eq "" ) {
 
-    $handle = Connect-Imc -Name $D_Host $Imccred
+    $handle = Connect-Imc -Name $D_Host.IP $Imccred
     If ( $handle -ne $null ) {
 
         $computerRackUnit = get-imcrackunit
