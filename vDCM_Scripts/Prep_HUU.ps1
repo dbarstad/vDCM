@@ -15,7 +15,7 @@ $DHCP_Hosts = import-csv dnsmasq.leases -Header date,status,IP,MAC,hostname
 
 ForEach ($D_Host in $DHCP_Hosts) {
 
-    If ( $D_Host.hostname -ne "" ) {
+    If ($D_Host.hostname.StartsWith("C220-")) {
 
         $handle = Connect-Imc -Name $D_Host.IP $Imccred
 
@@ -32,4 +32,3 @@ ForEach ($D_Host in $DHCP_Hosts) {
 (Get-Content multiserver_config) | ? {$_.trim() -ne "" } | Out-File multiserver_config
 
 python2 /netboot/vDCM_Scripts/update_firmware-4.1.2b.py  --configfile=multiserver_config
-grep "ERROR:" update_huu.log

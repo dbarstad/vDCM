@@ -2,6 +2,10 @@
 
 Import-module Cisco.imc
 
+$Host_Updated = 0
+Remove-Item vDCM_BIOS_Boot.log
+New-Item -itemType File -Name vDCM_BIOS_Boot.log
+
 $user = "admin"
 # $defPass = ConvertTo-SecureString "password" -AsPlainText -Force
 $ImpPass = Get-Content ./CIMC_Pass
@@ -12,19 +16,20 @@ $DHCP_Hosts = import-csv dnsmasq.leases -Header date,status,IP,MAC,hostname
 
 ForEach ($D_Host in $DHCP_Hosts) {
 
-  If ( $D_Host.hostname -eq "" ) {
-
+  If ($D_Host.hostname.StartsWith("C220-")) {
+    Write-Host "Connecting to $($D_Host.hostname) on IP $($D_Host.IP)"
     $handle = Connect-Imc -Name $D_Host.IP $Imccred
     If ( $handle -ne $null ) {
 
         $computerRackUnit = get-imcrackunit
         $SerialNumber = $computerRackUnit.Serial
         $SNArray=import-csv ./sysdata.txt
-        # | ForEach-Object { $SNArray += $_.sn, $_.cip, $_.cgw, $_.cnm }
+        Write-Host "Checking sysdata.txt for $($SerialNumber)"
 
         ForEach ($Serial in $SNArray) {
             If ($Serial.sn -eq $SerialNumber) {
                 
+                Write-Host "Serial Number $($SerialNumber) found in sysdata.txt.  Pushing configuration."
                 Get-ImcLsbootDevPrecision | Set-ImcLsbootDevPrecision -ConfiguredBootMode Legacy -Force -RebootOnUpdate No
                 Get-ImcBiosSettings | Set-ImcBiosVfPSata -VpPSata Disabled -Force
                 Get-ImcBiosSettings | Set-ImcBiosVfPackageCStateLimit -VpPackageCStateLimit "No Limit" -Force
@@ -48,16 +53,21 @@ ForEach ($D_Host in $DHCP_Hosts) {
                 $ChassisInfo = Get-ImcRackUnit
                 Get-ImcMgmtIf | Set-ImcMgmtIf -DhcpEnable No -DnsUsingDhcp No -ExtGw $Serial.cgw -ExtIp $Serial.cip -ExtMask $Serial.cnm -NicMode dedicated -NicRedundancy none -VlanEnable No -Force
                 
-                Write-Host "System $( $ChassisInfo.Serial ) with IP $( $Serial.cip ) was configured and rebooted via CIMC tools.  PXE installation is underway."
-                "System $( $ChassisInfo.Serial ) with IP $( $Serial.cip ) was configured and rebooted via CIMC tools.  PXE installation is underway." | Out-File BIOS_Boot.log
+                $Host_Updated = 1
             }
-            else {
-                Write-Host "System with IP $( $Serial.cip ) could not be connected to via CIMC tools.  It is either already configured or not a CIMC endpoint."
-                "System with IP $( $Serial.cip ) could not be connected to via CIMC tools.  It is either already configured or not a CIMC endpoint." | Out-File BIOS_Boot.log
+        }
+        If ($Host_Updated) {
+            Write-Host "System $( $ChassisInfo.Serial ) with IP $( $Serial.cip ) was configured and rebooted via CIMC tools.  PXE installation is underway."
+            Add-Content vDCM_BIOS_Boot.log "System $( $ChassisInfo.Serial ) with IP $( $Serial.cip ) was configured and rebooted via CIMC tools.  PXE installation is underway."
+            $Host_Updated = 0
             }
+        Else {        
+            Write-Host "System with IP $( $D_Host.IP ) could not be connected to via CIMC tools."
+            Add-Content vDCM_BIOS_Boot.log "System with IP $( $D_Host.IP ) could not be connected to via CIMC tools."
         }
     Disconnect-Imc
     }
+  }
 }
 
 (Get-Content -Path update_huu.log) -replace $Log_Search_Text, "CIMC updated" | Out-File update_huu.log
