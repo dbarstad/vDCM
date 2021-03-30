@@ -1,0 +1,15 @@
+total 2547776
+-rw-r--r--. 1 root root       1815 Mar  8 17:13 boot_order.txt
+-rw-r--r--. 1 root root 1096171520 Mar  8 17:13 CentOS7_Q2_2020.iso
+-rwxr-xr-x. 1 root root       4650 Mar 12 05:21 Cleanup.sh
+-rwxr-xr-x. 1 root root       1905 Mar 11 15:24 Init_vDCM_Server.sh
+-rwxr-xr-x. 1 root root      13374 Mar 11 15:24 OS_Patch_Conf.sh
+-rw-r--r--. 1 root root      17584 Mar  8 17:13 sshpass
+-rw-r--r--. 1 root root      40500 Mar 17 11:24 sysdata.txt
+-rw-r--r--. 1 root root  565559296 Mar  8 17:13 ucs-c220m5-huu-4.1.1d.iso
+-rw-r--r--. 1 root root    1986949 Mar  8 17:13 ucscfg
+-rw-r--r--. 1 root root       2075 Mar  8 17:13 vDCM.cfg
+-rw-r--r--. 1 root root          9 Mar 11 15:25 vdcm_chtradmin_pass
+-rwxr-xr-x. 1 root root  945074962 Mar  8 17:13 vdcm-installer-20.0.4-118.sh
+-rwxr-xr-x. 1 root root       6953 Mar 11 15:24 vDCM_Install.sh
+-rw-r--r--. 1 root root         10 Mar 11 15:25 vdcm_system_pass

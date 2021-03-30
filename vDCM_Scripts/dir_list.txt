@@ -1,0 +1,25 @@
+total 1816
+-rw-r--r--. 1 root root      9 Mar  9 18:56 CIMC_Pass
+-rwxr-xr-x. 1 root root     83 Mar 12 17:18 clean_systems.ps1
+-rw-r--r--  1 root root      0 Mar 30 11:58 dir_list.txt
+-rw-r--r--  1 root root   1562 Mar 30 11:22 dnsmasq.leases
+-rwxr-xr-x. 1 root root   2251 Mar 12 17:18 dnsmasq.leases.bak
+-rw-r--r--. 1 root root   4194 Mar 26 08:25 multiserver_config
+-rw-r--r--. 1 root root   3288 Mar 11 10:59 multiserver_config.bak
+-rwxr-xr-x. 1 root root   1401 Mar 12 17:21 Prep_HUU.ps1
+-rwxr-xr-x  1 root root    319 Mar 15 12:17 Prep_sysdata.sh
+-rw-r--r--. 1 root root  11033 Mar  8 15:13 readme.txt
+-rwxr-xr-x  1 root root    347 Mar 13 17:40 single_huu.sh
+-rw-r--r--  1 root root  40280 Mar 13 19:41 sysdata03102021.txt
+-rw-r--r--  1 root root  40452 Mar 15 12:17 sysdata03162021.txt
+-rw-r--r--  1 root root  40500 Mar 17 11:22 sysdata03172021.txt
+-rw-r--r--  1 root root  40500 Mar 17 11:24 sysdata.txt
+-rw-r--r--. 1 root root    581 Mar 11 12:11 sysdata.txt.bak
+-rwxr-xr-x. 1 root root 172584 Mar  8 15:13 update_firmware-4.1.2b.py
+-rw-r--r--  1 root root  89847 Mar 26 08:54 update_huu.log
+-rw-r--r--  1 root root 499872 Mar 26 08:50 update_huu.log.1
+-rw-r--r--  1 root root 499994 Mar 24 13:38 update_huu.log.2
+-rw-r--r--  1 root root  75503 Mar 26 08:23 update_huu.log.archive
+-rw-r--r--  1 root root 270440 Mar 13 11:56 update_huu.log.archive.03132021
+-rw-r--r--  1 root root   1150 Mar 26 09:21 vDCM_BIOS_Boot.log
+-rwxr-xr-x  1 root root   4285 Mar 22 12:52 vDCM_BIOS_Boot.ps1

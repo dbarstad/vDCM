@@ -1,302 +1,650 @@
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - NIHUU Script(update_firmware.py) Version: 4.1.2b
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - Hello from the main process
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - useHttps: no
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - update_timeout: 60
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - update_stop_on_error: no
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - update_verify: no
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - useCimcSecure: no
-INFO: 2021-01-18 14:59:07,053 - MainProcess - 60995 - update_component: all
-INFO: 2021-01-18 14:59:07,054 - MainProcess - 60995 - update_type: immediate
-INFO: 2021-01-18 14:59:07,054 - MainProcess - 60995 - reboot_cimc: no
-INFO: 2021-01-18 14:59:07,054 - MainProcess - 60995 - remoteshareip: 10.177.250.84
-INFO: 2021-01-18 14:59:07,054 - MainProcess - 60995 - sharedirectory: /Charter
-INFO: 2021-01-18 14:59:07,054 - MainProcess - 60995 - sharetype: www
-INFO: 2021-01-18 14:59:07,054 - MainProcess - 60995 - remoteshareuser: root
-INFO: 2021-01-18 14:59:07,054 - MainProcess - 60995 - remotesharepassword: Trace3Lab2020!
-DEBUG: 2021-01-18 14:59:07,055 - MainProcess - 60995 - Pushing CIMC IP 10.177.250.140 into pending queue
-DEBUG: 2021-01-18 14:59:08,059 - Process-1 - 60998 - Found an entry in the work queue
-INFO: 2021-01-18 14:59:08,060 - Process-1 - 60998 - Initiating Login to CIMC 10.177.250.140
-DEBUG: 2021-01-18 14:59:08,060 - Process-1 - 60998 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
-DEBUG: 2021-01-18 14:59:08,060 - Process-1 - 60998 - Trying Login 0
-DEBUG: 2021-01-18 14:59:08,060 - Process-1 - 60998 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
-DEBUG: 2021-01-18 14:59:10,059 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 14:59:10,089 - Process-1 - 60998 - Login response==><aaaLogin cookie="" response="yes" outCookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" outRefreshPeriod="600" outPriv="admin" outSessionId="1138" outVersion="4.1(1d)"> </aaaLogin>
+DEBUG: 2021-03-26 08:50:31,863 - Process-4 - 55568 - Login response==><aaaLogin cookie="" response="yes" outCookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" outRefreshPeriod="600" outPriv="admin" outSessionId="1" outVersion="4.1(1d)"> </aaaLogin>
 
-DEBUG: 2021-01-18 14:59:10,092 - Process-1 - 60998 - Successful Login with default password
-INFO: 2021-01-18 14:59:10,092 - Process-1 - 60998 - Successfully logged in to CIMC 10.177.250.140
-DEBUG: 2021-01-18 14:59:10,092 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="computeBoard"/>
-DEBUG: 2021-01-18 14:59:10,092 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 14:59:10,697 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="computeBoard">
+DEBUG: 2021-03-26 08:50:31,865 - Process-4 - 55568 - Successful Login with default password
+INFO: 2021-03-26 08:50:31,867 - Process-4 - 55568 - Successfully logged in to CIMC 192.169.71.15
+DEBUG: 2021-03-26 08:50:31,867 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" inHierarchical="false" classId="computeBoard"/>
+DEBUG: 2021-03-26 08:50:31,867 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.15:443/nuova
+DEBUG: 2021-03-26 08:50:33,050 - Process-4 - 55568 - CIMC (192.169.71.15) ConfigResolve response==><configResolveClass cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" response="yes" classId="computeBoard">
 <outConfigs>
-<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP244100LA" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
+<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP250300ST" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 14:59:10,699 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 14:59:10,699 - MainProcess - 60995 - Processing the completion status of a request
-INFO: 2021-01-18 14:59:10,699 - MainProcess - 60995 - First check if the CIMC (10.177.250.140) supports remote firmware update
-DEBUG: 2021-01-18 14:59:10,699 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 14:59:10,698 - Process-1 - 60998 - Reboot CIMC =no
-DEBUG: 2021-01-18 14:59:10,698 - Process-1 - 60998 - Not Calling CIMC Reboot
-DEBUG: 2021-01-18 14:59:11,700 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 14:59:11,700 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuController"/>
-DEBUG: 2021-01-18 14:59:11,701 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 14:59:12,009 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuController">
+DEBUG: 2021-03-26 08:50:33,051 - Process-4 - 55568 - Reboot CIMC =no
+DEBUG: 2021-03-26 08:50:33,051 - Process-4 - 55568 - Not Calling CIMC Reboot
+ERROR: 2021-03-26 08:50:40,610 - MainProcess - 55562 - Ping command failed CMD:ping -c 4 192.169.71.137 Error output = 
+INFO: 2021-03-26 08:50:40,611 - MainProcess - 55562 - nmap -p 443 192.169.71.137
+ERROR: 2021-03-26 08:50:40,621 - MainProcess - 55562 - nmap command failed CMD:nmap -p 443 192.169.71.137 Error output = 
+DEBUG: 2021-03-26 08:50:40,916 - Process-1 - 55565 - Login response==><aaaLogin cookie="" response="yes" outCookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" outRefreshPeriod="600" outPriv="admin" outSessionId="1" outVersion="4.1(1d)"> </aaaLogin>
+
+DEBUG: 2021-03-26 08:50:40,917 - Process-1 - 55565 - Successful Login with default password
+INFO: 2021-03-26 08:50:40,918 - Process-1 - 55565 - Successfully logged in to CIMC 192.169.71.129
+DEBUG: 2021-03-26 08:50:40,919 - Process-1 - 55565 - ConfigResolve request data==><configResolveClass cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" inHierarchical="false" classId="computeBoard"/>
+DEBUG: 2021-03-26 08:50:40,920 - Process-1 - 55565 - configRsvRequest uri data==>https://192.169.71.129:443/nuova
+DEBUG: 2021-03-26 08:50:41,624 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:50:41,625 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:41,625 - MainProcess - 55562 - Processing the completion status of a request
+WARNING: 2021-03-26 08:50:41,626 - MainProcess - 55562 - Login attempt for CIMC 192.169.71.225 failed 3 times.
+INFO: 2021-03-26 08:50:41,627 - MainProcess - 55562 - ping -c 4 192.169.71.225
+DEBUG: 2021-03-26 08:50:42,223 - Process-1 - 55565 - CIMC (192.169.71.129) ConfigResolve response==><configResolveClass cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" response="yes" classId="computeBoard">
 <outConfigs>
-<huuController dn="sys/huu" description="Host Upgrade Utility (HUU)" ></huuController></outConfigs>
+<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP250300T6" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 14:59:12,010 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 14:59:12,010 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 14:59:12,010 - MainProcess - 60995 - Remote firmware update is supported by CIMC (10.177.250.140)
-INFO: 2021-01-18 14:59:12,010 - MainProcess - 60995 - Initiating firmware update for server with CIMC (10.177.250.140)
-DEBUG: 2021-01-18 14:59:12,011 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 14:59:13,011 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 14:59:13,012 - Process-1 - 60998 - aep secure firwmare downgrade : aep security check request data==><configConfMo cookie='c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470' dn='sys/rack-unit-1/bios/bios-settings/DCPMM-Firmware-Downgrade' inHierarchical='false'><inConfig><biosVfDCPMMFirmwareDowngrade dn="sys/rack-unit-1/bios/bios-settings/DCPMM-Firmware-Downgrade" vpDCPMMFirmwareDowngrade="Disabled"/></inConfig></configConfMo>
-DEBUG: 2021-01-18 14:59:13,012 - Process-1 - 60998 - dclRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 14:59:14,684 - Process-1 - 60998 - Persistent Memory disable security check Sent.
-DEBUG: 2021-01-18 14:59:14,684 - Process-1 - 60998 - Did not get response for AEP secure firwmare downgrade request for CIMC (10.177.250.140)
-DEBUG: 2021-01-18 14:59:14,684 - Process-1 - 60998 - UEFI secure boot request data==><configResolveClass cookie='c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470' inHierarchical='false' classId='lsbootBootSecurity'/>
-DEBUG: 2021-01-18 14:59:14,684 - Process-1 - 60998 - usbRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 14:59:15,014 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 14:59:15,168 - Process-1 - 60998 - CIMC (10.177.250.140) configMoRequest response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="lsbootBootSecurity">
+DEBUG: 2021-03-26 08:50:42,224 - Process-1 - 55565 - Reboot CIMC =no
+DEBUG: 2021-03-26 08:50:42,224 - Process-1 - 55565 - Not Calling CIMC Reboot
+DEBUG: 2021-03-26 08:50:42,627 - Process-2 - 55566 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:50:42,628 - Process-2 - 55566 - ConfigResolve request data==><configResolveClass cookie="d852228018/0513ea55-0df5-7b3a-849a-095d8b46f92f" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:50:42,628 - Process-2 - 55566 - configRsvRequest uri data==>https://192.169.71.146:443/nuova
+DEBUG: 2021-03-26 08:50:43,281 - Process-2 - 55566 - CIMC (192.169.71.146) ConfigResolve response==><configResolveClass cookie="d852228018/0513ea55-0df5-7b3a-849a-095d8b46f92f" response="yes" errorCode="552" invocationResult="service-unavailable" errorDescr="Authorization required"> </configResolveClass>
+
+ERROR: 2021-03-26 08:50:43,282 - Process-2 - 55566 - Login timed out for CIMC (192.169.71.146). Rsp: <configResolveClass cookie="d852228018/0513ea55-0df5-7b3a-849a-095d8b46f92f" response="yes" errorCode="552" invocationResult="service-unavailable" errorDescr="Authorization required"> </configResolveClass>
+
+INFO: 2021-03-26 08:50:44,650 - MainProcess - 55562 - PING 192.169.71.225 (192.169.71.225) 56(84) bytes of data.
+64 bytes from 192.169.71.225: icmp_seq=1 ttl=64 time=1.72 ms
+64 bytes from 192.169.71.225: icmp_seq=2 ttl=64 time=1.10 ms
+64 bytes from 192.169.71.225: icmp_seq=3 ttl=64 time=1.08 ms
+64 bytes from 192.169.71.225: icmp_seq=4 ttl=64 time=1.32 ms
+
+--- 192.169.71.225 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 1.080/1.311/1.729/0.260 ms
+
+INFO: 2021-03-26 08:50:44,651 - MainProcess - 55562 - nmap -p 443 192.169.71.225
+ERROR: 2021-03-26 08:50:44,661 - MainProcess - 55562 - nmap command failed CMD:nmap -p 443 192.169.71.225 Error output = PING 192.169.71.225 (192.169.71.225) 56(84) bytes of data.
+64 bytes from 192.169.71.225: icmp_seq=1 ttl=64 time=1.72 ms
+64 bytes from 192.169.71.225: icmp_seq=2 ttl=64 time=1.10 ms
+64 bytes from 192.169.71.225: icmp_seq=3 ttl=64 time=1.08 ms
+64 bytes from 192.169.71.225: icmp_seq=4 ttl=64 time=1.32 ms
+
+--- 192.169.71.225 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 1.080/1.311/1.729/0.260 ms
+
+INFO: 2021-03-26 08:50:44,662 - MainProcess - 55562 - PING 192.169.71.225 (192.169.71.225) 56(84) bytes of data.
+64 bytes from 192.169.71.225: icmp_seq=1 ttl=64 time=1.72 ms
+64 bytes from 192.169.71.225: icmp_seq=2 ttl=64 time=1.10 ms
+64 bytes from 192.169.71.225: icmp_seq=3 ttl=64 time=1.08 ms
+64 bytes from 192.169.71.225: icmp_seq=4 ttl=64 time=1.32 ms
+
+--- 192.169.71.225 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 1.080/1.311/1.729/0.260 ms
+
+DEBUG: 2021-03-26 08:50:45,664 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:50:45,665 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:45,666 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:45,666 - MainProcess - 55562 - Send firmware update status request this time
+DEBUG: 2021-03-26 08:50:46,668 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:50:46,669 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:46,669 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:46,670 - MainProcess - 55562 - Send firmware update status request this time
+DEBUG: 2021-03-26 08:50:46,667 - Process-3 - 55567 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:50:46,668 - Process-3 - 55567 - ConfigResolve request data==><configResolveClass cookie="cb161c4305/0e351203-f449-b0b6-b9f6-a463c1720da3" inHierarchical="false" classId="huuFirmwareUpdater"/>
+DEBUG: 2021-03-26 08:50:46,668 - Process-3 - 55567 - configRsvRequest uri data==>https://192.169.71.79:443/nuova
+DEBUG: 2021-03-26 08:50:46,978 - Process-3 - 55567 - CIMC (192.169.71.79) ConfigResolve response==><configResolveClass cookie="cb161c4305/0e351203-f449-b0b6-b9f6-a463c1720da3" response="yes" errorCode="552" invocationResult="service-unavailable" errorDescr="Authorization required"> </configResolveClass>
+
+DEBUG: 2021-03-26 08:50:46,978 - Process-3 - 55567 - outconfig empty.Unable to process CIMC (192.169.71.79) updater response: <configResolveClass cookie="cb161c4305/0e351203-f449-b0b6-b9f6-a463c1720da3" response="yes" errorCode="552" invocationResult="service-unavailable" errorDescr="Authorization required"> </configResolveClass>
+
+ERROR: 2021-03-26 08:50:46,979 - Process-3 - 55567 - Login timed out for CIMC (192.169.71.79). Rsp: <configResolveClass cookie="cb161c4305/0e351203-f449-b0b6-b9f6-a463c1720da3" response="yes" errorCode="552" invocationResult="service-unavailable" errorDescr="Authorization required"> </configResolveClass>
+
+DEBUG: 2021-03-26 08:50:47,670 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:50:47,671 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:47,672 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:47,673 - MainProcess - 55562 - Send firmware update status request this time
+INFO: 2021-03-26 08:50:47,670 - Process-4 - 55568 - Initiating Login to CIMC 192.169.71.210
+DEBUG: 2021-03-26 08:50:47,672 - Process-4 - 55568 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:50:47,672 - Process-4 - 55568 - Trying Login 0
+DEBUG: 2021-03-26 08:50:47,673 - Process-4 - 55568 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:50:48,675 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:48,676 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:49,678 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:49,680 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:49,678 - Process-1 - 55565 - Found an entry in the work queue
+INFO: 2021-03-26 08:50:49,678 - Process-1 - 55565 - Initiating Login to CIMC 192.169.71.146
+INFO: 2021-03-26 08:50:49,679 - Process-1 - 55565 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:50:49,679 - Process-1 - 55565 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:50:49,679 - Process-1 - 55565 - Logout request data==><aaaLogout cookie="d852228018/0513ea55-0df5-7b3a-849a-095d8b46f92f" inCookie="d852228018/0513ea55-0df5-7b3a-849a-095d8b46f92f"> </aaaLogout>
+INFO: 2021-03-26 08:50:50,355 - Process-1 - 55565 - Logout response==><aaaLogout cookie="d852228018/0513ea55-0df5-7b3a-849a-095d8b46f92f" response="yes" errorCode="555" invocationResult="unidentified-fail" errorDescr="Session not found"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:50:50,356 - Process-1 - 55565 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:50:50,356 - Process-1 - 55565 - Trying Login 0
+DEBUG: 2021-03-26 08:50:50,356 - Process-1 - 55565 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:50:50,683 - Process-2 - 55566 - Found an entry in the work queue
+INFO: 2021-03-26 08:50:50,683 - Process-2 - 55566 - Initiating Login to CIMC 192.169.71.79
+INFO: 2021-03-26 08:50:50,683 - Process-2 - 55566 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:50:50,683 - Process-2 - 55566 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:50:50,683 - Process-2 - 55566 - Logout request data==><aaaLogout cookie="cb161c4305/0e351203-f449-b0b6-b9f6-a463c1720da3" inCookie="cb161c4305/0e351203-f449-b0b6-b9f6-a463c1720da3"> </aaaLogout>
+INFO: 2021-03-26 08:50:51,058 - Process-2 - 55566 - Logout response==><aaaLogout cookie="cb161c4305/0e351203-f449-b0b6-b9f6-a463c1720da3" response="yes" errorCode="555" invocationResult="unidentified-fail" errorDescr="Session not found"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:50:51,058 - Process-2 - 55566 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:50:51,059 - Process-2 - 55566 - Trying Login 0
+DEBUG: 2021-03-26 08:50:51,060 - Process-2 - 55566 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:50:53,618 - Process-4 - 55568 - Login response==><aaaLogin cookie="" response="yes" outCookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" outRefreshPeriod="600" outPriv="admin" outSessionId="1" outVersion="4.1(1d)"> </aaaLogin>
+
+DEBUG: 2021-03-26 08:50:53,619 - Process-4 - 55568 - Successful Login with default password
+INFO: 2021-03-26 08:50:53,621 - Process-4 - 55568 - Successfully logged in to CIMC 192.169.71.210
+DEBUG: 2021-03-26 08:50:53,621 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" inHierarchical="false" classId="computeBoard"/>
+DEBUG: 2021-03-26 08:50:53,621 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.210:443/nuova
+DEBUG: 2021-03-26 08:50:54,567 - Process-2 - 55566 - Login response==><aaaLogin cookie="" response="yes" outCookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" outRefreshPeriod="600" outPriv="admin" outSessionId="1" outVersion="4.1(1d)"> </aaaLogin>
+
+DEBUG: 2021-03-26 08:50:54,569 - Process-2 - 55566 - Successful Login with default password
+INFO: 2021-03-26 08:50:54,569 - Process-2 - 55566 - Successfully logged in to CIMC 192.169.71.79
+DEBUG: 2021-03-26 08:50:54,570 - Process-2 - 55566 - ConfigResolve request data==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" inHierarchical="false" classId="computeBoard"/>
+DEBUG: 2021-03-26 08:50:54,570 - Process-2 - 55566 - configRsvRequest uri data==>https://192.169.71.79:443/nuova
+DEBUG: 2021-03-26 08:50:55,072 - Process-4 - 55568 - CIMC (192.169.71.210) ConfigResolve response==><configResolveClass cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" response="yes" classId="computeBoard">
 <outConfigs>
-<lsbootBootSecurity dn="sys/rack-unit-1/boot-policy/boot-security" secureBoot="disabled" ></lsbootBootSecurity></outConfigs>
+<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP2504003Y" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 14:59:15,169 - Process-1 - 60998 - Catalog Response UEFI boot rsp [ <configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="lsbootBootSecurity">
+DEBUG: 2021-03-26 08:50:55,073 - Process-4 - 55568 - Reboot CIMC =no
+DEBUG: 2021-03-26 08:50:55,074 - Process-4 - 55568 - Not Calling CIMC Reboot
+DEBUG: 2021-03-26 08:50:55,075 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:55,075 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:55,076 - MainProcess - 55562 - Need to try firmware update status request again
+DEBUG: 2021-03-26 08:50:55,431 - Process-2 - 55566 - CIMC (192.169.71.79) ConfigResolve response==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" response="yes" classId="computeBoard">
 <outConfigs>
-<lsbootBootSecurity dn="sys/rack-unit-1/boot-policy/boot-security" secureBoot="disabled" ></lsbootBootSecurity></outConfigs>
-</configResolveClass>
- ] 
-DEBUG: 2021-01-18 14:59:15,169 - Process-1 - 60998 - feature flag === (True) 
-DEBUG: 2021-01-18 14:59:15,169 - Process-1 - 60998 -  FLag for cimc secure boot in COnfMO== (True)
-DEBUG: 2021-01-18 14:59:15,169 - Process-1 - 60998 -  CIMC SECURE BOOT VALUE == (no)
-DEBUG: 2021-01-18 14:59:15,169 - Process-1 - 60998 -  FLag for cmc secure boot in COnfMO== (False)
-DEBUG: 2021-01-18 14:59:15,170 - Process-1 - 60998 -  CMC SECURE BOOT VALUE == (no)
-DEBUG: 2021-01-18 14:59:15,170 - Process-1 - 60998 -  CMC node present VALUE == (False)
-DEBUG: 2021-01-18 14:59:15,170 - Process-1 - 60998 - configMoRequest request data==><configConfMo cookie='c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470' dn='sys/huu/firmwareUpdater'> <inConfig> <huuFirmwareUpdater dn='sys/huu/firmwareUpdater'  adminState='trigger' remoteIp='10.177.250.84' remoteShare='/Charter/ucs-c220m5-huu-4.1.1d.iso' mapType='www' username='root' password='Trace3Lab2020!' stopOnError='no' timeOut='60' verifyUpdate='no' updateComponent='all' updateType='immediate' cimcSecureBoot='no'  /></inConfig></configConfMo>
-DEBUG: 2021-01-18 14:59:18,017 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 14:59:21,020 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 14:59:21,461 - Process-1 - 60998 - CIMC (10.177.250.140) configMoRequest response==><configConfMo dn="sys/huu/firmwareUpdater" cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes">
-<outConfig>
-<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" remoteIp="10.177.250.84" remoteSharePath="/Charter" mapType="www" username="root" password="" stopOnError="no" timeOut="60" updateType="" bootMedium="" verifyUpdate="no" updateComponent="all" status="modified" ></huuFirmwareUpdater></outConfig>
-</configConfMo>
-
-DEBUG: 2021-01-18 14:59:21,462 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 14:59:21,462 - MainProcess - 60995 - Processing the completion status of a request
-INFO: 2021-01-18 14:59:21,462 - MainProcess - 60995 - HUU firmware update successfully initiated on server with CIMC (10.177.250.140)
-DEBUG: 2021-01-18 14:59:21,463 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 14:59:53,497 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 14:59:54,499 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 14:59:54,499 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
-DEBUG: 2021-01-18 14:59:54,499 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 14:59:55,275 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdateStatus">
-<outConfigs>
-<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Rebooting Host In Progress" currentTime="Mon Jan 18 21:59:55 2021
-" updateStartTime="2021-01-18 21:59:16" updateEndTime="NA" ></huuFirmwareUpdateStatus></outConfigs>
+<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP250300T7" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 14:59:55,276 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 14:59:55,276 - Process-1 - 60998 - CIMC (10.177.250.140) update status: Rebooting Host In Progress
-DEBUG: 2021-01-18 14:59:55,276 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 14:59:55,277 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 14:59:55,277 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 14:59:55,277 - MainProcess - 60995 - Send firmware updater request this time
-DEBUG: 2021-01-18 14:59:55,277 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:00:27,309 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:00:28,311 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:00:28,311 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdater"/>
-DEBUG: 2021-01-18 15:00:28,311 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:00:28,886 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdater">
+DEBUG: 2021-03-26 08:50:55,432 - Process-2 - 55566 - Reboot CIMC =no
+DEBUG: 2021-03-26 08:50:55,432 - Process-2 - 55566 - Not Calling CIMC Reboot
+DEBUG: 2021-03-26 08:50:56,078 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:56,079 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:56,079 - MainProcess - 55562 - Send get updater status request again
+DEBUG: 2021-03-26 08:50:58,033 - Process-1 - 55565 - Login response==><aaaLogin cookie="" response="yes" outCookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" outRefreshPeriod="600" outPriv="admin" outSessionId="1" outVersion="4.1(1d)"> </aaaLogin>
+
+DEBUG: 2021-03-26 08:50:58,034 - Process-1 - 55565 - Successful Login with default password
+INFO: 2021-03-26 08:50:58,036 - Process-1 - 55565 - Successfully logged in to CIMC 192.169.71.146
+DEBUG: 2021-03-26 08:50:58,037 - Process-1 - 55565 - ConfigResolve request data==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" inHierarchical="false" classId="computeBoard"/>
+DEBUG: 2021-03-26 08:50:58,037 - Process-1 - 55565 - configRsvRequest uri data==>https://192.169.71.146:443/nuova
+DEBUG: 2021-03-26 08:50:59,370 - Process-1 - 55565 - CIMC (192.169.71.146) ConfigResolve response==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" response="yes" classId="computeBoard">
 <outConfigs>
-<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" remoteIp="10.177.250.84" remoteSharePath="/Charter" mapType="www" username="root" password="" stopOnError="no" timeOut="60" updateType="" bootMedium="" verifyUpdate="no" updateComponent="all" ></huuFirmwareUpdater></outConfigs>
+<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP250300SC" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:00:28,887 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:00:28,887 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:00:28,888 - MainProcess - 60995 - Send firmware update status request this time
-DEBUG: 2021-01-18 15:00:28,888 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:01:28,951 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:01:29,953 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:01:29,953 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
-DEBUG: 2021-01-18 15:01:29,953 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:01:30,425 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdateStatus">
+DEBUG: 2021-03-26 08:50:59,373 - Process-1 - 55565 - Reboot CIMC =no
+DEBUG: 2021-03-26 08:50:59,373 - Process-1 - 55565 - Not Calling CIMC Reboot
+DEBUG: 2021-03-26 08:50:59,375 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:50:59,375 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:50:59,375 - MainProcess - 55562 - Send get updater status request again
+DEBUG: 2021-03-26 08:51:00,377 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:01,380 - Process-3 - 55567 - Found an entry in the work queue
+INFO: 2021-03-26 08:51:01,380 - Process-3 - 55567 - Initiating Login to CIMC 192.169.71.137
+DEBUG: 2021-03-26 08:51:01,380 - Process-3 - 55567 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:51:01,380 - Process-3 - 55567 - Trying Login 0
+DEBUG: 2021-03-26 08:51:01,380 - Process-3 - 55567 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:51:04,383 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:05,189 - Process-3 - 55567 - Login response==><aaaLogin cookie="" response="yes" outCookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" outRefreshPeriod="600" outPriv="admin" outSessionId="1" outVersion="4.1(1d)"> </aaaLogin>
+
+DEBUG: 2021-03-26 08:51:05,190 - Process-3 - 55567 - Successful Login with default password
+INFO: 2021-03-26 08:51:05,192 - Process-3 - 55567 - Successfully logged in to CIMC 192.169.71.137
+DEBUG: 2021-03-26 08:51:05,192 - Process-3 - 55567 - ConfigResolve request data==><configResolveClass cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" inHierarchical="false" classId="computeBoard"/>
+DEBUG: 2021-03-26 08:51:05,192 - Process-3 - 55567 - configRsvRequest uri data==>https://192.169.71.137:443/nuova
+DEBUG: 2021-03-26 08:51:05,385 - Process-4 - 55568 - Found an entry in the work queue
+INFO: 2021-03-26 08:51:05,385 - Process-4 - 55568 - Initiating Login to CIMC 192.169.71.225
+DEBUG: 2021-03-26 08:51:05,386 - Process-4 - 55568 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:51:05,387 - Process-4 - 55568 - Trying Login 0
+DEBUG: 2021-03-26 08:51:05,388 - Process-4 - 55568 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:51:05,393 - MainProcess - 55562 - Found an entry in the completion queue for processing
+ERROR: 2021-03-26 08:51:05,392 - Process-4 - 55568 - We failed to reach CIMC (192.169.71.225). Reason: [Errno 111] Connection refused 
+INFO: 2021-03-26 08:51:05,394 - MainProcess - 55562 - Processing the completion status of a request
+ERROR: 2021-03-26 08:51:05,392 - Process-4 - 55568 - Login to CIMC (192.169.71.225) failed. No response received from CIMC
+WARNING: 2021-03-26 08:51:05,395 - MainProcess - 55562 - Login attempt for CIMC 192.169.71.225 failed 4 times.
+INFO: 2021-03-26 08:51:05,395 - MainProcess - 55562 - ping -c 4 192.169.71.225
+INFO: 2021-03-26 08:51:08,418 - MainProcess - 55562 - PING 192.169.71.225 (192.169.71.225) 56(84) bytes of data.
+64 bytes from 192.169.71.225: icmp_seq=1 ttl=64 time=1.07 ms
+64 bytes from 192.169.71.225: icmp_seq=2 ttl=64 time=1.00 ms
+64 bytes from 192.169.71.225: icmp_seq=3 ttl=64 time=1.14 ms
+64 bytes from 192.169.71.225: icmp_seq=4 ttl=64 time=1.09 ms
+
+--- 192.169.71.225 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.000/1.078/1.146/0.061 ms
+
+INFO: 2021-03-26 08:51:08,419 - MainProcess - 55562 - nmap -p 443 192.169.71.225
+ERROR: 2021-03-26 08:51:08,429 - MainProcess - 55562 - nmap command failed CMD:nmap -p 443 192.169.71.225 Error output = PING 192.169.71.225 (192.169.71.225) 56(84) bytes of data.
+64 bytes from 192.169.71.225: icmp_seq=1 ttl=64 time=1.07 ms
+64 bytes from 192.169.71.225: icmp_seq=2 ttl=64 time=1.00 ms
+64 bytes from 192.169.71.225: icmp_seq=3 ttl=64 time=1.14 ms
+64 bytes from 192.169.71.225: icmp_seq=4 ttl=64 time=1.09 ms
+
+--- 192.169.71.225 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.000/1.078/1.146/0.061 ms
+
+INFO: 2021-03-26 08:51:08,430 - MainProcess - 55562 - PING 192.169.71.225 (192.169.71.225) 56(84) bytes of data.
+64 bytes from 192.169.71.225: icmp_seq=1 ttl=64 time=1.07 ms
+64 bytes from 192.169.71.225: icmp_seq=2 ttl=64 time=1.00 ms
+64 bytes from 192.169.71.225: icmp_seq=3 ttl=64 time=1.14 ms
+64 bytes from 192.169.71.225: icmp_seq=4 ttl=64 time=1.09 ms
+
+--- 192.169.71.225 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.000/1.078/1.146/0.061 ms
+
+DEBUG: 2021-03-26 08:51:10,159 - Process-3 - 55567 - CIMC (192.169.71.137) ConfigResolve response==><configResolveClass cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" response="yes" classId="computeBoard">
 <outConfigs>
-<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="HUU Boot In Progress" currentTime="Mon Jan 18 22:01:30 2021
-" updateStartTime="2021-01-18 21:59:16" updateEndTime="NA" ></huuFirmwareUpdateStatus></outConfigs>
+<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP250300SQ" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:01:30,426 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 15:01:30,427 - Process-1 - 60998 - CIMC (10.177.250.140) update status: HUU Boot In Progress
-DEBUG: 2021-01-18 15:01:30,427 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:01:30,427 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:01:30,427 - MainProcess - 60995 - Send firmware updater request this time
-DEBUG: 2021-01-18 15:01:30,428 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:01:30,427 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 15:02:02,460 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:02:03,461 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:02:03,461 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdater"/>
-DEBUG: 2021-01-18 15:02:03,461 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:02:03,846 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:02:03,846 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:02:03,846 - MainProcess - 60995 - Send firmware update status request this time
-DEBUG: 2021-01-18 15:02:03,846 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:02:03,844 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdater">
+DEBUG: 2021-03-26 08:51:10,162 - MainProcess - 55562 - Found an entry in the completion queue for processing
+DEBUG: 2021-03-26 08:51:10,161 - Process-3 - 55567 - Reboot CIMC =no
+INFO: 2021-03-26 08:51:10,163 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:51:10,161 - Process-3 - 55567 - Not Calling CIMC Reboot
+DEBUG: 2021-03-26 08:51:10,164 - MainProcess - 55562 - Send firmware update status request this time
+DEBUG: 2021-03-26 08:51:19,176 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:20,179 - Process-2 - 55566 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:20,179 - Process-2 - 55566 - ConfigResolve request data==><configResolveClass cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" inHierarchical="false" classId="huuFirmwareUpdater"/>
+DEBUG: 2021-03-26 08:51:20,180 - Process-2 - 55566 - configRsvRequest uri data==>https://192.169.71.61:443/nuova
+DEBUG: 2021-03-26 08:51:20,988 - Process-2 - 55566 - CIMC (192.169.71.61) ConfigResolve response==><configResolveClass cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" response="yes" classId="huuFirmwareUpdater">
 <outConfigs>
-<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" remoteIp="10.177.250.84" remoteSharePath="/Charter" mapType="www" username="root" password="" stopOnError="no" timeOut="60" updateType="" bootMedium="" verifyUpdate="no" updateComponent="all" ></huuFirmwareUpdater></outConfigs>
+<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" password="" updateType="" bootMedium="" updateComponent="" ></huuFirmwareUpdater></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:03:03,906 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:03:04,907 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:03:04,907 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
-DEBUG: 2021-01-18 15:03:04,907 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:03:05,351 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdateStatus">
+ERROR: 2021-03-26 08:51:20,993 - Process-2 - 55566 - No firmware update running for CIMC (192.169.71.61).
+INFO: 2021-03-26 08:51:20,993 - Process-2 - 55566 - CIMC (192.169.71.61) not responding sleep for 60 secs
+DEBUG: 2021-03-26 08:51:31,192 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:32,195 - Process-1 - 55565 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:32,195 - Process-1 - 55565 - ConfigResolve request data==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" inHierarchical="false" classId="huuFirmwareUpdater"/>
+DEBUG: 2021-03-26 08:51:32,195 - Process-1 - 55565 - configRsvRequest uri data==>https://192.169.71.146:443/nuova
+DEBUG: 2021-03-26 08:51:34,165 - Process-1 - 55565 - CIMC (192.169.71.146) ConfigResolve response==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" response="yes" classId="huuFirmwareUpdater">
 <outConfigs>
-<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="HUU Boot In Progress" currentTime="Mon Jan 18 22:03:05 2021
-" updateStartTime="2021-01-18 21:59:16" updateEndTime="NA" ></huuFirmwareUpdateStatus></outConfigs>
+<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" password="" updateType="" bootMedium="" updateComponent="" ></huuFirmwareUpdater></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:03:05,352 - MainProcess - 60995 - Found an entry in the completion queue for processing
-DEBUG: 2021-01-18 15:03:05,352 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-INFO: 2021-01-18 15:03:05,352 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:03:05,352 - Process-1 - 60998 - CIMC (10.177.250.140) update status: HUU Boot In Progress
-DEBUG: 2021-01-18 15:03:05,352 - MainProcess - 60995 - Send firmware updater request this time
-DEBUG: 2021-01-18 15:03:05,352 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 15:03:05,353 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:03:37,386 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:03:38,388 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:03:38,388 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdater"/>
-DEBUG: 2021-01-18 15:03:38,388 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:03:39,053 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdater">
+ERROR: 2021-03-26 08:51:34,167 - Process-1 - 55565 - No firmware update running for CIMC (192.169.71.146).
+INFO: 2021-03-26 08:51:34,168 - Process-1 - 55565 - CIMC (192.169.71.146) not responding sleep for 60 secs
+DEBUG: 2021-03-26 08:51:35,197 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:36,200 - Process-4 - 55568 - Found an entry in the work queue
+INFO: 2021-03-26 08:51:36,200 - Process-4 - 55568 - Initiating Login to CIMC 192.169.71.225
+DEBUG: 2021-03-26 08:51:36,200 - Process-4 - 55568 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:51:36,201 - Process-4 - 55568 - Trying Login 0
+DEBUG: 2021-03-26 08:51:36,201 - Process-4 - 55568 - Login request data==><aaaLogin inName='admin' inPassword='Ch@rt3r!'></aaaLogin>
+DEBUG: 2021-03-26 08:51:43,250 - Process-4 - 55568 - Login response==><aaaLogin cookie="" response="yes" outCookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" outRefreshPeriod="600" outPriv="admin" outSessionId="1" outVersion="4.1(1d)"> </aaaLogin>
+
+DEBUG: 2021-03-26 08:51:43,252 - Process-4 - 55568 - Successful Login with default password
+INFO: 2021-03-26 08:51:43,253 - Process-4 - 55568 - Successfully logged in to CIMC 192.169.71.225
+DEBUG: 2021-03-26 08:51:43,254 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" inHierarchical="false" classId="computeBoard"/>
+DEBUG: 2021-03-26 08:51:43,254 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.225:443/nuova
+DEBUG: 2021-03-26 08:51:44,723 - Process-4 - 55568 - CIMC (192.169.71.225) ConfigResolve response==><configResolveClass cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" response="yes" classId="computeBoard">
 <outConfigs>
-<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" remoteIp="10.177.250.84" remoteSharePath="/Charter" mapType="www" username="root" password="" stopOnError="no" timeOut="60" updateType="" bootMedium="" verifyUpdate="no" updateComponent="all" ></huuFirmwareUpdater></outConfigs>
+<computeBoard dn="sys/rack-unit-1/board" id="0" model="UCSC-C220-M5SX" operPower="on" perf="unknown" power="not-supported" presence="not-supported" serial="WMP250300SW" vendor="Cisco Systems Inc" ></computeBoard></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:03:39,055 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:03:39,055 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:03:39,055 - MainProcess - 60995 - Send firmware update status request this time
-DEBUG: 2021-01-18 15:03:39,055 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:04:39,114 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:04:40,116 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:04:40,116 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
-DEBUG: 2021-01-18 15:04:40,116 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:04:40,553 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdateStatus">
+DEBUG: 2021-03-26 08:51:44,725 - Process-4 - 55568 - Reboot CIMC =no
+DEBUG: 2021-03-26 08:51:44,725 - Process-4 - 55568 - Not Calling CIMC Reboot
+DEBUG: 2021-03-26 08:51:44,727 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:51:44,728 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:51:44,728 - MainProcess - 55562 - Need to try firmware update status request again
+DEBUG: 2021-03-26 08:51:49,735 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:50,737 - Process-3 - 55567 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:50,738 - Process-3 - 55567 - ConfigResolve request data==><configResolveClass cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:51:50,738 - Process-3 - 55567 - configRsvRequest uri data==>https://192.169.71.210:443/nuova
+DEBUG: 2021-03-26 08:51:51,410 - Process-3 - 55567 - CIMC (192.169.71.210) ConfigResolve response==><configResolveClass cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" response="yes" classId="huuFirmwareUpdateStatus">
 <outConfigs>
-<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="HUU Boot In Progress" currentTime="Mon Jan 18 22:04:40 2021
-" updateStartTime="2021-01-18 21:59:16" updateEndTime="NA" ></huuFirmwareUpdateStatus></outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:52:34 2021
+" updateStartTime="2021-03-26 12:26:42" updateEndTime="2021-03-26 12:46:11" ></huuFirmwareUpdateStatus></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:04:40,554 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 15:04:40,554 - Process-1 - 60998 - CIMC (10.177.250.140) update status: HUU Boot In Progress
-DEBUG: 2021-01-18 15:04:40,554 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 15:04:40,555 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:04:40,555 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:04:40,555 - MainProcess - 60995 - Send firmware updater request this time
-DEBUG: 2021-01-18 15:04:40,555 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:05:12,589 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:05:13,590 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:05:13,591 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdater"/>
-DEBUG: 2021-01-18 15:05:13,591 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:05:14,288 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdater">
+INFO: 2021-03-26 08:51:51,412 - Process-3 - 55567 - CIMC (192.169.71.210) update completed at [2021-03-26 12:46:11].
+DEBUG: 2021-03-26 08:51:51,412 - Process-3 - 55567 - CIMC (192.169.71.210) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+CRITICAL: 2021-03-26 08:51:51,413 - Process-3 - 55567 - CIMC (192.169.71.210) update completed.
+DEBUG: 2021-03-26 08:51:51,414 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:51:51,415 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:51:51,415 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.210)
+DEBUG: 2021-03-26 08:51:51,415 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:51:52,418 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:52,417 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:52,418 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:51:52,419 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.210:443/nuova
+DEBUG: 2021-03-26 08:51:53,383 - Process-4 - 55568 - CIMC (192.169.71.210) ConfigResolve response==><configResolveClass cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" response="yes" classId="huuUpdateComponentStatus">
 <outConfigs>
-<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" remoteIp="10.177.250.84" remoteSharePath="/Charter" mapType="www" username="root" password="" stopOnError="no" timeOut="60" updateType="" bootMedium="" verifyUpdate="no" updateComponent="all" ></huuFirmwareUpdater></outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:05:14,290 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:05:14,290 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:05:14,290 - MainProcess - 60995 - Send firmware update status request this time
-DEBUG: 2021-01-18 15:05:14,290 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:06:14,355 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:06:15,356 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:06:15,357 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
-DEBUG: 2021-01-18 15:06:15,357 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:06:15,736 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdateStatus">
+DEBUG: 2021-03-26 08:51:53,391 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:51:53,391 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:51:53,389 - Process-4 - 55568 - CIMC (192.169.71.210) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+DEBUG: 2021-03-26 08:51:53,392 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:51:53,389 - Process-4 - 55568 - CIMC (192.169.71.210) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:51:53,393 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+INFO: 2021-03-26 08:51:53,389 - Process-4 - 55568 - CIMC (192.169.71.210) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:51:53,394 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:51:53,390 - Process-4 - 55568 - CIMC (192.169.71.210) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:51:53,395 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" inCookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143"> </aaaLogout>
+INFO: 2021-03-26 08:51:53,390 - Process-4 - 55568 - CIMC (192.169.71.210) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:51:53,420 - Process-3 - 55567 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:53,421 - Process-3 - 55567 - ConfigResolve request data==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" inHierarchical="false" classId="huuFirmwareUpdater"/>
+DEBUG: 2021-03-26 08:51:53,421 - Process-3 - 55567 - configRsvRequest uri data==>https://192.169.71.79:443/nuova
+INFO: 2021-03-26 08:51:53,744 - MainProcess - 55562 - Logout response==><aaaLogout cookie="a0c32e1135/c63acddb-bc99-3dbd-5e29-395d1c84b143" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:51:54,745 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:54,744 - Process-3 - 55567 - CIMC (192.169.71.79) ConfigResolve response==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" response="yes" classId="huuFirmwareUpdater">
 <outConfigs>
-<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="HUU Discovery Complete" currentTime="Mon Jan 18 22:06:15 2021
-" updateStartTime="2021-01-18 21:59:16" updateEndTime="NA" ></huuFirmwareUpdateStatus></outConfigs>
+<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" password="" updateType="" bootMedium="" updateComponent="" ></huuFirmwareUpdater></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:06:15,737 - Process-1 - 60998 - CIMC (10.177.250.140) update status: HUU Discovery Complete
-DEBUG: 2021-01-18 15:06:15,737 - Process-1 - 60998 - CIMC (10.177.250.140) update is continuing.
-DEBUG: 2021-01-18 15:06:15,738 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:06:15,738 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:06:15,738 - MainProcess - 60995 - Send firmware updater request this time
-DEBUG: 2021-01-18 15:06:15,738 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:06:47,771 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:06:48,773 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:06:48,773 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdater"/>
-DEBUG: 2021-01-18 15:06:48,773 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:06:49,166 - MainProcess - 60995 - Found an entry in the completion queue for processing
-DEBUG: 2021-01-18 15:06:49,164 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdater">
+ERROR: 2021-03-26 08:51:54,747 - Process-3 - 55567 - No firmware update running for CIMC (192.169.71.79).
+INFO: 2021-03-26 08:51:54,747 - Process-3 - 55567 - CIMC (192.169.71.79) not responding sleep for 60 secs
+DEBUG: 2021-03-26 08:51:55,749 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:55,750 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:51:55,750 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.129:443/nuova
+DEBUG: 2021-03-26 08:51:56,632 - Process-4 - 55568 - CIMC (192.169.71.129) ConfigResolve response==><configResolveClass cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" response="yes" classId="huuFirmwareUpdateStatus">
 <outConfigs>
-<huuFirmwareUpdater dn="sys/huu/firmwareUpdater" adminState="triggered" remoteIp="10.177.250.84" remoteSharePath="/Charter" mapType="www" username="root" password="" stopOnError="no" timeOut="60" updateType="" bootMedium="" verifyUpdate="no" updateComponent="all" ></huuFirmwareUpdater></outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:51:49 2021
+" updateStartTime="2021-03-26 12:25:49" updateEndTime="2021-03-26 12:45:40" ></huuFirmwareUpdateStatus></outConfigs>
 </configResolveClass>
 
-INFO: 2021-01-18 15:06:49,166 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:06:49,166 - MainProcess - 60995 - Send firmware update status request this time
-DEBUG: 2021-01-18 15:06:49,167 - MainProcess - 60995 - No delayed queue work item found
-DEBUG: 2021-01-18 15:07:49,231 - MainProcess - 60995 - Process delayed queue work item
-DEBUG: 2021-01-18 15:07:50,232 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:07:50,233 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
-DEBUG: 2021-01-18 15:07:50,233 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:07:50,612 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuFirmwareUpdateStatus">
+INFO: 2021-03-26 08:51:56,633 - Process-4 - 55568 - CIMC (192.169.71.129) update completed at [2021-03-26 12:45:40].
+DEBUG: 2021-03-26 08:51:56,635 - Process-4 - 55568 - CIMC (192.169.71.129) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+CRITICAL: 2021-03-26 08:51:56,635 - Process-4 - 55568 - CIMC (192.169.71.129) update completed.
+DEBUG: 2021-03-26 08:51:56,637 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:51:56,637 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:51:56,637 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.129)
+DEBUG: 2021-03-26 08:51:56,638 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:51:57,639 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:51:57,640 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:57,640 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:51:57,640 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.129:443/nuova
+DEBUG: 2021-03-26 08:51:58,887 - Process-4 - 55568 - CIMC (192.169.71.129) ConfigResolve response==><configResolveClass cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" response="yes" classId="huuUpdateComponentStatus">
 <outConfigs>
-<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete BIOS Skipped, CIMC Skipped, X520 Skipped, UCSC-RAID-M5 Skipped, X550-LOM Skipped, " currentTime="Mon Jan 18 22:07:50 2021
-" updateStartTime="2021-01-18 21:59:16" updateEndTime="2021-01-18 22:07:47" ></huuFirmwareUpdateStatus></outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
 </configResolveClass>
 
-DEBUG: 2021-01-18 15:07:50,613 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:07:50,613 - MainProcess - 60995 - Processing the completion status of a request
-INFO: 2021-01-18 15:07:50,613 - MainProcess - 60995 - HUU Firmware Update Successful on server with CIMC (10.177.250.140)
-DEBUG: 2021-01-18 15:07:50,613 - MainProcess - 60995 - Send get update details request
-DEBUG: 2021-01-18 15:07:50,613 - MainProcess - 60995 - No delayed queue work item found
-INFO: 2021-01-18 15:07:50,612 - Process-1 - 60998 - CIMC (10.177.250.140) update completed at [2021-01-18 22:07:47].
-DEBUG: 2021-01-18 15:07:50,613 - Process-1 - 60998 - CIMC (10.177.250.140) update status: Update Complete BIOS Skipped, CIMC Skipped, X520 Skipped, UCSC-RAID-M5 Skipped, X550-LOM Skipped, 
-CRITICAL: 2021-01-18 15:07:50,613 - Process-1 - 60998 - CIMC (10.177.250.140) update completed.
-DEBUG: 2021-01-18 15:07:51,615 - Process-1 - 60998 - Found an entry in the work queue
-DEBUG: 2021-01-18 15:07:51,615 - Process-1 - 60998 - ConfigResolve request data==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inHierarchical="false" classId="huuUpdateComponentStatus"/>
-DEBUG: 2021-01-18 15:07:51,615 - Process-1 - 60998 - configRsvRequest uri data==>http://10.177.250.140/nuova
-DEBUG: 2021-01-18 15:07:52,007 - Process-1 - 60998 - CIMC (10.177.250.140) ConfigResolve response==><configResolveClass cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" classId="huuUpdateComponentStatus">
+INFO: 2021-03-26 08:51:58,894 - Process-4 - 55568 - CIMC (192.169.71.129) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:51:58,894 - Process-4 - 55568 - CIMC (192.169.71.129) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:51:58,895 - Process-4 - 55568 - CIMC (192.169.71.129) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:51:58,895 - Process-4 - 55568 - CIMC (192.169.71.129) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:51:58,895 - Process-4 - 55568 - CIMC (192.169.71.129) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:51:58,897 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:51:58,897 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:51:58,898 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:51:58,898 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:51:58,898 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:51:58,898 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" inCookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e"> </aaaLogout>
+INFO: 2021-03-26 08:51:59,785 - MainProcess - 55562 - Logout response==><aaaLogout cookie="f9b109bff7/02b8c41a-8fa3-a793-0629-9f162b776e5e" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:51:59,897 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:51:59,897 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="b1ea85278a/6bcaedd9-e7d4-5d32-ad82-b005cc4c6245" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:51:59,898 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.224:443/nuova
+DEBUG: 2021-03-26 08:52:00,642 - Process-4 - 55568 - CIMC (192.169.71.224) ConfigResolve response==><configResolveClass cookie="b1ea85278a/6bcaedd9-e7d4-5d32-ad82-b005cc4c6245" response="yes" classId="huuFirmwareUpdateStatus">
 <outConfigs>
-<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.1b.0.0124200237" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(1d)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-2978" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:52:13 2021
+" updateStartTime="2021-03-26 12:25:48" updateEndTime="2021-03-26 12:45:44" ></huuFirmwareUpdateStatus></outConfigs>
 </configResolveClass>
 
-INFO: 2021-01-18 15:07:52,010 - Process-1 - 60998 - CIMC (10.177.250.140) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.1b.0.0124200237, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Skipped, errorDescription: NA
-INFO: 2021-01-18 15:07:52,010 - Process-1 - 60998 - CIMC (10.177.250.140) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(1d), newVersion: 4.1(1d), updateStatus: Skipped, errorDescription: NA
-INFO: 2021-01-18 15:07:52,010 - Process-1 - 60998 - CIMC (10.177.250.140) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
-INFO: 2021-01-18 15:07:52,011 - Process-1 - 60998 - CIMC (10.177.250.140) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-2978, newVersion: 51.10.0-2978, updateStatus: Skipped, errorDescription: NA
-DEBUG: 2021-01-18 15:07:52,011 - MainProcess - 60995 - Found an entry in the completion queue for processing
-INFO: 2021-01-18 15:07:52,011 - MainProcess - 60995 - Processing the completion status of a request
-DEBUG: 2021-01-18 15:07:52,011 - MainProcess - 60995 - Update Successful. Adding entry and firing logout
-INFO: 2021-01-18 15:07:52,012 - MainProcess - 60995 - self.uefifeature is true. Enabling the feature in logout
-DEBUG: 2021-01-18 15:07:52,012 - MainProcess - 60995 - No Need to reset the UEFI secure boot 
-INFO: 2021-01-18 15:07:52,012 - MainProcess - 60995 - Logout request data==><aaaLogout cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" inCookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470"> </aaaLogout>
-INFO: 2021-01-18 15:07:52,011 - Process-1 - 60998 - CIMC (10.177.250.140) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
-INFO: 2021-01-18 15:07:52,085 - MainProcess - 60995 - Logout response==><aaaLogout cookie="c799964b54/4a6749cd-89e3-da36-d9d8-a62d3e9e1470" response="yes" outStatus="success"> </aaaLogout>
+INFO: 2021-03-26 08:52:00,643 - Process-4 - 55568 - CIMC (192.169.71.224) update completed at [2021-03-26 12:45:44].
+DEBUG: 2021-03-26 08:52:00,644 - Process-4 - 55568 - CIMC (192.169.71.224) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+CRITICAL: 2021-03-26 08:52:00,644 - Process-4 - 55568 - CIMC (192.169.71.224) update completed.
+DEBUG: 2021-03-26 08:52:00,787 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:00,787 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:52:00,788 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.224)
+DEBUG: 2021-03-26 08:52:00,789 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:52:01,791 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:52:01,791 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="b1ea85278a/6bcaedd9-e7d4-5d32-ad82-b005cc4c6245" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:52:01,792 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.224:443/nuova
+DEBUG: 2021-03-26 08:52:02,563 - Process-4 - 55568 - CIMC (192.169.71.224) ConfigResolve response==><configResolveClass cookie="b1ea85278a/6bcaedd9-e7d4-5d32-ad82-b005cc4c6245" response="yes" classId="huuUpdateComponentStatus">
+<outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+</configResolveClass>
 
-DEBUG: 2021-01-18 15:07:52,086 - MainProcess - 60995 - No delayed queue work item found
-INFO: 2021-01-18 15:07:52,086 - MainProcess - 60995 - Completed update process
-DEBUG: 2021-01-18 15:07:53,087 - Process-1 - 60998 - Exiting child process
-INFO: 2021-02-08 17:25:44,639 - MainProcess - 80570 - NIHUU Script(update_firmware.py) Version: 4.1.2b
-INFO: 2021-02-08 17:25:44,639 - MainProcess - 80570 - Hello from the main process
-DEBUG: 2021-02-08 17:25:44,639 - MainProcess - 80570 - [Debug]: Create entry for 1
-DEBUG: 2021-02-08 17:25:44,640 - MainProcess - 80570 - Pushing CIMC IP 1 into pending queue
-DEBUG: 2021-02-08 17:25:45,645 - Process-1 - 80573 - Found an entry in the work queue
-INFO: 2021-02-08 17:25:45,645 - Process-1 - 80573 - Initiating Login to CIMC 1
-DEBUG: 2021-02-08 17:25:45,645 - Process-1 - 80573 - Login request data==><aaaLogin inName='admin' inPassword='password'></aaaLogin>
-DEBUG: 2021-02-08 17:25:45,645 - Process-1 - 80573 - Trying Login 0
-DEBUG: 2021-02-08 17:25:45,645 - Process-1 - 80573 - Login request data==><aaaLogin inName='admin' inPassword='password'></aaaLogin>
-ERROR: 2021-02-08 17:25:45,648 - Process-1 - 80573 - We failed to reach CIMC (1). Reason: [Errno 22] Invalid argument 
-ERROR: 2021-02-08 17:25:45,648 - Process-1 - 80573 - Login to CIMC (1) failed. No response received from CIMC
-DEBUG: 2021-02-08 17:25:45,648 - MainProcess - 80570 - Found an entry in the completion queue for processing
-INFO: 2021-02-08 17:25:45,649 - MainProcess - 80570 - Processing the completion status of a request
-WARNING: 2021-02-08 17:25:45,649 - MainProcess - 80570 - Login attempt for CIMC 1 failed 1 times.
-INFO: 2021-02-08 17:25:45,649 - MainProcess - 80570 - ping -c 4 1
-ERROR: 2021-02-08 17:25:45,655 - MainProcess - 80570 - Ping command failed CMD:ping -c 4 1 Error output = 
-INFO: 2021-02-08 17:25:45,655 - MainProcess - 80570 - nmap -p 443 1
-INFO: 2021-02-08 17:25:45,727 - MainProcess - 80570 - Starting Nmap 7.70 ( https://nmap.org ) at 2021-02-08 17:25 MST
-setup_target: failed to determine route to 1 (0.0.0.1)
-WARNING: No targets were specified, so 0 hosts scanned.
-Nmap done: 0 IP addresses (0 hosts up) scanned in 0.04 seconds
+INFO: 2021-03-26 08:52:02,571 - Process-4 - 55568 - CIMC (192.169.71.224) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:02,571 - Process-4 - 55568 - CIMC (192.169.71.224) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:02,571 - Process-4 - 55568 - CIMC (192.169.71.224) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:52:02,571 - Process-4 - 55568 - CIMC (192.169.71.224) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+DEBUG: 2021-03-26 08:52:02,574 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:02,572 - Process-4 - 55568 - CIMC (192.169.71.224) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:52:02,575 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:52:02,576 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:52:02,576 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:52:02,576 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:52:02,577 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="b1ea85278a/6bcaedd9-e7d4-5d32-ad82-b005cc4c6245" inCookie="b1ea85278a/6bcaedd9-e7d4-5d32-ad82-b005cc4c6245"> </aaaLogout>
+INFO: 2021-03-26 08:52:02,904 - MainProcess - 55562 - Logout response==><aaaLogout cookie="b1ea85278a/6bcaedd9-e7d4-5d32-ad82-b005cc4c6245" response="yes" outStatus="success"> </aaaLogout>
 
-DEBUG: 2021-02-08 17:25:45,728 - MainProcess - 80570 - No delayed queue work item found
+DEBUG: 2021-03-26 08:52:03,906 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:52:04,909 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:52:04,909 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:52:04,909 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.15:443/nuova
+DEBUG: 2021-03-26 08:52:05,831 - Process-4 - 55568 - CIMC (192.169.71.15) ConfigResolve response==><configResolveClass cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" response="yes" classId="huuFirmwareUpdateStatus">
+<outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:52:51 2021
+" updateStartTime="2021-03-26 12:26:31" updateEndTime="2021-03-26 12:46:02" ></huuFirmwareUpdateStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:52:05,833 - Process-4 - 55568 - CIMC (192.169.71.15) update completed at [2021-03-26 12:46:02].
+DEBUG: 2021-03-26 08:52:05,834 - Process-4 - 55568 - CIMC (192.169.71.15) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+DEBUG: 2021-03-26 08:52:05,835 - MainProcess - 55562 - Found an entry in the completion queue for processing
+CRITICAL: 2021-03-26 08:52:05,834 - Process-4 - 55568 - CIMC (192.169.71.15) update completed.
+INFO: 2021-03-26 08:52:05,836 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:52:05,837 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.15)
+DEBUG: 2021-03-26 08:52:05,837 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:52:06,839 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:52:06,839 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:52:06,841 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.15:443/nuova
+DEBUG: 2021-03-26 08:52:08,821 - Process-4 - 55568 - CIMC (192.169.71.15) ConfigResolve response==><configResolveClass cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" response="yes" classId="huuUpdateComponentStatus">
+<outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:52:08,828 - Process-4 - 55568 - CIMC (192.169.71.15) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:08,828 - Process-4 - 55568 - CIMC (192.169.71.15) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:08,830 - Process-4 - 55568 - CIMC (192.169.71.15) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:52:08,830 - Process-4 - 55568 - CIMC (192.169.71.15) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:08,831 - Process-4 - 55568 - CIMC (192.169.71.15) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:52:08,834 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:08,834 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:52:08,834 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:52:08,835 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:52:08,835 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:52:08,835 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" inCookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444"> </aaaLogout>
+INFO: 2021-03-26 08:52:09,282 - MainProcess - 55562 - Logout response==><aaaLogout cookie="26b57f45b6/d491fcd1-574e-d21b-ddfe-ff0dc7b95444" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:52:14,289 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:52:15,292 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:52:15,292 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:52:15,292 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.137:443/nuova
+DEBUG: 2021-03-26 08:52:16,042 - Process-4 - 55568 - CIMC (192.169.71.137) ConfigResolve response==><configResolveClass cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" response="yes" classId="huuFirmwareUpdateStatus">
+<outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:52:47 2021
+" updateStartTime="2021-03-26 12:26:23" updateEndTime="2021-03-26 12:46:16" ></huuFirmwareUpdateStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:52:16,043 - Process-4 - 55568 - CIMC (192.169.71.137) update completed at [2021-03-26 12:46:16].
+DEBUG: 2021-03-26 08:52:16,045 - MainProcess - 55562 - Found an entry in the completion queue for processing
+DEBUG: 2021-03-26 08:52:16,044 - Process-4 - 55568 - CIMC (192.169.71.137) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+INFO: 2021-03-26 08:52:16,046 - MainProcess - 55562 - Processing the completion status of a request
+CRITICAL: 2021-03-26 08:52:16,045 - Process-4 - 55568 - CIMC (192.169.71.137) update completed.
+INFO: 2021-03-26 08:52:16,047 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.137)
+DEBUG: 2021-03-26 08:52:16,048 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:52:17,050 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:52:17,050 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:52:17,050 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:52:17,051 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.137:443/nuova
+DEBUG: 2021-03-26 08:52:18,994 - Process-4 - 55568 - CIMC (192.169.71.137) ConfigResolve response==><configResolveClass cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" response="yes" classId="huuUpdateComponentStatus">
+<outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:52:19,000 - Process-4 - 55568 - CIMC (192.169.71.137) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:19,001 - Process-4 - 55568 - CIMC (192.169.71.137) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:19,002 - Process-4 - 55568 - CIMC (192.169.71.137) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:52:19,003 - Process-4 - 55568 - CIMC (192.169.71.137) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+DEBUG: 2021-03-26 08:52:19,004 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:19,003 - Process-4 - 55568 - CIMC (192.169.71.137) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:52:19,005 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:52:19,006 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:52:19,006 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:52:19,006 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:52:19,007 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" inCookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec"> </aaaLogout>
+DEBUG: 2021-03-26 08:52:20,005 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:52:20,005 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:52:20,006 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.225:443/nuova
+INFO: 2021-03-26 08:52:20,027 - MainProcess - 55562 - Logout response==><aaaLogout cookie="f597dbc180/4cb3a0f5-1cae-8b0f-18c6-17d81da6cdec" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:52:20,028 - MainProcess - 55562 - No delayed queue work item found
+DEBUG: 2021-03-26 08:52:20,722 - Process-4 - 55568 - CIMC (192.169.71.225) ConfigResolve response==><configResolveClass cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" response="yes" classId="huuFirmwareUpdateStatus">
+<outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:53:06 2021
+" updateStartTime="2021-03-26 12:26:27" updateEndTime="2021-03-26 12:46:00" ></huuFirmwareUpdateStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:52:20,724 - Process-4 - 55568 - CIMC (192.169.71.225) update completed at [2021-03-26 12:46:00].
+DEBUG: 2021-03-26 08:52:20,726 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:20,726 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:52:20,726 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.225)
+DEBUG: 2021-03-26 08:52:20,726 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:52:20,727 - MainProcess - 55562 - No delayed queue work item found
+DEBUG: 2021-03-26 08:52:20,724 - Process-4 - 55568 - CIMC (192.169.71.225) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+CRITICAL: 2021-03-26 08:52:20,725 - Process-4 - 55568 - CIMC (192.169.71.225) update completed.
+DEBUG: 2021-03-26 08:52:21,001 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:21,002 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:52:21,002 - MainProcess - 55562 - Send firmware update status request this time
+DEBUG: 2021-03-26 08:52:21,003 - MainProcess - 55562 - No delayed queue work item found
+DEBUG: 2021-03-26 08:52:21,729 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:52:21,729 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:52:21,730 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.225:443/nuova
+DEBUG: 2021-03-26 08:52:22,919 - Process-4 - 55568 - CIMC (192.169.71.225) ConfigResolve response==><configResolveClass cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" response="yes" classId="huuUpdateComponentStatus">
+<outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:52:22,925 - Process-4 - 55568 - CIMC (192.169.71.225) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:22,926 - Process-4 - 55568 - CIMC (192.169.71.225) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:22,926 - Process-4 - 55568 - CIMC (192.169.71.225) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:52:22,926 - Process-4 - 55568 - CIMC (192.169.71.225) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:52:22,928 - Process-4 - 55568 - CIMC (192.169.71.225) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:52:22,930 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:22,930 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:52:22,931 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:52:22,931 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:52:22,931 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:52:22,931 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" inCookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7"> </aaaLogout>
+INFO: 2021-03-26 08:52:23,496 - MainProcess - 55562 - Logout response==><aaaLogout cookie="820d4f1bbe/4cdee561-818e-dc00-b77b-c93e5d1a93c7" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:52:34,221 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:34,221 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:52:34,222 - MainProcess - 55562 - Send firmware update status request this time
+DEBUG: 2021-03-26 08:52:55,248 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:52:55,249 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:52:55,249 - MainProcess - 55562 - Send firmware update status request this time
+DEBUG: 2021-03-26 08:53:32,294 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:53:33,297 - Process-2 - 55566 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:53:33,297 - Process-2 - 55566 - ConfigResolve request data==><configResolveClass cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:53:33,297 - Process-2 - 55566 - configRsvRequest uri data==>https://192.169.71.61:443/nuova
+DEBUG: 2021-03-26 08:53:34,024 - Process-2 - 55566 - CIMC (192.169.71.61) ConfigResolve response==><configResolveClass cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" response="yes" classId="huuFirmwareUpdateStatus">
+<outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:54:23 2021
+" updateStartTime="2021-03-26 12:26:39" updateEndTime="2021-03-26 12:46:11" ></huuFirmwareUpdateStatus></outConfigs>
+</configResolveClass>
+
+DEBUG: 2021-03-26 08:53:34,027 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:53:34,028 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:53:34,028 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.61)
+DEBUG: 2021-03-26 08:53:34,028 - MainProcess - 55562 - Send get update details request
+INFO: 2021-03-26 08:53:34,026 - Process-2 - 55566 - CIMC (192.169.71.61) update completed at [2021-03-26 12:46:11].
+DEBUG: 2021-03-26 08:53:34,026 - Process-2 - 55566 - CIMC (192.169.71.61) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+CRITICAL: 2021-03-26 08:53:34,027 - Process-2 - 55566 - CIMC (192.169.71.61) update completed.
+DEBUG: 2021-03-26 08:53:35,031 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:53:35,030 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:53:35,031 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:53:35,031 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.61:443/nuova
+DEBUG: 2021-03-26 08:53:35,753 - Process-4 - 55568 - CIMC (192.169.71.61) ConfigResolve response==><configResolveClass cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" response="yes" classId="huuUpdateComponentStatus">
+<outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:53:35,760 - Process-4 - 55568 - CIMC (192.169.71.61) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:35,760 - Process-4 - 55568 - CIMC (192.169.71.61) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:35,762 - Process-4 - 55568 - CIMC (192.169.71.61) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:53:35,762 - Process-4 - 55568 - CIMC (192.169.71.61) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:35,763 - Process-4 - 55568 - CIMC (192.169.71.61) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:53:35,765 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:53:35,766 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:53:35,766 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:53:35,766 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:53:35,767 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:53:35,767 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" inCookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214"> </aaaLogout>
+DEBUG: 2021-03-26 08:53:36,033 - Process-1 - 55565 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:53:36,034 - Process-1 - 55565 - ConfigResolve request data==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:53:36,034 - Process-1 - 55565 - configRsvRequest uri data==>https://192.169.71.146:443/nuova
+INFO: 2021-03-26 08:53:36,092 - MainProcess - 55562 - Logout response==><aaaLogout cookie="51ca138a9e/bf1fcd04-de59-37f4-5bbc-fd17fce1e214" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:53:36,827 - Process-1 - 55565 - CIMC (192.169.71.146) ConfigResolve response==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" response="yes" classId="huuFirmwareUpdateStatus">
+<outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:53:55 2021
+" updateStartTime="2021-03-26 12:26:07" updateEndTime="2021-03-26 12:46:00" ></huuFirmwareUpdateStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:53:36,829 - Process-1 - 55565 - CIMC (192.169.71.146) update completed at [2021-03-26 12:46:00].
+DEBUG: 2021-03-26 08:53:36,830 - Process-1 - 55565 - CIMC (192.169.71.146) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+CRITICAL: 2021-03-26 08:53:36,830 - Process-1 - 55565 - CIMC (192.169.71.146) update completed.
+DEBUG: 2021-03-26 08:53:37,094 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:53:37,095 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:53:37,096 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.146)
+DEBUG: 2021-03-26 08:53:37,096 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:53:38,098 - Process-3 - 55567 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:53:38,098 - Process-3 - 55567 - ConfigResolve request data==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:53:38,099 - Process-3 - 55567 - configRsvRequest uri data==>https://192.169.71.146:443/nuova
+DEBUG: 2021-03-26 08:53:38,868 - Process-3 - 55567 - CIMC (192.169.71.146) ConfigResolve response==><configResolveClass cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" response="yes" classId="huuUpdateComponentStatus">
+<outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:53:38,875 - Process-3 - 55567 - CIMC (192.169.71.146) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:38,875 - Process-3 - 55567 - CIMC (192.169.71.146) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:38,876 - Process-3 - 55567 - CIMC (192.169.71.146) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:53:38,876 - Process-3 - 55567 - CIMC (192.169.71.146) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+DEBUG: 2021-03-26 08:53:38,878 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:53:38,878 - MainProcess - 55562 - Processing the completion status of a request
+INFO: 2021-03-26 08:53:38,877 - Process-3 - 55567 - CIMC (192.169.71.146) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:53:38,879 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:53:38,880 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:53:38,880 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:53:38,880 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" inCookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5"> </aaaLogout>
+INFO: 2021-03-26 08:53:39,192 - MainProcess - 55562 - Logout response==><aaaLogout cookie="12844a6f96/5b3bf921-fbf8-3551-3c73-d0fdeebe27b5" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:53:56,214 - MainProcess - 55562 - Process delayed queue work item
+DEBUG: 2021-03-26 08:53:57,216 - Process-2 - 55566 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:53:57,217 - Process-2 - 55566 - ConfigResolve request data==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" inHierarchical="false" classId="huuFirmwareUpdateStatus"/>
+DEBUG: 2021-03-26 08:53:57,217 - Process-2 - 55566 - configRsvRequest uri data==>https://192.169.71.79:443/nuova
+DEBUG: 2021-03-26 08:53:57,851 - Process-2 - 55566 - CIMC (192.169.71.79) ConfigResolve response==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" response="yes" classId="huuFirmwareUpdateStatus">
+<outConfigs>
+<huuFirmwareUpdateStatus dn="sys/huu/firmwareUpdater/updateStatus" overallStatus="Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, " currentTime="Fri Mar 26 12:54:09 2021
+" updateStartTime="2021-03-26 12:25:51" updateEndTime="2021-03-26 12:45:57" ></huuFirmwareUpdateStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:53:57,854 - Process-2 - 55566 - CIMC (192.169.71.79) update completed at [2021-03-26 12:45:57].
+DEBUG: 2021-03-26 08:53:57,855 - MainProcess - 55562 - Found an entry in the completion queue for processing
+DEBUG: 2021-03-26 08:53:57,854 - Process-2 - 55566 - CIMC (192.169.71.79) update status: Update Complete  BIOS Completed, CIMC Completed, X520 Skipped, UCSC-RAID-M5 Completed, X550-LOM Skipped, 
+INFO: 2021-03-26 08:53:57,856 - MainProcess - 55562 - Processing the completion status of a request
+CRITICAL: 2021-03-26 08:53:57,854 - Process-2 - 55566 - CIMC (192.169.71.79) update completed.
+INFO: 2021-03-26 08:53:57,857 - MainProcess - 55562 - HUU Firmware Update Successful on server with CIMC (192.169.71.79)
+DEBUG: 2021-03-26 08:53:57,857 - MainProcess - 55562 - Send get update details request
+DEBUG: 2021-03-26 08:53:57,858 - MainProcess - 55562 - No delayed queue work item found
+DEBUG: 2021-03-26 08:53:58,860 - Process-4 - 55568 - Found an entry in the work queue
+DEBUG: 2021-03-26 08:53:58,860 - Process-4 - 55568 - ConfigResolve request data==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" inHierarchical="false" classId="huuUpdateComponentStatus"/>
+DEBUG: 2021-03-26 08:53:58,862 - Process-4 - 55568 - configRsvRequest uri data==>https://192.169.71.79:443/nuova
+DEBUG: 2021-03-26 08:53:59,502 - Process-4 - 55568 - CIMC (192.169.71.79) ConfigResolve response==><configResolveClass cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" response="yes" classId="huuUpdateComponentStatus">
+<outConfigs>
+<huuUpdateComponentStatus id="1" component="BIOS" description="BIOS" slot="NA" runningVersion="C220M5.4.1.2a.0.0624200115" newVersion="C220M5.4.1.1b.0.0124200237" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-1" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="2" component="CIMC" description="CIMC" slot="NA" runningVersion="4.1(2a)" newVersion="4.1(1d)" macAddr="NA" vendorId="NA" deviceId="NA" subVendorId="NA" subDeviceId="NA" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-2" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="3" component="X520" description="X520" slot="1" runningVersion="0x800008A4-1.812.1" newVersion="0x800008A4-1.812.1" macAddr="NA" vendorId="8086" deviceId="10FB" subVendorId="8086" subDeviceId="000C" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-3" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="4" component="UCSC-RAID-M5" description="UCSC-RAID-M5" slot="MRAID" runningVersion="51.10.0-3612" newVersion="51.10.0-2978" macAddr="NA" vendorId="1000" deviceId="0014" subVendorId="1137" subDeviceId="020E" cntrlId="0" updateStatus="Completed" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-4" ></huuUpdateComponentStatus><huuUpdateComponentStatus id="5" component="X550-LOM" description="X550-LOM" slot="L" runningVersion="0x80000EC9-1.817.3" newVersion="0x80000EC9-1.817.3" macAddr="NA" vendorId="8086" deviceId="1563" subVendorId="1137" subDeviceId="01A3" cntrlId="0" updateStatus="Skipped" errorDescription="NA" verifyStatus="NA" dn="sys/huu/firmwareUpdater/updateStatus/component-5" ></huuUpdateComponentStatus></outConfigs>
+</configResolveClass>
+
+INFO: 2021-03-26 08:53:59,508 - Process-4 - 55568 - CIMC (192.169.71.79) - Component: BIOS, Description: BIOS, Slot: NA runningVersion: C220M5.4.1.2a.0.0624200115, newVersion: C220M5.4.1.1b.0.0124200237, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:59,509 - Process-4 - 55568 - CIMC (192.169.71.79) - Component: CIMC, Description: CIMC, Slot: NA runningVersion: 4.1(2a), newVersion: 4.1(1d), updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:59,509 - Process-4 - 55568 - CIMC (192.169.71.79) - Component: X520, Description: X520, Slot: 1 runningVersion: 0x800008A4-1.812.1, newVersion: 0x800008A4-1.812.1, updateStatus: Skipped, errorDescription: NA
+INFO: 2021-03-26 08:53:59,510 - Process-4 - 55568 - CIMC (192.169.71.79) - Component: UCSC-RAID-M5, Description: UCSC-RAID-M5, Slot: MRAID runningVersion: 51.10.0-3612, newVersion: 51.10.0-2978, updateStatus: Completed, errorDescription: NA
+INFO: 2021-03-26 08:53:59,512 - Process-4 - 55568 - CIMC (192.169.71.79) - Component: X550-LOM, Description: X550-LOM, Slot: L runningVersion: 0x80000EC9-1.817.3, newVersion: 0x80000EC9-1.817.3, updateStatus: Skipped, errorDescription: NA
+DEBUG: 2021-03-26 08:53:59,513 - MainProcess - 55562 - Found an entry in the completion queue for processing
+INFO: 2021-03-26 08:53:59,513 - MainProcess - 55562 - Processing the completion status of a request
+DEBUG: 2021-03-26 08:53:59,514 - MainProcess - 55562 - Update Successful. Adding entry and firing logout
+INFO: 2021-03-26 08:53:59,514 - MainProcess - 55562 - self.uefifeature is true. Enabling the feature in logout
+DEBUG: 2021-03-26 08:53:59,514 - MainProcess - 55562 - No Need to reset the UEFI secure boot 
+INFO: 2021-03-26 08:53:59,515 - MainProcess - 55562 - Logout request data==><aaaLogout cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" inCookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677"> </aaaLogout>
+INFO: 2021-03-26 08:53:59,803 - MainProcess - 55562 - Logout response==><aaaLogout cookie="4d0a33274a/cc5791bc-8b3d-2a63-b9a0-fd9842919677" response="yes" outStatus="success"> </aaaLogout>
+
+DEBUG: 2021-03-26 08:53:59,804 - MainProcess - 55562 - No delayed queue work item found
+INFO: 2021-03-26 08:53:59,804 - MainProcess - 55562 - Completed update process
+DEBUG: 2021-03-26 08:54:00,806 - Process-1 - 55565 - Exiting child process
+DEBUG: 2021-03-26 08:54:01,808 - Process-3 - 55567 - Exiting child process
+DEBUG: 2021-03-26 08:54:02,809 - Process-2 - 55566 - Exiting child process
+DEBUG: 2021-03-26 08:54:03,811 - Process-4 - 55568 - Exiting child process

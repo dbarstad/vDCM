@@ -1,3 +1,3 @@
 default -- PXE/KickStart start menu -- /netboot/tftp/pxelinux.cfg/
 dnsmasq.conf -- dnsmasq config file -- /etc/
-log_ips.sh -- script to have dnsmasq log IPs to a file for use in identifying new hsots to configure -- /etc/dnsmasq.d/
+log_ips.sh -- script to have dnsmasq log IPs to a file for use in identifying new hosts to configure -- /etc/dnsmasq.d/

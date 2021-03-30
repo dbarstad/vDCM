@@ -1,4 +1,7 @@
-﻿# Prep_HUU.ps1 -- /netboot/vDCM_Scripts
+# Prep_HUU.ps1 -- /netboot/vDCM_Scripts
+
+rm -f /netboot/vDCM_Scripts/dnsmasq.leases
+systemctl restart dnsmasq
 
 Get-Content update_huu.log.archive, update_huu.log | Out-File update_huu.log.archive
 Remove-Item update_huu.log
@@ -32,3 +35,5 @@ ForEach ($D_Host in $DHCP_Hosts) {
 (Get-Content multiserver_config) | ? {$_.trim() -ne "" } | Out-File multiserver_config
 
 python2 /netboot/vDCM_Scripts/update_firmware-4.1.2b.py  --configfile=multiserver_config
+ 
+

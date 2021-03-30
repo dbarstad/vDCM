@@ -1,3 +1,12 @@
+# *** CHANGE THESE ***
+# IP address of the remoted share (cifs/nfs/www) holding the HUU image for booting
+# for www share ip address can be given as http://<IPAddr>, https://<IPAddr> or <IPAddr>
+remoteshareip=192.169.71.2
+# Password corresponding to the remote user
+remotesharepassword=T3pxeGRIC
+# Directory within the share where the HUU image is being kept
+sharedirectory=/Charter
+# *** LEAVE THE FOLLOWING LINES ALONE ***
 # Use this flag use_http_secure to toggle betwwen https and http protocol
 use_http_secure=yes
 # Firmware update should complete within this many minutes. This value will be
@@ -19,46 +28,33 @@ use_cimc_secure=no
 #update_component=I350
 #update_component=9266-8i, BIOS, CIMC, I350
 update_component=all
-
-update_type=delay
+update_type=immediate
 #update type can be either delay for a delayed firmware update upon host reboot or immediate, to start firmware update
 #Intel Persistent Memory Secure Firwmare Downgrade (Enabled/Disabled) default : Disabled 
 #secure_fw_downgrade=Disabled
-
 #enable_security_version_checks yes|no . This is a downgrade override mechanism for some 3rd party adapters. Default option is yes  
 #enable_security_version_checks=yes
 #reboot CIMC before Update
 reboot_cimc=no
-# IP address of the remoted share (cifs/nfs/www) holding the HUU image for booting
-# for www share ip address can be given as http://<IPAddr>, https://<IPAddr> or <IPAddr>
-remoteshareip=http://10.177.250.84
-# Directory within the share where the HUU image is being kept
-sharedirectory=/Charter
 # Type of share (nfs/cifs/www)
-sharetype=wwww
+sharetype=www
 # Username of the remote share to login to
 remoteshareuser=root
-# Password corresponding to the remote user
-remotesharepassword=Trace3Lab2020!
 #Optional mount parameter for CIFS share only. Provide "ntlm,vers=2.0" for CIFS server version 2.0 (SMB protocol version), default supported version is 3.0
 #mountOption=ntlm
-
 #Password file for remoteshare. If this option is provided, then the above option (remotesharepassword) should not be given
 #remoteshare_passwordfile=<<absolute path of the file>>
-
 #Common CIMC password --> The password provided below along with CIMC information will be ignored.
 #cimc_password_file=<<absolute path of the file>>
-
 #Optional bootmedium paramater for (vmedia/microsd/sd/pxeboot) devices only.default : vmedia
 #Type of devices (vmedia/microsd/sd/pxeboot)
 #Note: For SD card boot medium type - use "microsd" for M5 and "sd" for M4 servers
 #bootmedium=vmedia
-
 # Enter the list of CIMC ip addresses where the firmware needs to be updated
 # servernode - Only for C3260. Options are either all or 1 or 2
 # servernode=all and update_component=all are mutually exclusive
 # Shared components(CMC & Sas-Expander) shouldn't be present in Components list when servernode=all
 # Note: The servernode option must be added at end of below line for C3260
-address=cimc_ip, user=cimc_user, password=cimc_password, imagefile=huu.iso
-
-
+#
+#
+# The lines below define the systems to be updated

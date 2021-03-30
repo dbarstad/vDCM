@@ -50,10 +50,41 @@ echo $dt == Cleanup - Setting boot order
 # Clear PXE from boot order
 sudo /tmp/ucscfg bootorder set /tmp/boot_order_final.txt
 
+
+# Collect system data to log for review
+echo >> /tmp/install.log
+echo =============================================== >> /tmp/install.log
+echo >> /tmp/install.log
+
+sudo /tmp/ucscfg show text /cimc >> /tmp/install.log
+sudo /tmp/ucscfg show text /bios >> /tmp/install.log
+
+echo >> /tmp/install.log
+echo =============================================== >> /tmp/install.log
+echo >> /tmp/install.log
+
+# Show vdcm-confgure check into log
+vdcm-configure check >> /tmp/install.log
+
+echo >> /tmp/install.log
+echo =============================================== >> /tmp/install.log
+echo >> /tmp/install.log
+
+# Validate that the vDCM web UI responds
+curl -k https://127.0.0.1/login >> /tmp/install.log
+
+echo >> /tmp/install.log
+echo =============================================== >> /tmp/install.log
+echo >> /tmp/install.log
+
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Cleanup - 'ip a' of host >> /tmp/install.log
 echo $dt == Cleanup - 'ip a' of host
 ip a  >> /tmp/install.log
+
+echo >> /tmp/install.log
+echo =============================================== >> /tmp/install.log
+echo >> /tmp/install.log
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Cleanup - Pushing logs to image host >> /tmp/install.log
@@ -71,7 +102,7 @@ dhcphost=${dhcphost:32}
 dhcphost=${dhcphost%?}
 
 # Need to parameterize the PXE/SSH host
-/tmp/sshpass -p Charter scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /tmp/install.log loguser@$dhcphost:/netboot/Host_Logs/$hwsn.log
+/tmp/sshpass -p T3pxeGRIC scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /tmp/install.log root@$dhcphost:/netboot/Host_Logs/$hwsn.log
 
 cp /etc/sysconfig/network-scripts/ifcfg-eno1.bak /etc/sysconfig/network-scripts/ifcfg-eno1
 ifdown eno1
@@ -93,5 +124,7 @@ rm -f /tmp/vdcm_system_pass
 rm -f /tmp/sysdata.txt
 rm -f /tmp/vdcm-installer-20.0.4-118.sh
 rm -f /tmp/Cleanup.sh
+rm -f /etc/sysconfig/network-scripts/ifcfg-eno1.dhcp
 
+wall "System configuration complete"
 shutdown -h now
