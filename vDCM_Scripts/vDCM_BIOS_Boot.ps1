@@ -51,7 +51,7 @@ ForEach ($D_Host in $DHCP_Hosts) {
 #                Get-ImcLocalUser  -AccountStatus "active" | Set-ImcLocalUser -Pwd $ImpPass -Force
                 Get-ImcRackUnit | Set-ImcRackUnit -AdminPower hard-reset-immediate -Force
                 $ChassisInfo = Get-ImcRackUnit
-                Get-ImcMgmtIf | Set-ImcMgmtIf -AdminDuplex auto -AdminNetSpeed auto -AutoNeg Enabled -DhcpEnable No -DnsUsingDhcp No -ExtGw $Serial.cgw -ExtIp $Serial.cip -ExtMask $Serial.cnm -NicMode dedicated -NicRedundancy none -VlanEnable No -Force
+                Get-ImcMgmtIf | Set-ImcMgmtIf -AdminDuplex auto -AdminNetSpeed auto -AutoNeg Enabled -DhcpEnable No -DnsUsingDhcp No -V6extEnabled No -ExtGw $Serial.cgw -ExtIp $Serial.cip -ExtMask $Serial.cnm -NicMode dedicated -NicRedundancy none -VlanEnable No -Force
                 $Host_Updated = 1
             }
         }
