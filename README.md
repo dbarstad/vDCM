@@ -5,7 +5,7 @@ Directory - /netboot/vDCM_Scripts/
 - File will be valdiated for dos characters (CR/LF) and spaces.  Copied to /netboot/www/Charter when validated
 
 Generate CIMC_pass (simple text) file with the CIMC admin user password to be pulled into the scripts for use on execution
-Directory - /netboot/ vDCM_Scripts/
+Directory - /netboot/vDCM_Scripts/ and /netboot/www/Charter 
 ****> echo <password> > CIMC_pass
 
 Generate vdcm_system_pass (simple text) file with the VDCM software user password to be pulled into the scripts for use on execution
