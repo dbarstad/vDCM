@@ -50,6 +50,7 @@ echo $dt == Cleanup - Setting boot order
 # Clear PXE from boot order
 sudo /tmp/ucscfg bootorder set /tmp/boot_order_final.txt
 
+CIMC_Pass=`cat /tmp/CIMC_Pass`
 
 # Collect system data to log for review
 echo >> /tmp/install.log
@@ -58,6 +59,28 @@ echo >> /tmp/install.log
 
 sudo /tmp/ucscfg show text /cimc >> /tmp/install.log
 sudo /tmp/ucscfg show text /bios >> /tmp/install.log
+
+curl -GET https://$cip/redfish/v1/Systems/$hwsn -k -u admin:$CIMC_Pass >> /tmp/install.log
+
+echo " " >> /tmp/install.log
+echo " " >> /tmp/install.log
+
+memtotal=$( cat /proc/meminfo | grep MemTotal )
+
+echo "Memory capacity presented by cat /proc/meminfo is:"$memtotal":" >> /tmp/install.log
+
+if [[ "$memtotal" == *"196682004"* ]]; then
+  echo "Memory capacity is consistent with the baseline" >> /tmp/install.log
+else
+  echo "Memory capacity is not consistent with baseline" >> /tmp/install.log
+fi
+
+ethtool eno1  >> /tmp/install.log
+ethtool enp94s0f0  >> /tmp/install.log
+ethtool enp94s0f1  >> /tmp/install.log
+
+echo " " >> /tmp/install.log
+echo " " >> /tmp/install.log
 
 echo >> /tmp/install.log
 echo =============================================== >> /tmp/install.log
@@ -123,8 +146,9 @@ rm -f /tmp/vdcm_chtradmin_pass
 rm -f /tmp/vdcm_system_pass
 rm -f /tmp/sysdata.txt
 rm -f /tmp/vdcm-installer-20.0.4-118.sh
-rm -f /tmp/Cleanup.sh
 rm -f /etc/sysconfig/network-scripts/ifcfg-eno1.dhcp
+rm -f /tmp/CIMC_Pass
+rm -f /tmp/Cleanup.sh
 
 wall "System configuration complete"
 shutdown -h now

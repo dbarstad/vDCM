@@ -12,3 +12,8 @@ Charter/vdcm_system_pass
 Charter/ucs-c220m5-huu-4.1.1d.iso
 .DS_Store
 .DS_Store
+Dev_Util/CIMC_Pass
+Charter/foo.sh
+Dev_Util/MemTotal.txt
+Dev_Util/MemTotal_Test.sh
+vDCM_Scripts/foo.txt

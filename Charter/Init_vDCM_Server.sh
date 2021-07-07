@@ -17,6 +17,7 @@ curl -O http://192.169.71.2/Charter/boot_order_final.txt
 curl -O http://192.169.71.2/Charter/sshpass
 curl -O http://192.169.71.2/Charter/vdcm_system_pass
 curl -O http://192.169.71.2/Charter/vdcm_chtradmin_pass
+curl -O http://192.169.71.2/Charter/CIMC_Pass
 
 chmod +x /tmp/*.sh
 chmod +x /tmp/ucscfg
