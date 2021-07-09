@@ -59,6 +59,7 @@ echo >> /tmp/install.log
 
 sudo /tmp/ucscfg show text /cimc >> /tmp/install.log
 sudo /tmp/ucscfg show text /bios >> /tmp/install.log
+sudo /tmp/ucscfg bootorder get >> /tmp/install.log
 
 curl -GET https://$cip/redfish/v1/Systems/$hwsn -k -u admin:$CIMC_Pass >> /tmp/install.log
 
