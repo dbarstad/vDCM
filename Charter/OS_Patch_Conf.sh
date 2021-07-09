@@ -252,6 +252,8 @@ echo $dt == OS_Patch_Conf - setting rp_filter
 
 sed -i '/rp_filter/d' /etc/sysctl.conf
 echo net.ipv4.conf.enp94s0f0.rp_filter=2 >> /etc/sysctl.conf
+echo net.ipv6.conf.all.disable_ipv6 = 1 >> /etc/sysctl.conf
+echo net.ipv6.conf.default.disable_ipv6 = 1  >> /etc/sysctl.conf
 sysctl -p
 
 dt=`date '+%d/%m/%Y_%H:%M:%S'`

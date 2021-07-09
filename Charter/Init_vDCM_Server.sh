@@ -6,18 +6,24 @@ cd /tmp
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Init_vDCM_Server - Pulling content and setting service for post kickstart configuration >> /tmp/install.log
 
-curl -O http://192.169.71.2/Charter/OS_Patch_Conf.sh
-curl -O http://192.169.71.2/Charter/vDCM_Install.sh
-curl -O http://192.169.71.2/Charter/Cleanup.sh
-curl -O http://192.169.71.2/Charter/sysdata.txt
-curl -O http://192.169.71.2/Charter/CentOS7_Q2_2020.iso
-curl -O http://192.169.71.2/Charter/vdcm-installer-20.0.4-118.sh
-curl -O http://192.169.71.2/Charter/ucscfg
-curl -O http://192.169.71.2/Charter/boot_order_final.txt
-curl -O http://192.169.71.2/Charter/sshpass
-curl -O http://192.169.71.2/Charter/vdcm_system_pass
-curl -O http://192.169.71.2/Charter/vdcm_chtradmin_pass
-curl -O http://192.169.71.2/Charter/CIMC_Pass
+dhcphost=`grep -m 1 dhcp-server-identifier /var/lib/dhclient/dhclient--eno1.lease`
+dhcphost=${dhcphost:32}
+dhcphost=${dhcphost%?}
+
+echo $dhcphost > /tmp/dhcphost.txt
+
+curl -O http://$dhcphost/Charter/OS_Patch_Conf.sh
+curl -O http://$dhcphost/Charter/vDCM_Install.sh
+curl -O http://$dhcphost/Charter/Cleanup.sh
+curl -O http://$dhcphost/Charter/sysdata.txt
+curl -O http://$dhcphost/Charter/CentOS7_Q2_2020.iso
+curl -O http://$dhcphost/Charter/vdcm-installer-20.0.4-118.sh
+curl -O http://$dhcphost/Charter/ucscfg
+curl -O http://$dhcphost/Charter/boot_order_final.txt
+curl -O http://$dhcphost/Charter/sshpass
+curl -O http://$dhcphost/Charter/vdcm_system_pass
+curl -O http://$dhcphost/Charter/vdcm_chtradmin_pass
+curl -O http://$dhcphost/Charter/CIMC_Pass
 
 chmod +x /tmp/*.sh
 chmod +x /tmp/ucscfg
