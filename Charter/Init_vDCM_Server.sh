@@ -11,8 +11,6 @@ dhcphost=`grep -m 1 dhcp-server-identifier /var/lib/dhclient/dhclient.leases`
 dhcphost=${dhcphost:32}
 dhcphost=${dhcphost%?}
 
-echo $dhcphost > /tmp/dhcphost.txt
-
 curl -O http://$dhcphost/Charter/OS_Patch_Conf.sh
 curl -O http://$dhcphost/Charter/vDCM_Install.sh
 curl -O http://$dhcphost/Charter/Cleanup.sh
