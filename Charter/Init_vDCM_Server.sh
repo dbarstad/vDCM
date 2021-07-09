@@ -6,7 +6,8 @@ cd /tmp
 dt=`date '+%d/%m/%Y_%H:%M:%S'`
 echo $dt == Init_vDCM_Server - Pulling content and setting service for post kickstart configuration >> /tmp/install.log
 
-dhcphost=`grep -m 1 dhcp-server-identifier /var/lib/dhclient/dhclient--eno1.lease`
+dhclient
+dhcphost=`grep -m 1 dhcp-server-identifier /var/lib/dhclient/dhclient.leases`
 dhcphost=${dhcphost:32}
 dhcphost=${dhcphost%?}
 
