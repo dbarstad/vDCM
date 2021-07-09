@@ -19,3 +19,4 @@
 
 
 classname="lsbootHdd" name="hdd" type="LOCALHDD" slot="MRAID" order="1" state="Enabled" 
+classname="lsbootPxe" name="pxe" type="PXE" iptype="IPv4" slot="L" order="2" state="deleted" 
